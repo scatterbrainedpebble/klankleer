@@ -65,7 +65,7 @@ details.cat{border-top:1px solid var(--line);padding:12px 0}details.cat summary{
 .btn.good{border-color:var(--good);color:var(--good)}
 .btn.bad{border-color:var(--bad);color:var(--bad)}
 .btn:disabled{opacity:.45;cursor:default}
-.btn:focus-visible,.chip:focus-visible,input:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.btn:focus-visible,.chip:focus-visible,.zone:focus-visible,input:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
 .feedback{margin-top:16px;padding:12px 14px;border-radius:10px;background:var(--bg);display:none}
 .feedback.show{display:block}
 .feedback.good{background:var(--good-bg)}
@@ -229,9 +229,24 @@ function lev(a, b) {
     d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
   return d[m][n];
 }
+// vaktermen die op elkaar lijken: een tikfout mag, maar een ándere vakterm telt niet als tikfout (larynx ≠ farynx)
+const EXTRA_TERMS = ['larynx', 'farynx', 'laryngaal', 'faryngaal', 'glottis', 'epiglottis', 'glottaal', 'glottalisch',
+  'velum', 'velaar', 'velair', 'uvula', 'uvulair', 'palatum', 'palataal', 'alveolair', 'postalveolair', 'dentaal', 'labiaal',
+  'labiodentaal', 'bilabiaal', 'retroflex', 'stemhebbend', 'stemloos', 'ingressief', 'egressief', 'pulmonisch', 'lingual'];
+let TERMS = null;
+function termSet() {
+  if (TERMS) return TERMS;
+  TERMS = new Set(EXTRA_TERMS.map(norm));
+  ALL.forEach(it => { if (it.type === 'blanks') it.segs.forEach(sg => (sg.blank || []).forEach(a => TERMS.add(norm(a))));
+    if (it.type === 'drag') it.els.forEach(e => TERMS.add(norm(e.text.replace(/<[^>]+>/g, '')))); });
+  return TERMS;
+}
 function blankOK(given, alts) {
   const g = norm(given); if (!g) return false;
-  return alts.some(a => { const t = norm(a); if (g === t) return true;
+  const ts = alts.map(norm);
+  if (ts.includes(g)) return true;
+  if (termSet().has(g)) return false; // een bestaande andere vakterm is geen tikfout
+  return ts.some(t => {
     const tol = t.length > 9 ? 2 : t.length > 3 ? 1 : 0; return lev(g, t) <= tol; });
 }
 function add(el, ...k) { el.append(...k.flat().filter(x => x != null)); return el; }
@@ -352,7 +367,7 @@ function renderItem(it, report, onOverride, view) {
     const dq = h('div', {class: 'dq', style: `aspect-ratio:${W}/${H};min-width:${W >= 900 ? 640 : 0}px`});
     dq.append(h('img', {class: 'bg', src: IMG[it.bg], alt: ''}));
     const zones = it.zones.map((z, zi) => {
-      const el = h('div', {class: 'zone', 'data-z': zi, 'aria-label': 'vak',
+      const el = h('div', {class: 'zone', 'data-z': zi, role: 'button', 'aria-label': 'vak ' + (zi + 1),
         style: `left:${z.x}%;top:${z.y}%;width:${z.w * 16 / W * 100}%;height:${z.h * 16 / H * 100}%`});
       dq.append(el); return el;
     });
@@ -385,7 +400,7 @@ function renderItem(it, report, onOverride, view) {
     function zoneAt(x, y) {
       return zones.findIndex(z => { const r = z.getBoundingClientRect(); return x >= r.left && x <= r.right && y >= r.top && y <= r.bottom; });
     }
-    function select(c) { chips.forEach(o => o.classList.remove('sel')); selected = c; if (c) c.classList.add('sel'); zones.forEach(z => z.classList.toggle('target', !!c)); }
+    function select(c) { chips.forEach(o => o.classList.remove('sel')); selected = c; if (c) c.classList.add('sel'); zones.forEach(z => { z.classList.toggle('target', !!c); z.tabIndex = c ? 0 : -1; }); }
     chips.forEach(c => {
       let start = null, moved = false, off = null;
       const onMove = ev => {
@@ -416,12 +431,14 @@ function renderItem(it, report, onOverride, view) {
         start = {x: ev.clientX, y: ev.clientY}; moved = false;
         window.addEventListener('pointermove', onMove, {passive: false}); window.addEventListener('pointerup', onUp); window.addEventListener('pointercancel', onUp);
       });
-      c.addEventListener('keydown', ev => { if ((ev.key === 'Enter' || ev.key === ' ') && !locked) { ev.preventDefault(); select(selected === c ? null : c); } });
+      c.addEventListener('keydown', ev => { if ((ev.key === 'Enter' || ev.key === ' ') && !locked) { ev.preventDefault(); select(selected === c ? null : c); if (selected) zones[0].focus(); }
+        if (ev.key === 'Escape') select(null); });
     });
     zones.forEach((z, zi) => {
       z.addEventListener('click', ev => { if (selected && !locked && ev.target === z) { place(selected, zi); select(null); } });
       z.tabIndex = -1;
-      z.addEventListener('keydown', ev => { if ((ev.key === 'Enter' || ev.key === ' ') && selected) { place(selected, zi); select(null); } });
+      // toetsenbord: kies een woord (Tab + Enter), ga met Tab naar een vak en leg het neer met Enter; Esc annuleert
+      z.addEventListener('keydown', ev => { if ((ev.key === 'Enter' || ev.key === ' ') && selected && !locked) { ev.preventDefault(); const c = selected; place(c, zi); select(null); c.focus(); } });
     });
     dq.addEventListener('click', ev => { if (ev.target === dq || ev.target.classList.contains('bg')) { if (selected && where.has(+selected.dataset.e)) sendHome(selected); select(null); } });
     const check = h('button', {class: 'btn primary', onclick: () => {
@@ -438,7 +455,7 @@ function renderItem(it, report, onOverride, view) {
     solve.hidden = true;
     if (view) { locked = true; if (view === 'solved') solve.click(); add(card, h('h2', {html: it.question}), h('div', {class: 'dqwrap'}, dq)); return card; }
     add(card, h('h2', {html: it.question}), h('div', {class: 'dqwrap'}, dq),
-      h('p', {class: 'hint'}, 'Sleep de woorden naar de vakken. Op een telefoon kun je ook eerst een woord en dan een vak aantikken.'),
+      h('p', {class: 'hint'}, 'Sleep de woorden naar de vakken. Op een telefoon kun je ook eerst een woord en dan een vak aantikken. Met het toetsenbord: Tab naar een woord en Enter, daarna met Tab naar het juiste vak en Enter.'),
       h('div', {class: 'btns'}, check, solve), fb);
     return card;
   }
