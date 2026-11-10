@@ -34,7 +34,6 @@ header h1{font-size:17px;margin:0;font-weight:650;flex:1;white-space:nowrap;over
 .tabs button{border:0;background:transparent;color:var(--muted);padding:6px 12px;border-radius:8px;font-size:14px}
 .tabs button.on{background:var(--panel);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12);font-weight:600}
 .wrap{max-width:900px;margin:0 auto}
-  padding:6px 16px;font-size:14px}
 .dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--line);flex:none}
 .dot.good{background:var(--good);border-color:var(--good)}
 .dot.bad{background:var(--bad);border-color:var(--bad)}
@@ -133,6 +132,57 @@ table.res td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
 .tile.hi{background:var(--hi)}.tile.mid{background:var(--mid);color:#1d2330}.tile.lo{background:var(--lo)}
 .tile.todo{background:var(--bg);color:var(--muted);border:1px dashed var(--line)}
 @media (max-width:600px){ header{flex-wrap:wrap;height:auto;padding:8px 12px;gap:6px} header h1{flex-basis:100%} .tabs{overflow-x:auto;max-width:100%} }
+
+/* ---------- ritme: alles op een 4px-raster (4, 8, 12, 16, 24, 32, 48) ---------- */
+:root{--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s6:24px;--s8:32px;--s12:48px;--page:860px}
+header{height:64px;padding:0 max(var(--s4),calc((100% - var(--page)) / 2));gap:var(--s4)}
+header h1{font-size:18px}
+.tabs{padding:var(--s1);gap:var(--s1);border-radius:12px}
+.tabs a{padding:var(--s2) var(--s3);border-radius:8px}
+main{padding:var(--s8) var(--s4) var(--s12)}
+.card{padding:var(--s6);border-radius:16px}
+.card h2{margin:0 0 var(--s4)}
+.card h3{margin:0 0 var(--s1);font-size:18px;line-height:1.3}
+.card + .card,.grid + .card,.card + .grid{margin-top:var(--s6)}
+.grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:var(--s6);margin-top:var(--s6)}
+.grid .card.col{display:flex;flex-direction:column}
+.card.col .small{margin-bottom:var(--s1)}
+.card.col p{margin:0 0 var(--s4)}
+.card.col .btns{margin-top:auto;padding-top:var(--s6)}
+.stat{gap:var(--s2);margin:0 0 var(--s6)}
+.stat div{padding:var(--s3) var(--s4);border-radius:12px;min-width:96px;font-size:14px;color:var(--muted)}
+.stat b{font-size:24px;line-height:32px;color:var(--ink)}
+.sbar{height:8px;border-radius:4px;margin:0}
+.legend{gap:var(--s4);margin:var(--s2) 0 0}
+.nums{margin-top:var(--s2)}
+.btns{gap:var(--s2);margin-top:var(--s6)}
+.btn{padding:var(--s2) var(--s4);min-height:40px;line-height:22px}
+.btn:disabled,.btn.primary:disabled{opacity:1;background:transparent;border-color:var(--line);color:var(--muted);font-weight:400;cursor:default}
+.card > p.muted{margin:var(--s4) 0 0}
+.warn{margin:var(--s4) 0 0;padding:var(--s2) var(--s3)}
+.revbox{margin-top:var(--s6);padding-top:0}
+.revbox .btns{margin-top:var(--s2)!important}
+.revbox .small + .btns + .small{margin-top:var(--s4)!important}
+details.cat{padding:var(--s4) 0}
+details.cat:first-of-type{margin-top:var(--s6)}
+.catrow{margin-bottom:var(--s2)}
+.grp{margin:var(--s3) 0 0}
+.grp h4{margin:var(--s3) 0 var(--s1)}
+.prog{margin:0 0 var(--s4)}
+.crumb{margin-bottom:var(--s2);align-items:center;min-height:32px}
+.feedback{margin-top:var(--s4);padding:var(--s3) var(--s4);border-radius:12px}
+.ref{margin-top:var(--s2)}
+.modes{gap:var(--s2);margin-bottom:var(--s4)}
+.modes a{padding:var(--s2) var(--s3)}
+.tiles{gap:var(--s3);margin-top:var(--s3)}
+.tile{padding:var(--s3) var(--s4);border-radius:12px;gap:var(--s1)}
+.mc label{padding:var(--s3) var(--s4);margin:var(--s2) 0;gap:var(--s3)}
+.card h2 p{margin:0}.card h2 p + p{margin-top:var(--s2)}
+.card.col > p.muted{margin:var(--s1) 0 var(--s4)}
+.grid{grid-template-columns:1fr}
+.catrow{align-items:baseline}.catrow .nums{margin-top:0}
+@media (max-width:820px){ .card{padding:var(--s4)} main{padding:var(--s6) var(--s4) var(--s12)} }
+@media (max-width:600px){ header{height:auto;padding:var(--s2) var(--s4);gap:var(--s2)} .grid{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -423,7 +473,7 @@ function render() {
 function renderHome(page) {
   const tot = counts(ALL), due = revCount(ALL);
   add(page, h('div', {class: 'card'}, h('h2', {}, 'Je voortgang'), statBoxes(tot), sbar(tot), legend(),
-    h('div', {class: 'btns'}, h('button', {class: 'btn primary', disabled: !due, onclick: () => go('#/review/beide')}, due ? `Review alles: onjuist + bladwijzers (${due})` : 'Niets te reviewen'),
+    h('div', {class: 'btns'}, h('button', {class: 'btn primary', disabled: !due, onclick: () => go('#/review/beide')}, due ? `Review: onjuist + bladwijzers (${due})` : 'Niets te reviewen'),
       h('button', {class: 'btn', onclick: () => go('#/overzicht')}, 'Overzicht per onderwerp'))));
   const grid = h('div', {class: 'grid'});
   COLLEGES.forEach(c => {
