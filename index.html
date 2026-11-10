@@ -130,10 +130,10 @@ details.cat{border-top:1px solid var(--line);padding:12px 0}details.cat summary{
 .czlabel{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:var(--s4)}
 .czrow{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:var(--s2)}
 .czsep{color:var(--muted)}
-.cz{min-width:120px;padding:var(--s3) var(--s4);border:1px solid var(--line);border-radius:8px;background:var(--panel);font-size:17px;font-weight:600}
-.cz.opt{font-weight:500;color:var(--muted)}.cz.gap.opt{color:var(--accent)}
+.cz{min-width:120px;padding:var(--s3) var(--s4);border:2px solid var(--line);border-radius:8px;background:var(--panel);font-size:17px;font-weight:600}
+
 @media (max-width:600px){.czsep{display:none}.czrow{display:grid;grid-template-columns:1fr 1fr}.cz{min-width:0;font-size:16px}}
-.cz.gap{border:2px dashed var(--accent);color:var(--accent);background:transparent}
+.cz.gap{border-style:dashed;border-color:var(--accent);color:var(--accent);background:transparent}
 .cz.gap.shown{border-style:solid;border-color:var(--good);background:var(--good-bg);color:var(--good)}
 .cz{display:flex;justify-content:center;align-items:center;text-align:center}
 :root{--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s6:24px;--s8:32px;--s12:48px;--page:860px}
@@ -274,7 +274,7 @@ function renderItem(it, report, onOverride, view) {
     const z = it.clz;
     const boxes = z.parts.map((w, k) => {
       const opt = (z.opt || []).includes(k);
-      const el = h('div', {class: 'cz' + (k === z.hide ? ' gap' : '') + (opt ? ' opt' : '')}, k === z.hide ? '?' : opt ? `(${w})` : w);
+      const el = h('div', {class: 'cz' + (k === z.hide ? ' gap' : '') + (opt ? ' czopt' : '')}, k === z.hide ? '?' : opt ? `(${w})` : w);
       if (opt) el.title = 'tussen haakjes op de dia';
       return el;
     });
