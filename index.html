@@ -48,7 +48,7 @@ details.cat{border-top:1px solid var(--line);padding:12px 0}details.cat summary{
 .flag{border:1px solid var(--line);background:none;color:var(--muted);border-radius:999px;padding:2px 10px;font:inherit;font-size:13px;cursor:pointer;display:inline-flex;gap:5px;align-items:center}
 .flag .ic{font-size:14px}.flag.on{border-color:var(--flag);color:var(--flag);background:var(--flag-bg);font-weight:600}
 .fl{color:var(--flag)}.revbox{margin-top:14px;padding-top:4px}
-.modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.modes a{padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--text,inherit);text-decoration:none;font-size:14px}.modes a.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.times{color:var(--bad);font-size:12px}.ovrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}.revlinks{margin:6px 0 0}.revlinks a{color:var(--accent)}.grp h4{margin:8px 0 2px;font-size:14px}.grp ul{margin:0;padding-left:18px;font-size:14px}.grp li{margin-bottom:var(--s2)}.rounds{margin-top:var(--s4);padding:var(--s3) var(--s4);background:var(--bg);border-radius:12px}
+.modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.modes a{padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--text,inherit);text-decoration:none;font-size:14px}.modes a.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.times{color:var(--bad);font-size:12px}.again{color:var(--accent)}.ovrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}.revlinks{margin:6px 0 0}.revlinks a{color:var(--accent)}.grp h4{margin:8px 0 2px;font-size:14px}.grp ul{margin:0;padding-left:18px;font-size:14px}.grp li{margin-bottom:var(--s2)}.rounds{margin-top:var(--s4);padding:var(--s3) var(--s4);background:var(--bg);border-radius:12px}
 .optgroup{margin-top:var(--s6)}.optgroup h3{font-size:16px;margin:0 0 var(--s2)}
 .opt{display:flex;gap:var(--s3);align-items:flex-start;padding:var(--s3) var(--s4);border:1px solid var(--line);border-radius:12px;margin-top:var(--s2);cursor:pointer}.opt:has(input:checked){border-color:var(--accent);background:var(--bg)}.opt input{margin-top:5px}.opt span{display:flex;flex-direction:column;gap:var(--s1)}
 .qprev{color:var(--muted);font-size:13px;line-height:18px}.qprev .ans{color:var(--ink)}.grp li button{border:0;background:none;color:var(--accent);padding:2px 0;text-decoration:underline;font:inherit;text-align:left}
@@ -430,7 +430,7 @@ const DAY = 86400000;
 
 // ---------- opslag (alleen in deze browser) ----------
 const KEY = 'klankleer-v1';
-const fresh = () => ({book: {}, hist: {}, flags: {}, carry: {}, pos: {}, rounds: {}, lastBackup: 0});
+const fresh = () => ({book: {}, hist: {}, flags: {}, carry: {}, pos: {}, rounds: {}, retry: {}, rnow: {}, lastBackup: 0});
 let S = fresh();
 try {
   const raw = localStorage.getItem(KEY);
@@ -441,7 +441,10 @@ try {
   }
 } catch (e) {}
 // moeite per vraag: n = aantal pogingen, wrong = aantal keer onjuist (ook als hij later goed is)
-function seedHist() { for (const [k, r] of Object.entries(S.book)) if (!S.hist[k]) S.hist[k] = {n: 1, wrong: r.score === r.max ? 0 : 1}; }
+// rw = aantal rondes waarin je de vraag bij de eerste poging onjuist had
+function seedHist() { for (const [k, r] of Object.entries(S.book)) if (!S.hist[k]) S.hist[k] = {n: 1, wrong: r.score === r.max ? 0 : 1};
+  for (const [k, r] of Object.entries(S.hist)) if (r.rw == null) r.rw = S.book[k] && S.book[k].score < S.book[k].max ? 1 : 0;
+  S.retry = S.retry || {}; S.rnow = S.rnow || {}; }
 seedHist();
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 const today = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); };
@@ -457,7 +460,7 @@ function statBoxes(c) {
     h('div', {}, h('b', {}, pct(c.good, c.n)), 'goed'), h('div', {}, h('b', {}, pct(c.bad, c.n)), 'onjuist'));
 }
 // onjuist = laatste antwoord onjuist, of meegenomen uit een vorige ronde en sindsdien nog niet goed beantwoord
-const isWrong = it => status(it) === 'bad' || (status(it) === 'todo' && !!(S.carry || {})[it.code]);
+const isWrong = it => (status(it) === 'bad' && !S.book[it.code].fixed) || (status(it) === 'todo' && !!(S.carry || {})[it.code]);
 const wrongOf = items => items.filter(isWrong);
 const dueCount = items => wrongOf(items).length;
 const revCount = items => items.filter(it => isWrong(it) || S.flags[it.code]).length;
@@ -638,10 +641,10 @@ function renderNewRound(page) {
     const wrong = wrongOf(its);
     if (mode === 'keep') wrong.forEach(it => { S.carry[it.code] = 1; });
     else wrong.forEach(it => { delete S.carry[it.code]; });
-    if (mode === 'reset') wrong.forEach(it => { const r = S.hist[it.code]; if (r) r.wrong = 0; });
+    if (mode === 'reset') wrong.forEach(it => { const r = S.hist[it.code]; if (r) { r.wrong = 0; r.rw = 0; } });
     cols.forEach(c => { const cc = counts(c.items);
       if (cc.good + cc.bad) (S.rounds[c.id] = S.rounds[c.id] || []).push({good: cc.good, bad: cc.bad, n: cc.n, t: Date.now()});
-      c.items.forEach(it => delete S.book[it.code]); S.pos[c.id] = 0; });
+      c.items.forEach(it => delete S.book[it.code]); S.pos[c.id] = 0; delete S.retry[c.id]; delete S.rnow[c.id]; });
     queue = null; save(); go(cols.length === 1 ? `#/${cols[0].id}/oefenen` : '#/');
   }}, 'Nieuwe ronde starten');
   add(page, h('div', {class: 'card'}, h('h2', {}, 'Nieuwe ronde'),
@@ -651,8 +654,8 @@ function renderNewRound(page) {
       COLLEGES.map(c => radio('scope', c.id, scope, c.title, c.sub, v => scope = v))) : null,
     h('div', {class: 'optgroup'}, h('h3', {}, 'Wat doen we met de vragen die je onjuist had?'),
       radio('mode', 'keep', mode, 'Laten staan in Review', 'Ze blijven onder Review › Onjuist tot je ze goed hebt, ook als ze in de nieuwe ronde weer langskomen.', v => mode = v),
-      radio('mode', 'hard', mode, 'Alleen bij Lastige vragen', 'Review › Onjuist begint leeg; je vindt ze terug onder Lastige vragen.', v => mode = v),
-      radio('mode', 'reset', mode, 'Helemaal opnieuw beginnen', 'Review › Onjuist begint leeg en de telling "× onjuist gehad" van deze vragen gaat terug naar 0.', v => mode = v)),
+      radio('mode', 'hard', mode, 'Uit Review halen', 'Review › Onjuist begint leeg. Vragen die je in twee of meer rondes onjuist had, blijven bij Lastige vragen staan.', v => mode = v),
+      radio('mode', 'reset', mode, 'Helemaal opnieuw beginnen', 'Review › Onjuist begint leeg, de telling "× onjuist gehad" gaat terug naar 0 en de vragen tellen niet meer als lastig.', v => mode = v)),
     info,
     h('div', {class: 'btns'}, h('button', {class: 'btn', onclick: () => history.back()}, 'Annuleren'), go_)));
   upd();
@@ -664,11 +667,18 @@ function record(it, sc, mx) {
   const r = S.hist[it.code] = S.hist[it.code] || {n: 0, wrong: 0};
   r.n++; if (sc < mx) r.wrong++;
   if (sc === mx && S.carry) delete S.carry[it.code];
+  if (sc === mx) dropRetry(it.code);
   save();
 }
+// herhaling binnen de oefenronde: S.retry[college] = [{code, due}], due = positie waarna hij terugkomt
+const REPEAT_AFTER = 5;
+function dropRetry(code) { for (const k in S.retry) S.retry[k] = S.retry[k].filter(r => r.code !== code); }
+const inRetry = it => Object.values(S.retry).some(q => q.some(r => r.code === it.code)) || Object.values(S.rnow).includes(it.code);
+const roundsWrong = it => (S.hist[it.code] || {}).rw || 0;
 function override(it) { // 'Ik had deze wel goed': telt als goed en niet als onjuiste poging
   const b = S.book[it.code]; if (b) b.score = b.max; if (S.carry) delete S.carry[it.code];
   const r = S.hist[it.code]; if (r && r.wrong > 0) r.wrong--;
+  dropRetry(it.code);
   save();
 }
 const wrongTimes = it => (S.hist[it.code] || {}).wrong || 0;
@@ -678,7 +688,7 @@ const MODES = {
   onjuist: {label: 'Onjuist', long: 'onjuiste antwoorden', pick: items => wrongOf(items)},
   bladwijzer: {label: 'Bladwijzers', long: 'vragen met een bladwijzer', pick: items => flaggedOf(items)},
   beide: {label: 'Onjuist + bladwijzers', long: 'onjuiste antwoorden en vragen met een bladwijzer', pick: items => items.filter(it => isWrong(it) || flagged(it))},
-  lastig: {label: 'Lastige vragen', long: 'vragen die je ooit onjuist had (lastigste eerst)', pick: items => hardOf(items)},
+  lastig: {label: 'Lastige vragen', long: 'vragen die je in twee of meer rondes onjuist had (lastigste eerst)', pick: items => hardOf(items)},
 };
 function flagBtn(it) {
   const b = h('button', {class: 'flag' + (flagged(it) ? ' on' : ''), title: 'Bladwijzer: deze vraag extra reviewen, ook als je hem goed hebt', onclick: () => {
@@ -687,25 +697,60 @@ function flagBtn(it) {
   }}, h('span', {class: 'ic'}, '⚑'), h('span', {class: 'lbl'}, flagged(it) ? 'Bladwijzer' : 'Bladwijzer toevoegen'));
   return b;
 }
-const hardOf = items => items.filter(it => wrongTimes(it) > 0).sort((a, b) => wrongTimes(b) - wrongTimes(a));
+const HARD_ROUNDS = 2;
+const hardOf = items => items.filter(it => roundsWrong(it) >= HARD_ROUNDS).sort((a, b) => roundsWrong(b) - roundsWrong(a) || wrongTimes(b) - wrongTimes(a));
 function renderBook(page, c) {
-  const items = c.items, i = Math.min(S.pos[c.id] || 0, items.length - 1), it = items[i];
+  const items = c.items, i = Math.min(S.pos[c.id] || 0, items.length - 1);
+  const last = i === items.length - 1;
+  // volgende stap: eerst een herhaling die aan de beurt is (aan het eind van de ronde: alle), anders de volgende vraag
+  const advance = () => {
+    const q = S.retry[c.id] = (S.retry[c.id] || []).filter(r => S.book[r.code]);
+    const k = q.findIndex(r => last || r.due <= i);
+    if (k >= 0) { S.rnow[c.id] = q.splice(k, 1)[0].code; save(); render(); return; }
+    if (last) { save(); go(`#/${c.id}/voortgang`); return; }
+    S.pos[c.id] = i + 1; save(); render();
+  };
+  const queueAgain = code => (S.retry[c.id] = S.retry[c.id] || []).push({code, due: i + REPEAT_AFTER});
+  const pending = (S.retry[c.id] || []).length;
+  const bar = h('div', {class: 'prog'}, h('i', {style: `width:${(i + 1) / items.length * 100}%`}));
+  const rcode = S.rnow[c.id];
+  if (rcode && byCode[rcode] && S.book[rcode]) { // herhaling van een vraag die je in deze ronde onjuist had
+    const it = byCode[rcode]; let ans = null;
+    const next = h('button', {class: 'btn', disabled: true, onclick: () => {
+      delete S.rnow[c.id]; if (ans === false) queueAgain(rcode); advance(); }}, 'Volgende →');
+    add(page, bar,
+      h('div', {class: 'crumb'}, h('span', {}, h('b', {class: 'again'}, 'Herhaling'), ` · ${it.num}. ${it.title}`), h('span', {class: 'cr'}, flagBtn(it), `${i + 1} / ${items.length}`)),
+      renderItem(it, (sc, mx) => {
+        if (ans !== null) return; ans = sc === mx;
+        const r = S.hist[rcode] = S.hist[rcode] || {n: 0, wrong: 0, rw: 0}; r.n++; if (!ans) r.wrong++;
+        if (ans) { S.book[rcode].fixed = Date.now(); if (S.carry) delete S.carry[rcode]; }
+        save(); next.disabled = false; next.classList.add('primary');
+      }, () => { ans = true; const r = S.hist[rcode]; if (r && r.wrong > 0) r.wrong--; S.book[rcode].fixed = Date.now(); if (S.carry) delete S.carry[rcode]; save(); }),
+      h('p', {class: 'muted small'}, 'Deze vraag had je eerder in deze ronde onjuist. Hij komt terug tot je hem goed hebt; je score telt je eerste poging.'),
+      h('div', {class: 'btns', style: 'justify-content:flex-end'}, next));
+    return;
+  }
+  if (rcode) delete S.rnow[c.id];
+  const it = items[i];
   const prev = h('button', {class: 'btn', disabled: i === 0, onclick: () => { S.pos[c.id] = i - 1; save(); render(); }}, '← Vorige');
-  const next = h('button', {class: 'btn', onclick: () => { if (i === items.length - 1) { go(`#/${c.id}/voortgang`); return; } S.pos[c.id] = i + 1; save(); render(); }},
-    i === items.length - 1 ? 'Naar voortgang →' : 'Volgende →');
-  add(page, h('div', {class: 'prog'}, h('i', {style: `width:${(i + 1) / items.length * 100}%`})),
+  const next = h('button', {class: 'btn', onclick: advance}, last && !pending ? 'Naar voortgang →' : 'Volgende →');
+  add(page, bar,
     h('div', {class: 'crumb'}, h('span', {}, `${it.num}. ${it.title}`), h('span', {class: 'cr'}, flagBtn(it), `${i + 1} / ${items.length}`)),
-    S.book[it.code] ? answeredCard(it, c) : renderItem(it, (sc, mx) => { record(it, sc, mx); next.classList.add('primary'); }, () => override(it)),
+    S.book[it.code] ? answeredCard(it, c) : renderItem(it, (sc, mx) => {
+      record(it, sc, mx);
+      if (sc < mx) { S.hist[it.code].rw = (S.hist[it.code].rw || 0) + 1; queueAgain(it.code); save(); }
+      next.classList.add('primary');
+    }, () => { override(it); const r = S.hist[it.code]; if (r && r.rw > 0) r.rw--; save(); }),
     h('div', {class: 'btns', style: 'justify-content:space-between'}, prev, next));
 }
 function answeredCard(it, c) {
-  const ok = status(it) === 'good';
+  const ok = status(it) === 'good', fixed = !ok && S.book[it.code].fixed, soon = !ok && !fixed && inRetry(it);
   // de vraag blijft zichtbaar: goed beantwoord = met oplossing, onjuist = zonder (die oefen je in Review)
-  const card = renderItem(it, () => {}, null, ok ? 'solved' : 'locked');
+  const card = renderItem(it, () => {}, null, ok || fixed ? 'solved' : 'locked');
   add(card, h('div', {class: 'feedback show ' + (ok ? 'good' : 'bad')},
-      h('div', {class: 'score'}, ok ? 'Deze vraag heb je al goed beantwoord.' : 'Deze vraag had je onjuist.'),
-      h('div', {}, ok ? 'Bij Oefenen telt één poging per vraag.' : 'Bij Oefenen telt één poging per vraag. Je herhaalt hem in Review, tot je hem goed hebt.'),
-      ok ? null : h('div', {class: 'btns', style: 'margin-top:10px'}, h('button', {class: 'btn', onclick: () => go(`#/${c.id}/review`)}, 'Naar review')),
+      h('div', {class: 'score'}, ok ? 'Deze vraag heb je al goed beantwoord.' : fixed ? 'Deze vraag had je eerst onjuist; bij de herhaling had je hem goed.' : 'Deze vraag had je onjuist.'),
+      h('div', {}, ok || fixed ? 'Voor je score telt je eerste poging.' : soon ? 'Hij komt verderop in deze ronde nog een keer terug.' : 'Je herhaalt hem in Review, tot je hem goed hebt.'),
+      ok || fixed || soon ? null : h('div', {class: 'btns', style: 'margin-top:10px'}, h('button', {class: 'btn', onclick: () => go(`#/${c.id}/review`)}, 'Naar review')),
       it.ref ? h('div', {class: 'ref'}, it.ref) : null));
   return card;
 }
@@ -722,7 +767,7 @@ function renderReview(page, items, key, mode) {
     add(page, h('div', {class: 'card'},
       h('h2', {}, queue.total ? 'Klaar met deze review 🎉' : 'Hier staat niets klaar'),
       h('p', {}, queue.total ? 'Je hebt alle vragen in deze review goed beantwoord.' : `Er zijn geen ${MODES[mode].long}.`),
-      h('p', {class: 'muted'}, 'Onjuist: vragen waarvan je laatste antwoord onjuist was; ze verdwijnen zodra je ze goed hebt. Bladwijzers: vragen die je zelf hebt gemarkeerd met ⚑; ze blijven staan tot je de bladwijzer weghaalt. Lastige vragen: alles wat je ooit onjuist had. Heb je in een review een vraag onjuist, dan komt hij een paar vragen later nog een keer.'),
+      h('p', {class: 'muted'}, 'Onjuist: vragen waarvan je laatste antwoord onjuist was; ze verdwijnen zodra je ze goed hebt. Bladwijzers: vragen die je zelf hebt gemarkeerd met ⚑; ze blijven staan tot je de bladwijzer weghaalt. Lastige vragen: vragen die je in twee of meer rondes bij de eerste poging onjuist had. Heb je in een review een vraag onjuist, dan komt hij een paar vragen later nog een keer.'),
       h('div', {class: 'btns'}, h('button', {class: 'btn', onclick: () => go('#/')}, 'Naar home'),
         again ? h('button', {class: 'btn primary', onclick: () => { queue = null; render(); }}, `Nog een keer (${again})`) : null)));
     return;
