@@ -48,7 +48,7 @@ details.cat{border-top:1px solid var(--line);padding:12px 0}details.cat summary{
 .flag{border:1px solid var(--line);background:none;color:var(--muted);border-radius:999px;padding:2px 10px;font:inherit;font-size:13px;cursor:pointer;display:inline-flex;gap:5px;align-items:center}
 .flag .ic{font-size:14px}.flag.on{border-color:var(--flag);color:var(--flag);background:var(--flag-bg);font-weight:600}
 .fl{color:var(--flag)}.revbox{margin-top:14px;padding-top:4px}
-.modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.modes a{padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--text,inherit);text-decoration:none;font-size:14px}.modes a.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.times{color:var(--bad);font-size:12px}.ovrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}.revlinks{margin:6px 0 0}.revlinks a{color:var(--accent)}.grp h4{margin:8px 0 2px;font-size:14px}.grp ul{margin:0;padding-left:18px;font-size:14px}.grp li button{border:0;background:none;color:var(--accent);padding:2px 0;text-decoration:underline;font:inherit;text-align:left}
+.modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.modes a{padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--text,inherit);text-decoration:none;font-size:14px}.modes a.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.times{color:var(--bad);font-size:12px}.ovrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}.revlinks{margin:6px 0 0}.revlinks a{color:var(--accent)}.grp h4{margin:8px 0 2px;font-size:14px}.grp ul{margin:0;padding-left:18px;font-size:14px}.grp li{margin-bottom:var(--s2)}.qprev{color:var(--muted);font-size:13px;line-height:18px}.qprev .ans{color:var(--ink)}.grp li button{border:0;background:none;color:var(--accent);padding:2px 0;text-decoration:underline;font:inherit;text-align:left}
 .legend{display:flex;gap:14px;font-size:13px;color:var(--muted);margin:4px 0 8px}.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px;background:var(--c)}
 .crumb{color:var(--muted);font-size:14px;margin-bottom:6px;display:flex;justify-content:space-between;gap:8px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
@@ -551,7 +551,8 @@ function renderProgress(page, c) {
     reviewBtns(c));
   const link = it => h('li', {}, h('button', {onclick: () => { S.pos[c.id] = c.items.indexOf(it); save(); go(`#/${c.id}/oefenen`); }}, `${it.num}. ${it.title}`),
     flagged(it) ? h('span', {class: 'fl', title: 'bladwijzer'}, ' ⚑') : null,
-    wrongTimes(it) ? h('span', {class: 'times'}, ` ${wrongTimes(it)}× onjuist gehad`) : null);
+    wrongTimes(it) ? h('span', {class: 'times'}, ` ${wrongTimes(it)}× onjuist gehad`) : null,
+    h('div', {class: 'qprev'}, preview(it)));
   catsOf(c.items).forEach(cat => {
     const its = c.items.filter(it => it.cat === cat), cc = counts(its);
     const grp = (label, st) => { const l = its.filter(it => status(it) === st); return l.length ? h('div', {}, h('h4', {}, `${label} (${l.length})`), h('ul', {}, l.map(link)),
@@ -575,6 +576,25 @@ function reviewBtns(c) {
     h('div', {class: 'btns', style: 'margin-top:6px'}, btn('onjuist', c.items, `#/${c.id}/review`, true), btn('bladwijzer', c.items, `#/${c.id}/review`), btn('beide', c.items, `#/${c.id}/review`), btn('lastig', c.items, `#/${c.id}/review`)),
     h('div', {class: 'small muted', style: 'margin-top:12px'}, 'Review alle colleges:'),
     h('div', {class: 'btns', style: 'margin-top:6px'}, btn('onjuist', ALL, '#/review'), btn('bladwijzer', ALL, '#/review'), btn('beide', ALL, '#/review'), btn('lastig', ALL, '#/review')));
+}
+
+// korte weergave van de vraag zelf, voor de lijsten bij Voortgang
+function preview(it) {
+  const txt = html => { const d = document.createElement('div'); d.innerHTML = html || ''; return d.textContent.replace(/\s+/g, ' ').trim(); };
+  let q = txt(it.type === 'card' ? it.front : it.question);
+  if (it.type === 'blanks') {
+    const line = txt(it.segs.map(s => s.text != null ? s.text : ' … ').join(''));
+    q = !q || /^vul in\.?$/i.test(q) ? line : /…/.test(line) && line.length < 90 && !/\?$/.test(q) ? q + ' ' + line : q;
+  }
+  const cut = (t, n) => t.length > n ? t.slice(0, n - 3).replace(/\s+\S*$/, '') + ' …' : t;
+  // alleen na het beantwoorden ook het juiste antwoord laten zien (geen spoilers bij 'nog niet gedaan')
+  let ans = '';
+  if (S.book[it.code]) {
+    if (it.type === 'blanks') ans = it.correct || '';
+    else if (it.type === 'mc') ans = txt((it.answers.find(a => a.correct) || {}).text);
+    else if (it.type === 'card') ans = txt(it.back);
+  }
+  return [cut(q, 140), ans ? h('span', {class: 'ans'}, ' → ' + cut(ans, 90)) : null];
 }
 
 // ---------- oefenen: vraag voor vraag ----------
