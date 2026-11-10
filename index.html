@@ -34,10 +34,6 @@ header h1{font-size:17px;margin:0;font-weight:650;flex:1;white-space:nowrap;over
 .tabs button{border:0;background:transparent;color:var(--muted);padding:6px 12px;border-radius:8px;font-size:14px}
 .tabs button.on{background:var(--panel);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.12);font-weight:600}
 .wrap{max-width:900px;margin:0 auto}
-.dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--line);flex:none}
-.dot.good{background:var(--good);border-color:var(--good)}
-.dot.bad{background:var(--bad);border-color:var(--bad)}
-.dot.part{background:linear-gradient(90deg,var(--good) 50%,var(--bad) 50%);border-color:var(--muted)}
 main{flex:1;min-width:0;padding:20px 16px 60px;scroll-margin-top:56px}
 .page{max-width:860px;margin:0 auto}
 .prog{height:4px;background:var(--line);border-radius:2px;margin:0 0 14px;overflow:hidden}.prog i{display:block;height:100%;background:var(--accent)}
@@ -47,8 +43,7 @@ details.cat{border-top:1px solid var(--line);padding:12px 0}details.cat summary{
 .grp{margin:10px 0 0 4px}.cr{display:flex;align-items:center;gap:12px;white-space:nowrap}@media(max-width:560px){.flag .lbl{display:none}}
 .flag{border:1px solid var(--line);background:none;color:var(--muted);border-radius:999px;padding:2px 10px;font:inherit;font-size:13px;cursor:pointer;display:inline-flex;gap:5px;align-items:center}
 .flag .ic{font-size:14px}.flag.on{border-color:var(--flag);color:var(--flag);background:var(--flag-bg);font-weight:600}
-.fl{color:var(--flag)}.clickwrap{background:#fff;border:1px solid var(--line);border-radius:12px;padding:var(--s4);max-width:520px}.clicksvg{display:block;width:100%;height:auto;cursor:crosshair}.clicksvg .seg{stroke:#222;stroke-width:1.6}.clicksvg .seg.target{stroke:#1e8e3e;stroke-width:5}.clicksvg .dot{fill:#1a56c4}.clicksvg .dot.good{fill:#1e8e3e}.clicksvg .dot.bad{fill:#c5221f}.done{color:var(--good);margin-top:var(--s2)}.opt span.cnt{display:inline;font-weight:400;color:var(--muted)}.revhead{display:flex;justify-content:space-between;gap:var(--s3);margin-bottom:var(--s3)}.revhead a{color:var(--accent)}.revbox{margin-top:14px;padding-top:4px}
-.modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.modes a{padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--text,inherit);text-decoration:none;font-size:14px}.modes a.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.times{color:var(--bad);font-size:12px}.again{color:var(--accent)}.ovrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}.revlinks{margin:6px 0 0}.revlinks a{color:var(--accent)}.grp h4{margin:8px 0 2px;font-size:14px}.grp ul{margin:0;padding-left:18px;font-size:14px}.grp li{margin-bottom:var(--s2)}.rounds{margin-top:var(--s4);padding:var(--s3) var(--s4);background:var(--bg);border-radius:12px}
+.fl{color:var(--flag)}.clickwrap{background:#fff;border:1px solid var(--line);border-radius:12px;padding:var(--s4);max-width:520px}.clicksvg{display:block;width:100%;height:auto;cursor:crosshair}.clicksvg .seg{stroke:#222;stroke-width:1.6}.clicksvg .seg.target{stroke:#1e8e3e;stroke-width:5}.clicksvg .dot{fill:#1a56c4}.clicksvg .dot.good{fill:#1e8e3e}.clicksvg .dot.bad{fill:#c5221f}.done{color:var(--good);margin-top:var(--s2)}.opt span.cnt{display:inline;font-weight:400;color:var(--muted)}.revhead{display:flex;justify-content:space-between;gap:var(--s3);margin-bottom:var(--s3)}.revhead a{color:var(--accent)}.revbox{margin-top:14px;padding-top:4px}.times{color:var(--bad);font-size:12px}.again{color:var(--accent)}.ovrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}.grp h4{margin:8px 0 2px;font-size:14px}.grp ul{margin:0;padding-left:18px;font-size:14px}.grp li{margin-bottom:var(--s2)}.rounds{margin-top:var(--s4);padding:var(--s3) var(--s4);background:var(--bg);border-radius:12px}
 .optgroup{margin-top:var(--s6)}.optgroup h3{font-size:16px;margin:0 0 var(--s2)}
 .opt{display:flex;gap:var(--s3);align-items:flex-start;padding:var(--s3) var(--s4);border:1px solid var(--line);border-radius:12px;margin-top:var(--s2);cursor:pointer}.opt:has(input:checked){border-color:var(--accent);background:var(--bg)}.opt input{margin-top:5px}.opt span{display:flex;flex-direction:column;gap:var(--s1)}
 .qprev{color:var(--muted);font-size:13px;line-height:18px}.qprev .ans{color:var(--ink)}.grp li button{border:0;background:none;color:var(--accent);padding:2px 0;text-decoration:underline;font:inherit;text-align:left}
@@ -56,7 +51,6 @@ details.cat{border-top:1px solid var(--line);padding:12px 0}details.cat summary{
 .crumb{color:var(--muted);font-size:14px;margin-bottom:6px;display:flex;justify-content:space-between;gap:8px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
 .card h2{font-size:20px;margin:0 0 14px;line-height:1.35}
-.qtext p{margin:0 0 8px}
 .figure{margin:12px 0;text-align:center}
 .figure img{max-width:100%;max-height:60vh;height:auto;border-radius:8px;border:1px solid var(--line);background:#fff}
 .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;align-items:center}
@@ -102,14 +96,8 @@ details.cat{border-top:1px solid var(--line);padding:12px 0}details.cat summary{
 .chip.good{border-color:#1f7a43;background:#e5f4ea}
 .chip.bad{border-color:#b3261e;background:#fbe9e7}
 .hint{color:var(--muted);font-size:14px;margin:8px 0 0}
-/* results */
-table.res{width:100%;border-collapse:collapse;margin-top:8px}
-table.res th,table.res td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);font-size:15px}
-table.res td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
 .bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden;min-width:80px}
 .bar i{display:block;height:100%;background:var(--good)}
-.wrong-list{margin:6px 0 0;padding-left:18px;font-size:14px}
-.wrong-list button{border:0;background:none;color:var(--accent);padding:0;text-decoration:underline;font-size:14px}
 .stat{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 14px}
 .stat div{background:var(--bg);border-radius:10px;padding:10px 14px}
 .stat b{display:block;font-size:22px}
@@ -176,8 +164,6 @@ details.cat:first-of-type{margin-top:var(--s6)}
 .crumb{margin-bottom:var(--s2);align-items:center;min-height:32px}
 .feedback{margin-top:var(--s4);padding:var(--s3) var(--s4);border-radius:12px}
 .ref{margin-top:var(--s2)}
-.modes{gap:var(--s2);margin-bottom:var(--s4)}
-.modes a{padding:var(--s2) var(--s3)}
 .tiles{gap:var(--s3);margin-top:var(--s3)}
 .tile{padding:var(--s3) var(--s4);border-radius:12px;gap:var(--s1)}
 .mc label{padding:var(--s3) var(--s4);margin:var(--s2) 0;gap:var(--s3)}
@@ -477,7 +463,13 @@ const DAY = 86400000;
 
 // ---------- opslag (alleen in deze browser) ----------
 const KEY = 'klankleer-v1';
-const fresh = () => ({book: {}, hist: {}, flags: {}, carry: {}, pos: {}, rounds: {}, retry: {}, rnow: {}, lastBackup: 0});
+// S.book[code]  = je antwoord in de huidige oefenronde: {score, max, t, fixed?}; fixed = eerst onjuist, later alsnog goed
+// S.hist[code]  = {n, wrong}: pogingen en keren onjuist, over alle rondes en Review samen
+// S.flags[code] = bladwijzer · S.pos[college] = waar je bent in Oefenen · S.rounds[college] = scores van vorige rondes
+// S.retry[college] = herhalingen die nog moeten komen [{code, due}] · S.rnow[college] = herhaling die nu open staat
+// S.revSel = laatste keuze op de Review-pagina · S.lastBackup = tijd van de laatste back-up
+// (oude sleutels uit eerdere versies, zoals srs en carry, worden genegeerd)
+const fresh = () => ({book: {}, hist: {}, flags: {}, pos: {}, rounds: {}, retry: {}, rnow: {}, lastBackup: 0});
 let S = fresh();
 try {
   const raw = localStorage.getItem(KEY);
@@ -487,14 +479,11 @@ try {
     if (old) { const o = JSON.parse(old); S.book = o.book || {}; S.pos = {c1: o.page || 0}; }
   }
 } catch (e) {}
-// moeite per vraag: n = aantal pogingen, wrong = aantal keer onjuist (ook als hij later goed is)
-// rw = aantal rondes waarin je de vraag bij de eerste poging onjuist had
+// oudere opslag aanvullen: telling per vraag afleiden uit het antwoord, ontbrekende onderdelen toevoegen
 function seedHist() { for (const [k, r] of Object.entries(S.book)) if (!S.hist[k]) S.hist[k] = {n: 1, wrong: r.score === r.max ? 0 : 1};
-  for (const [k, r] of Object.entries(S.hist)) if (r.rw == null) r.rw = S.book[k] && S.book[k].score < S.book[k].max ? 1 : 0;
-  S.retry = S.retry || {}; S.rnow = S.rnow || {}; }
+  S.retry = S.retry || {}; S.rnow = S.rnow || {}; S.rounds = S.rounds || {}; }
 seedHist();
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
-const today = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); };
 
 // ---------- statistiek ----------
 function status(it) { const r = S.book[it.code]; return !r ? 'todo' : (r.score === r.max || r.fixed) ? 'good' : 'bad'; }
@@ -506,11 +495,6 @@ function statBoxes(c) {
   return h('div', {class: 'stat'}, h('div', {}, h('b', {}, pct(c.good + c.bad, c.n)), 'gedaan'),
     h('div', {}, h('b', {}, pct(c.good, c.n)), 'goed'), h('div', {}, h('b', {}, pct(c.bad, c.n)), 'onjuist'));
 }
-// onjuist = laatste antwoord onjuist, of meegenomen uit een vorige ronde en sindsdien nog niet goed beantwoord
-const isWrong = it => status(it) === 'bad';
-const wrongOf = items => items.filter(isWrong);
-const dueCount = items => wrongOf(items).length;
-const revCount = items => items.filter(it => isHard(it) || S.flags[it.code]).length;
 
 // ---------- routes: #/  #/overzicht  #/review  #/c1/oefenen|review|voortgang ----------
 let openCat = null, queue = null, queueKey = '';
@@ -692,10 +676,9 @@ function renderNewRound(page, c) {
     h('span', {}, h('b', {}, label), h('span', {class: 'small muted'}, sub)));
   const start = h('button', {class: 'btn primary', onclick: () => {
     if (cc.todo && !confirm(`Je hebt nog ${cc.todo} vragen niet gedaan. Toch een nieuwe ronde beginnen?`)) return;
-    S.rounds = S.rounds || {};
-    if (mode === 'reset') c.items.forEach(it => { const r = S.hist[it.code]; if (r) { r.wrong = 0; r.rw = 0; } });
+    if (mode === 'reset') c.items.forEach(it => { const r = S.hist[it.code]; if (r) r.wrong = 0; });
     if (cc.good + cc.bad) (S.rounds[c.id] = S.rounds[c.id] || []).push({good: cc.good, bad: cc.bad, n: cc.n, t: Date.now()});
-    c.items.forEach(it => { delete S.book[it.code]; if (S.carry) delete S.carry[it.code]; });
+    c.items.forEach(it => delete S.book[it.code]);
     S.pos[c.id] = 0; delete S.retry[c.id]; delete S.rnow[c.id];
     queue = null; save(); go(`#/${c.id}/oefenen`);
   }}, `Nieuwe ronde ${c.title.toLowerCase()} starten`);
@@ -707,32 +690,23 @@ function renderNewRound(page, c) {
     h('div', {class: 'btns'}, h('button', {class: 'btn', onclick: () => go(`#/${c.id}/voortgang`)}, 'Annuleren'), start)));
 }
 
-// ---------- oefenen: vraag voor vraag ----------
-function record(it, sc, mx) {
-  S.book[it.code] = {score: sc, max: mx, t: Date.now()};
-  const r = S.hist[it.code] = S.hist[it.code] || {n: 0, wrong: 0};
-  r.n++; if (sc < mx) r.wrong++;
-  if (sc === mx && S.carry) delete S.carry[it.code];
-  if (sc === mx) dropRetry(it.code);
-  save();
+// ---------- antwoorden bijhouden ----------
+function countAttempt(it, ok) { const r = S.hist[it.code] = S.hist[it.code] || {n: 0, wrong: 0}; r.n++; if (!ok) r.wrong++; }
+function markFixed(it) { const b = S.book[it.code]; if (b && b.score < b.max) b.fixed = Date.now(); dropRetry(it.code); }
+// eerste poging in Oefenen: dit is je antwoord in deze ronde
+function recordFirst(it, sc, mx) { S.book[it.code] = {score: sc, max: mx, t: Date.now()}; countAttempt(it, sc === mx); save(); }
+// herhaling in Oefenen of Review: telt mee in de telling; goed = de vraag is alsnog goed
+function recordAgain(it, ok) { countAttempt(it, ok); if (ok) markFixed(it); save(); }
+// 'Ik had deze wel goed': de onjuiste poging telt niet; bij de eerste poging telt hij gewoon als goed
+function override(it, first) {
+  const r = S.hist[it.code]; if (r && r.wrong > 0) r.wrong--;
+  const b = S.book[it.code]; if (first && b) b.score = b.max; else markFixed(it);
+  dropRetry(it.code); save();
 }
-// herhaling binnen de oefenronde: S.retry[college] = [{code, due}], due = positie waarna hij terugkomt
+// herhaling binnen de oefenronde: een onjuiste vraag komt REPEAT_AFTER vragen later terug, tot hij goed is
 const REPEAT_AFTER = 5;
 function dropRetry(code) { for (const k in S.retry) S.retry[k] = S.retry[k].filter(r => r.code !== code); }
 const inRetry = it => Object.values(S.retry).some(q => q.some(r => r.code === it.code)) || Object.values(S.rnow).includes(it.code);
-const roundsWrong = it => (S.hist[it.code] || {}).rw || 0;
-// review telt mee voor de telling, maar zet geen antwoord in de oefenronde
-function markFixed(it) { const b = S.book[it.code]; if (b && b.score < b.max) b.fixed = Date.now(); dropRetry(it.code); }
-function reviewRecord(it, sc, mx) {
-  const r = S.hist[it.code] = S.hist[it.code] || {n: 0, wrong: 0}; r.n++; if (sc < mx) r.wrong++;
-  if (sc === mx) markFixed(it); save();
-}
-function override(it) { // 'Ik had deze wel goed': telt als goed en niet als onjuiste poging
-  const b = S.book[it.code]; if (b) b.score = b.max; if (S.carry) delete S.carry[it.code];
-  const r = S.hist[it.code]; if (r && r.wrong > 0) r.wrong--;
-  dropRetry(it.code);
-  save();
-}
 const wrongTimes = it => (S.hist[it.code] || {}).wrong || 0;
 // lastig = hardnekkig: in totaal (oefenen + herhalingen + review) minstens HARD_WRONG keer onjuist
 const HARD_WRONG = 4;
@@ -784,11 +758,9 @@ function renderBook(page, c) {
     add(page, bar,
       h('div', {class: 'crumb'}, h('span', {}, h('b', {class: 'again'}, 'Herhaling'), ` · ${it.num}. ${it.title}`), h('span', {class: 'cr'}, flagBtn(it), `${i + 1} / ${items.length}`)),
       renderItem(it, (sc, mx) => {
-        if (ans !== null) return; ans = sc === mx;
-        const r = S.hist[rcode] = S.hist[rcode] || {n: 0, wrong: 0, rw: 0}; r.n++; if (!ans) r.wrong++;
-        if (ans) { S.book[rcode].fixed = Date.now(); if (S.carry) delete S.carry[rcode]; }
-        save(); next.disabled = false; next.classList.add('primary'); focusNext(next);
-      }, () => { ans = true; const r = S.hist[rcode]; if (r && r.wrong > 0) r.wrong--; S.book[rcode].fixed = Date.now(); if (S.carry) delete S.carry[rcode]; save(); }),
+        if (ans !== null) return; ans = sc === mx; recordAgain(it, ans);
+        next.disabled = false; next.classList.add('primary'); focusNext(next);
+      }, () => { ans = true; override(it, false); }),
       h('p', {class: 'muted small'}, 'Deze vraag had je eerder in deze ronde onjuist. Hij komt terug tot je hem goed hebt.'),
       h('div', {class: 'btns', style: 'justify-content:flex-end'}, next));
     return;
@@ -800,15 +772,15 @@ function renderBook(page, c) {
   add(page, bar,
     h('div', {class: 'crumb'}, h('span', {}, `${it.num}. ${it.title}`), h('span', {class: 'cr'}, flagBtn(it), `${i + 1} / ${items.length}`)),
     S.book[it.code] ? answeredCard(it, c) : renderItem(it, (sc, mx) => {
-      record(it, sc, mx);
-      if (sc < mx) { S.hist[it.code].rw = (S.hist[it.code].rw || 0) + 1; queueAgain(it.code); save(); }
+      recordFirst(it, sc, mx);
+      if (sc < mx) { queueAgain(it.code); save(); }
       next.classList.add('primary'); focusNext(next);
-    }, () => { override(it); const r = S.hist[it.code]; if (r && r.rw > 0) r.rw--; save(); }),
+    }, () => override(it, true)),
     h('div', {class: 'btns', style: 'justify-content:space-between'}, prev, next));
 }
 function answeredCard(it, c) {
   const ok = status(it) === 'good', fixed = ok && !!S.book[it.code].fixed, soon = !ok && inRetry(it);
-  // de vraag blijft zichtbaar: goed beantwoord = met oplossing, onjuist = zonder (die oefen je in Review)
+  // de vraag blijft zichtbaar: goed beantwoord = met oplossing, onjuist = zonder (hij komt nog terug als herhaling)
   const card = renderItem(it, () => {}, null, ok ? 'solved' : 'locked');
   add(card, h('div', {class: 'feedback show ' + (ok ? 'good' : 'bad')},
       h('div', {class: 'score'}, fixed ? 'Deze vraag had je eerst onjuist; later had je hem goed.' : ok ? 'Deze vraag heb je al goed beantwoord.' : 'Deze vraag had je onjuist.'),
@@ -869,8 +841,8 @@ function renderReview(page, sel) {
     renderItem(it, (sc, mx) => {
       if (answered !== null) return;
       answered = sc === mx;
-      reviewRecord(it, sc, mx); next.disabled = false; focusNext(next);
-    }, () => { answered = true; const r = S.hist[it.code]; if (r && r.wrong > 0) r.wrong--; markFixed(it); save(); }),
+      recordAgain(it, answered); next.disabled = false; focusNext(next);
+    }, () => { answered = true; override(it, false); }),
     h('div', {class: 'btns', style: 'justify-content:flex-end'}, next));
 }
 // na het nakijken: focus op Volgende, zodat Enter doorgaat
@@ -878,7 +850,7 @@ function focusNext(btn) { setTimeout(() => btn.focus({preventScroll: true}), 0);
 // Enter = Volgende, als de focus nergens anders staat (bv. na 'Ik had deze wel goed')
 document.addEventListener('keydown', ev => {
   if (ev.key !== 'Enter' || ev.defaultPrevented || ev.repeat) return;
-  if (ev.target && /^(INPUT|TEXTAREA|SELECT|BUTTON|A)$/.test(ev.target.tagName)) return; // Enter in een invulveld = nakijken, niet doorgaan
+  if (ev.target && /^(INPUT|TEXTAREA|SELECT|BUTTON|A)$/.test(ev.target.tagName) && !ev.target.disabled) return; // dat element handelt Enter zelf af (invulveld: nakijken)
   const ae = document.activeElement;
   if (ae && ae !== document.body && !ae.disabled && /^(INPUT|BUTTON|A|TEXTAREA|SELECT|LABEL)$/.test(ae.tagName)) return;
   if ($('.card .btn.primary:not([hidden]):not([disabled])')) return; // eerst nakijken / omdraaien
