@@ -96,6 +96,7 @@ details.cat{border-top:1px solid var(--line);padding:12px 0}details.cat summary{
   font-size:1em;cursor:grab;box-shadow:0 .08em .2em rgba(0,0,0,.18);hyphens:manual;overflow-wrap:normal;z-index:2}
 .chip p{margin:0}
 .zone .chip{position:static}
+.viewonly .chip{cursor:default}
 .chip.drag{cursor:grabbing;z-index:50;box-shadow:0 .3em .8em rgba(0,0,0,.3)}
 .chip.sel{outline:.15em solid var(--focus)}
 .chip.good{border-color:#1f7a43;background:#e5f4ea}
@@ -239,8 +240,9 @@ function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.fl
 
 // ---------- één vraag tekenen ----------
 // done(score, max) wordt aangeroepen na nakijken / zelfbeoordeling
-function renderItem(it, report, onOverride) {
-  const card = h('div', {class: 'card'});
+// view: 'solved' = alleen bekijken met de oplossing, 'locked' = alleen bekijken zonder oplossing
+function renderItem(it, report, onOverride, view) {
+  const card = h('div', {class: 'card' + (view ? ' viewonly' : '')});
   const fb = h('div', {class: 'feedback'});
   // na nakijken: score doorgeven; bij een onjuist antwoord de knop 'Ik had deze wel goed' tonen
   const done = (sc, mx) => {
@@ -266,6 +268,7 @@ function renderItem(it, report, onOverride) {
     const right = h('button', {class: 'btn good', onclick: () => grade(1)}, '✓ Had ik goed');
     wrong.hidden = right.hidden = true;
     function grade(s) { wrong.disabled = right.disabled = true; (s ? right : wrong).classList.add('primary'); done(s, 1); }
+    if (view) { if (view === 'solved') { back.hidden = false; if (refEl) refEl.hidden = false; } add(card, figure, flip); return card; }
     add(card, figure, flip, h('div', {class: 'btns', style: 'justify-content:center'}, wrong, turn, right));
     return card;
   }
@@ -290,6 +293,7 @@ function renderItem(it, report, onOverride) {
       add(fb, ref());
       check.hidden = true; done(sc, fields.length);
     }
+    if (view) { fields.forEach((f, i) => { f.disabled = true; if (view === 'solved') { f.value = inputs[i][0]; f.classList.add('good'); } }); add(card, h('h2', {html: it.question}), figure, line); return card; }
     add(card, h('h2', {html: it.question}), figure, line, h('div', {class: 'btns'}, check), fb);
     setTimeout(() => fields[0] && fields[0].focus({preventScroll: true}), 0);
     return card;
@@ -308,6 +312,7 @@ function renderItem(it, report, onOverride) {
       add(fb, h('div', {class: 'score'}, ok ? 'Goed!' : 'Helaas, dat is onjuist.'), ref());
       check.hidden = true; done(ok ? 1 : 0, 1);
     }}, 'Nakijken');
+    if (view) { box.querySelectorAll('label').forEach(l => { const i = +$('input', l).value; $('input', l).disabled = true; if (view === 'solved' && it.answers[i].correct) { l.classList.add('good'); $('input', l).checked = true; } }); add(card, h('h2', {html: it.question}), box); return card; }
     add(card, h('h2', {html: it.question}), box, h('div', {class: 'btns'}, check), fb);
     return card;
   }
@@ -401,6 +406,7 @@ function renderItem(it, report, onOverride) {
       chips.forEach((c, ei) => { const zi = it.zones.findIndex(z => z.correct.includes(ei)); c.classList.remove('bad'); c.classList.add('good'); if (zi >= 0) place(c, zi); else sendHome(c); });
       solve.hidden = true; }}, 'Toon oplossing');
     solve.hidden = true;
+    if (view) { locked = true; if (view === 'solved') solve.click(); add(card, h('h2', {html: it.question}), h('div', {class: 'dqwrap'}, dq)); return card; }
     add(card, h('h2', {html: it.question}), h('div', {class: 'dqwrap'}, dq),
       h('p', {class: 'hint'}, 'Sleep de woorden naar de vakken. Op een telefoon kun je ook eerst een woord en dan een vak aantikken.'),
       h('div', {class: 'btns'}, check, solve), fb);
@@ -694,12 +700,14 @@ function renderBook(page, c) {
 }
 function answeredCard(it, c) {
   const ok = status(it) === 'good';
-  const line = it.type === 'blanks' ? h('div', {class: 'blankline', html: it.segs.map(s => s.text != null ? s.text : '…').join('')}) : null;
-  return h('div', {class: 'card'}, h('h2', {html: it.type === 'card' ? it.front : it.question}), line,
-    h('div', {class: 'feedback show ' + (ok ? 'good' : 'bad')},
+  // de vraag blijft zichtbaar: goed beantwoord = met oplossing, onjuist = zonder (die oefen je in Review)
+  const card = renderItem(it, () => {}, null, ok ? 'solved' : 'locked');
+  add(card, h('div', {class: 'feedback show ' + (ok ? 'good' : 'bad')},
       h('div', {class: 'score'}, ok ? 'Deze vraag heb je al goed beantwoord.' : 'Deze vraag had je onjuist.'),
       h('div', {}, ok ? 'Bij Oefenen telt één poging per vraag.' : 'Bij Oefenen telt één poging per vraag. Je herhaalt hem in Review, tot je hem goed hebt.'),
-      ok ? null : h('div', {class: 'btns', style: 'margin-top:10px'}, h('button', {class: 'btn', onclick: () => go(`#/${c.id}/review`)}, 'Naar review'))));
+      ok ? null : h('div', {class: 'btns', style: 'margin-top:10px'}, h('button', {class: 'btn', onclick: () => go(`#/${c.id}/review`)}, 'Naar review')),
+      it.ref ? h('div', {class: 'ref'}, it.ref) : null));
+  return card;
 }
 
 // ---------- review: alleen de vragen die je onjuist had ----------
