@@ -281,7 +281,7 @@ function renderItem(it, report, onOverride, view) {
     line.innerHTML = html;
     const fields = [...line.querySelectorAll('input')];
     const check = h('button', {class: 'btn primary', onclick: doCheck}, 'Nakijken');
-    fields.forEach(f => f.addEventListener('keydown', e => { if (e.key === 'Enter' && !check.hidden) doCheck(); }));
+    fields.forEach(f => f.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); if (!check.hidden) doCheck(); } }));
     function doCheck() {
       let sc = 0;
       fields.forEach((f, i) => { const ok = blankOK(f.value, inputs[i]); sc += ok; f.disabled = true; f.classList.add(ok ? 'good' : 'bad');
@@ -860,7 +860,8 @@ function renderReview(page, sel) {
 function focusNext(btn) { setTimeout(() => btn.focus({preventScroll: true}), 0); }
 // Enter = Volgende, als de focus nergens anders staat (bv. na 'Ik had deze wel goed')
 document.addEventListener('keydown', ev => {
-  if (ev.key !== 'Enter' || ev.defaultPrevented) return;
+  if (ev.key !== 'Enter' || ev.defaultPrevented || ev.repeat) return;
+  if (ev.target && /^(INPUT|TEXTAREA|SELECT|BUTTON|A)$/.test(ev.target.tagName)) return; // Enter in een invulveld = nakijken, niet doorgaan
   const ae = document.activeElement;
   if (ae && ae !== document.body && !ae.disabled && /^(INPUT|BUTTON|A|TEXTAREA|SELECT|LABEL)$/.test(ae.tagName)) return;
   if ($('.card .btn.primary:not([hidden]):not([disabled])')) return; // eerst nakijken / omdraaien
