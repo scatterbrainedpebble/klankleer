@@ -450,7 +450,7 @@ function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e
 const today = () => { const d = new Date(); d.setHours(0, 0, 0, 0); return d.getTime(); };
 
 // ---------- statistiek ----------
-function status(it) { const r = S.book[it.code]; return !r ? 'todo' : r.score === r.max ? 'good' : 'bad'; }
+function status(it) { const r = S.book[it.code]; return !r ? 'todo' : (r.score === r.max || r.fixed) ? 'good' : 'bad'; }
 function counts(its) { const c = {good: 0, bad: 0, todo: 0, n: its.length}; its.forEach(it => c[status(it)]++); return c; }
 const pct = (n, t) => t ? Math.round(n / t * 100) + '%' : '–';
 function sbar(c) { return h('div', {class: 'sbar'}, h('i', {class: 'g', style: `width:${c.good / c.n * 100}%`}), h('i', {class: 'b', style: `width:${c.bad / c.n * 100}%`})); }
@@ -460,10 +460,10 @@ function statBoxes(c) {
     h('div', {}, h('b', {}, pct(c.good, c.n)), 'goed'), h('div', {}, h('b', {}, pct(c.bad, c.n)), 'onjuist'));
 }
 // onjuist = laatste antwoord onjuist, of meegenomen uit een vorige ronde en sindsdien nog niet goed beantwoord
-const isWrong = it => (status(it) === 'bad' && !S.book[it.code].fixed) || (status(it) === 'todo' && !!(S.carry || {})[it.code]);
+const isWrong = it => status(it) === 'bad';
 const wrongOf = items => items.filter(isWrong);
 const dueCount = items => wrongOf(items).length;
-const revCount = items => items.filter(it => isWrong(it) || S.flags[it.code]).length;
+const revCount = items => items.filter(it => isHard(it) || S.flags[it.code]).length;
 
 // ---------- routes: #/  #/overzicht  #/review  #/c1/oefenen|review|voortgang ----------
 let openCat = null, queue = null, queueKey = '';
@@ -499,7 +499,7 @@ function render() {
 function renderHome(page) {
   const tot = counts(ALL), due = revCount(ALL);
   add(page, h('div', {class: 'card'}, h('h2', {}, 'Je voortgang'), statBoxes(tot), sbar(tot), legend(),
-    h('div', {class: 'btns'}, h('button', {class: 'btn primary', disabled: !due, onclick: () => go('#/review/beide')}, due ? `Review: onjuist + bladwijzers (${due})` : 'Niets te reviewen'),
+    h('div', {class: 'btns'}, h('button', {class: 'btn primary', disabled: !due, onclick: () => go('#/review/beide')}, due ? `Review: lastig + bladwijzers (${due})` : 'Niets te reviewen'),
       h('button', {class: 'btn', onclick: () => go('#/overzicht')}, 'Overzicht per onderwerp'),
       h('button', {class: 'btn', onclick: () => go('#/nieuwe-ronde')}, 'Nieuwe ronde'))));
   const grid = h('div', {class: 'grid'});
@@ -565,21 +565,19 @@ function renderProgress(page, c) {
   const rs = roundsOf(c);
   const card = h('div', {class: 'card'}, h('h2', {}, 'Voortgang · ' + c.title + (rs.length ? ` · ronde ${rs.length + 1}` : '')), statBoxes(all), sbar(all), legend(),
     roundBox(c),
-    h('p', {class: 'muted'}, 'Klik op een hoofdstuk om te zien welke vragen je goed had, onjuist had of nog niet gedaan hebt. Achter een vraag staat hoe vaak je hem onjuist had, ook als hij inmiddels goed is. Met ⚑ Bladwijzer (bovenaan elke vraag) markeer je een vraag die je extra wilt reviewen.'),
+    h('p', {class: 'muted'}, `Klik op een hoofdstuk om te zien welke vragen je goed had, onjuist had of nog niet gedaan hebt. Achter een vraag staat hoe vaak je hem onjuist had, ook als hij inmiddels goed is. Met ⚑ Bladwijzer (bovenaan elke vraag) markeer je een vraag die je extra wilt reviewen. Een vraag die je ${HARD_WRONG} keer of vaker onjuist had, komt bij Lastige vragen.`),
     reviewBtns(c));
   const link = it => h('li', {}, h('button', {onclick: () => { S.pos[c.id] = c.items.indexOf(it); save(); go(`#/${c.id}/oefenen`); }}, `${it.num}. ${it.title}`),
     flagged(it) ? h('span', {class: 'fl', title: 'bladwijzer'}, ' ⚑') : null,
     wrongTimes(it) ? h('span', {class: 'times'}, ` ${wrongTimes(it)}× onjuist gehad`) : null,
-    isWrong(it) && status(it) === 'todo' ? h('span', {class: 'times'}, ' · staat nog in Review') : null,
     h('div', {class: 'qprev'}, preview(it)));
   catsOf(c.items).forEach(cat => {
     const its = c.items.filter(it => it.cat === cat), cc = counts(its);
-    const grp = (label, st) => { const l = its.filter(it => status(it) === st); return l.length ? h('div', {}, h('h4', {}, `${label} (${l.length})`), h('ul', {}, l.map(link)),
-      st === 'bad' ? h('p', {class: 'small revlinks'}, h('a', {href: `#/${c.id}/review/onjuist`}, 'Review onjuiste antwoorden van dit college'), ' · ', h('a', {href: '#/review/onjuist'}, 'Review alle onjuiste antwoorden')) : null) : null; };
+    const grp = (label, st) => { const l = its.filter(it => status(it) === st); return l.length ? h('div', {}, h('h4', {}, `${label} (${l.length})`), h('ul', {}, l.map(link))) : null; };
     const det = h('details', {class: 'cat'},
       h('summary', {}, h('div', {class: 'catrow'}, h('b', {}, h('span', {class: 'chev', 'aria-hidden': 'true'}), cat),
         h('span', {class: 'nums'}, `gedaan ${pct(cc.good + cc.bad, cc.n)} · goed ${pct(cc.good, cc.n)} · onjuist ${pct(cc.bad, cc.n)}`)), sbar(cc)),
-      add(h('div', {class: 'grp'}), grp('Onjuist', 'bad'), grp('Goed', 'good'), grp('Nog niet gedaan', 'todo')));
+      add(h('div', {class: 'grp'}), grp('Onjuist (komt terug bij Oefenen)', 'bad'), grp('Goed', 'good'), grp('Nog niet gedaan', 'todo')));
     if (cat === openCat) { det.open = true; setTimeout(() => det.scrollIntoView({block: 'start'}), 0); }
     add(card, det);
   });
@@ -592,9 +590,9 @@ function reviewBtns(c) {
     return h('button', {class: 'btn' + (prim ? ' primary' : ''), disabled: !n, onclick: () => go(`${base}/${m}`)}, `${MODES[m].label} (${n})`); };
   return h('div', {class: 'revbox'},
     h('div', {class: 'small muted'}, `Review ${c.title.toLowerCase()}:`),
-    h('div', {class: 'btns', style: 'margin-top:6px'}, btn('onjuist', c.items, `#/${c.id}/review`, true), btn('bladwijzer', c.items, `#/${c.id}/review`), btn('beide', c.items, `#/${c.id}/review`), btn('lastig', c.items, `#/${c.id}/review`)),
+    h('div', {class: 'btns', style: 'margin-top:6px'}, btn('lastig', c.items, `#/${c.id}/review`, true), btn('bladwijzer', c.items, `#/${c.id}/review`), btn('beide', c.items, `#/${c.id}/review`)),
     h('div', {class: 'small muted', style: 'margin-top:12px'}, 'Review alle colleges:'),
-    h('div', {class: 'btns', style: 'margin-top:6px'}, btn('onjuist', ALL, '#/review'), btn('bladwijzer', ALL, '#/review'), btn('beide', ALL, '#/review'), btn('lastig', ALL, '#/review')));
+    h('div', {class: 'btns', style: 'margin-top:6px'}, btn('lastig', ALL, '#/review'), btn('bladwijzer', ALL, '#/review'), btn('beide', ALL, '#/review')));
 }
 
 // korte weergave van de vraag zelf, voor de lijsten bij Voortgang
@@ -629,19 +627,16 @@ function renderNewRound(page) {
   let scope = COLLEGES.length > 1 ? 'all' : COLLEGES[0].id, mode = 'keep';
   const itemsOf = () => scope === 'all' ? ALL : colById[scope].items;
   const info = h('p', {class: 'muted'});
-  const upd = () => { const its = itemsOf(), cc = counts(its), w = wrongOf(its).length;
-    info.textContent = `Nu: ${cc.good + cc.bad} van de ${cc.n} vragen gedaan, ${pct(cc.good, cc.n)} goed, ${w} onjuist.`; go_.disabled = !(cc.good + cc.bad) && !w; };
+  const upd = () => { const its = itemsOf(), cc = counts(its);
+    info.textContent = `Nu: ${cc.good + cc.bad} van de ${cc.n} vragen gedaan, ${pct(cc.good, cc.n)} goed, ${cc.bad} onjuist.`; go_.disabled = !(cc.good + cc.bad) && mode === 'keep'; };
   const radio = (name, val, cur, label, sub, on) => h('label', {class: 'opt'},
     h('input', {type: 'radio', name, value: val, checked: val === cur ? 'checked' : false, onchange: () => { on(val); upd(); }}),
     h('span', {}, h('b', {}, label), sub ? h('span', {class: 'small muted'}, sub) : null));
   const go_ = h('button', {class: 'btn primary', onclick: () => {
     const its = itemsOf(), cols = scope === 'all' ? COLLEGES : [colById[scope]];
     if (!confirm('Weet je het zeker? Je huidige ronde wordt afgesloten.')) return;
-    S.carry = S.carry || {}; S.rounds = S.rounds || {};
-    const wrong = wrongOf(its);
-    if (mode === 'keep') wrong.forEach(it => { S.carry[it.code] = 1; });
-    else wrong.forEach(it => { delete S.carry[it.code]; });
-    if (mode === 'reset') wrong.forEach(it => { const r = S.hist[it.code]; if (r) { r.wrong = 0; r.rw = 0; } });
+    S.carry = {}; S.rounds = S.rounds || {};
+    if (mode === 'reset') its.forEach(it => { const r = S.hist[it.code]; if (r) { r.wrong = 0; r.rw = 0; } });
     cols.forEach(c => { const cc = counts(c.items);
       if (cc.good + cc.bad) (S.rounds[c.id] = S.rounds[c.id] || []).push({good: cc.good, bad: cc.bad, n: cc.n, t: Date.now()});
       c.items.forEach(it => delete S.book[it.code]); S.pos[c.id] = 0; delete S.retry[c.id]; delete S.rnow[c.id]; });
@@ -652,10 +647,9 @@ function renderNewRound(page) {
     COLLEGES.length > 1 ? h('div', {class: 'optgroup'}, h('h3', {}, 'Welk college?'),
       radio('scope', 'all', scope, 'Alle colleges', null, v => scope = v),
       COLLEGES.map(c => radio('scope', c.id, scope, c.title, c.sub, v => scope = v))) : null,
-    h('div', {class: 'optgroup'}, h('h3', {}, 'Wat doen we met de vragen die je onjuist had?'),
-      radio('mode', 'keep', mode, 'Laten staan in Review', 'Ze blijven onder Review › Onjuist tot je ze goed hebt, ook als ze in de nieuwe ronde weer langskomen.', v => mode = v),
-      radio('mode', 'hard', mode, 'Uit Review halen', 'Review › Onjuist begint leeg. Vragen die je in twee of meer rondes onjuist had, blijven bij Lastige vragen staan.', v => mode = v),
-      radio('mode', 'reset', mode, 'Helemaal opnieuw beginnen', 'Review › Onjuist begint leeg, de telling "× onjuist gehad" gaat terug naar 0 en de vragen tellen niet meer als lastig.', v => mode = v)),
+    h('div', {class: 'optgroup'}, h('h3', {}, 'Lastige vragen'),
+      radio('mode', 'keep', mode, 'Laten staan', `Vragen die je ${HARD_WRONG} keer of vaker onjuist had, blijven bij Review › Lastige vragen.`, v => mode = v),
+      radio('mode', 'reset', mode, 'Telling op 0 zetten', 'De telling "× onjuist gehad" gaat terug naar 0, dus Lastige vragen begint leeg.', v => mode = v)),
     info,
     h('div', {class: 'btns'}, h('button', {class: 'btn', onclick: () => history.back()}, 'Annuleren'), go_)));
   upd();
@@ -675,6 +669,12 @@ const REPEAT_AFTER = 5;
 function dropRetry(code) { for (const k in S.retry) S.retry[k] = S.retry[k].filter(r => r.code !== code); }
 const inRetry = it => Object.values(S.retry).some(q => q.some(r => r.code === it.code)) || Object.values(S.rnow).includes(it.code);
 const roundsWrong = it => (S.hist[it.code] || {}).rw || 0;
+// review telt mee voor de telling, maar zet geen antwoord in de oefenronde
+function markFixed(it) { const b = S.book[it.code]; if (b && b.score < b.max) b.fixed = Date.now(); dropRetry(it.code); }
+function reviewRecord(it, sc, mx) {
+  const r = S.hist[it.code] = S.hist[it.code] || {n: 0, wrong: 0}; r.n++; if (sc < mx) r.wrong++;
+  if (sc === mx) markFixed(it); save();
+}
 function override(it) { // 'Ik had deze wel goed': telt als goed en niet als onjuiste poging
   const b = S.book[it.code]; if (b) b.score = b.max; if (S.carry) delete S.carry[it.code];
   const r = S.hist[it.code]; if (r && r.wrong > 0) r.wrong--;
@@ -682,13 +682,15 @@ function override(it) { // 'Ik had deze wel goed': telt als goed en niet als onj
   save();
 }
 const wrongTimes = it => (S.hist[it.code] || {}).wrong || 0;
+// lastig = hardnekkig: in totaal (oefenen + herhalingen + review) minstens HARD_WRONG keer onjuist
+const HARD_WRONG = 4;
+const isHard = it => wrongTimes(it) >= HARD_WRONG;
 const flagged = it => !!S.flags[it.code];
 const flaggedOf = items => items.filter(flagged);
 const MODES = {
-  onjuist: {label: 'Onjuist', long: 'onjuiste antwoorden', pick: items => wrongOf(items)},
+  lastig: {label: 'Lastige vragen', long: 'lastige vragen', note: 'vragen die je vaak onjuist had', pick: items => hardOf(items)},
   bladwijzer: {label: 'Bladwijzers', long: 'vragen met een bladwijzer', pick: items => flaggedOf(items)},
-  beide: {label: 'Onjuist + bladwijzers', long: 'onjuiste antwoorden en vragen met een bladwijzer', pick: items => items.filter(it => isWrong(it) || flagged(it))},
-  lastig: {label: 'Lastige vragen', long: 'vragen die je in twee of meer rondes onjuist had (lastigste eerst)', pick: items => hardOf(items)},
+  beide: {label: 'Lastig + bladwijzers', long: 'lastige vragen en vragen met een bladwijzer', pick: items => items.filter(it => isHard(it) || flagged(it))},
 };
 function flagBtn(it) {
   const b = h('button', {class: 'flag' + (flagged(it) ? ' on' : ''), title: 'Bladwijzer: deze vraag extra reviewen, ook als je hem goed hebt', onclick: () => {
@@ -697,21 +699,22 @@ function flagBtn(it) {
   }}, h('span', {class: 'ic'}, '⚑'), h('span', {class: 'lbl'}, flagged(it) ? 'Bladwijzer' : 'Bladwijzer toevoegen'));
   return b;
 }
-const HARD_ROUNDS = 2;
-const hardOf = items => items.filter(it => roundsWrong(it) >= HARD_ROUNDS).sort((a, b) => roundsWrong(b) - roundsWrong(a) || wrongTimes(b) - wrongTimes(a));
+const hardOf = items => items.filter(isHard).sort((a, b) => wrongTimes(b) - wrongTimes(a));
 function renderBook(page, c) {
   const items = c.items, i = Math.min(S.pos[c.id] || 0, items.length - 1);
   const last = i === items.length - 1;
   // volgende stap: eerst een herhaling die aan de beurt is (aan het eind van de ronde: alle), anders de volgende vraag
   const advance = () => {
-    const q = S.retry[c.id] = (S.retry[c.id] || []).filter(r => S.book[r.code]);
+    const q = S.retry[c.id] = (S.retry[c.id] || []).filter(r => S.book[r.code] && status(byCode[r.code]) === 'bad');
+    // aan het eind: ook onjuiste vragen die (nog) niet in de rij stonden, bv. van voor deze versie
+    if (last) items.forEach(o => { if (status(o) === 'bad' && o.code !== S.rnow[c.id] && !q.some(r => r.code === o.code)) q.push({code: o.code, due: 0}); });
     const k = q.findIndex(r => last || r.due <= i);
     if (k >= 0) { S.rnow[c.id] = q.splice(k, 1)[0].code; save(); render(); return; }
     if (last) { save(); go(`#/${c.id}/voortgang`); return; }
     S.pos[c.id] = i + 1; save(); render();
   };
   const queueAgain = code => (S.retry[c.id] = S.retry[c.id] || []).push({code, due: i + REPEAT_AFTER});
-  const pending = (S.retry[c.id] || []).length;
+  const pending = (S.retry[c.id] || []).length + items.filter(o => status(o) === 'bad').length;
   const bar = h('div', {class: 'prog'}, h('i', {style: `width:${(i + 1) / items.length * 100}%`}));
   const rcode = S.rnow[c.id];
   if (rcode && byCode[rcode] && S.book[rcode]) { // herhaling van een vraag die je in deze ronde onjuist had
@@ -726,7 +729,7 @@ function renderBook(page, c) {
         if (ans) { S.book[rcode].fixed = Date.now(); if (S.carry) delete S.carry[rcode]; }
         save(); next.disabled = false; next.classList.add('primary');
       }, () => { ans = true; const r = S.hist[rcode]; if (r && r.wrong > 0) r.wrong--; S.book[rcode].fixed = Date.now(); if (S.carry) delete S.carry[rcode]; save(); }),
-      h('p', {class: 'muted small'}, 'Deze vraag had je eerder in deze ronde onjuist. Hij komt terug tot je hem goed hebt; je score telt je eerste poging.'),
+      h('p', {class: 'muted small'}, 'Deze vraag had je eerder in deze ronde onjuist. Hij komt terug tot je hem goed hebt.'),
       h('div', {class: 'btns', style: 'justify-content:flex-end'}, next));
     return;
   }
@@ -744,20 +747,19 @@ function renderBook(page, c) {
     h('div', {class: 'btns', style: 'justify-content:space-between'}, prev, next));
 }
 function answeredCard(it, c) {
-  const ok = status(it) === 'good', fixed = !ok && S.book[it.code].fixed, soon = !ok && !fixed && inRetry(it);
+  const ok = status(it) === 'good', fixed = ok && !!S.book[it.code].fixed, soon = !ok && inRetry(it);
   // de vraag blijft zichtbaar: goed beantwoord = met oplossing, onjuist = zonder (die oefen je in Review)
-  const card = renderItem(it, () => {}, null, ok || fixed ? 'solved' : 'locked');
+  const card = renderItem(it, () => {}, null, ok ? 'solved' : 'locked');
   add(card, h('div', {class: 'feedback show ' + (ok ? 'good' : 'bad')},
-      h('div', {class: 'score'}, ok ? 'Deze vraag heb je al goed beantwoord.' : fixed ? 'Deze vraag had je eerst onjuist; bij de herhaling had je hem goed.' : 'Deze vraag had je onjuist.'),
-      h('div', {}, ok || fixed ? 'Voor je score telt je eerste poging.' : soon ? 'Hij komt verderop in deze ronde nog een keer terug.' : 'Je herhaalt hem in Review, tot je hem goed hebt.'),
-      ok || fixed || soon ? null : h('div', {class: 'btns', style: 'margin-top:10px'}, h('button', {class: 'btn', onclick: () => go(`#/${c.id}/review`)}, 'Naar review')),
+      h('div', {class: 'score'}, fixed ? 'Deze vraag had je eerst onjuist; later had je hem goed.' : ok ? 'Deze vraag heb je al goed beantwoord.' : 'Deze vraag had je onjuist.'),
+      h('div', {}, ok ? 'Bij Oefenen telt één poging per vraag; onjuiste vragen komen terug tot je ze goed hebt.' : soon ? 'Hij komt verderop in deze ronde nog een keer terug.' : 'Hij komt terug als je verder oefent.'),
       it.ref ? h('div', {class: 'ref'}, it.ref) : null));
   return card;
 }
 
-// ---------- review: alleen de vragen die je onjuist had ----------
+// ---------- review: lastige vragen en bladwijzers ----------
 function renderReview(page, items, key, mode) {
-  if (!MODES[mode]) mode = 'onjuist';
+  if (!MODES[mode]) mode = 'lastig';
   const base = key === 'all' ? '#/review' : `#/${key}/review`;
   add(page, h('div', {class: 'modes'}, Object.entries(MODES).map(([m, d]) =>
     h('a', {href: `${base}/${m}`, class: m === mode ? 'on' : ''}, `${d.label} (${d.pick(items).length})`))));
@@ -767,7 +769,7 @@ function renderReview(page, items, key, mode) {
     add(page, h('div', {class: 'card'},
       h('h2', {}, queue.total ? 'Klaar met deze review 🎉' : 'Hier staat niets klaar'),
       h('p', {}, queue.total ? 'Je hebt alle vragen in deze review goed beantwoord.' : `Er zijn geen ${MODES[mode].long}.`),
-      h('p', {class: 'muted'}, 'Onjuist: vragen waarvan je laatste antwoord onjuist was; ze verdwijnen zodra je ze goed hebt. Bladwijzers: vragen die je zelf hebt gemarkeerd met ⚑; ze blijven staan tot je de bladwijzer weghaalt. Lastige vragen: vragen die je in twee of meer rondes bij de eerste poging onjuist had. Heb je in een review een vraag onjuist, dan komt hij een paar vragen later nog een keer.'),
+      h('p', {class: 'muted'}, `Lastige vragen: vragen die je in totaal ${HARD_WRONG} keer of vaker onjuist had. Bladwijzers: vragen die je zelf hebt gemarkeerd met ⚑; ze blijven staan tot je de bladwijzer weghaalt. Heb je in een review een vraag onjuist, dan komt hij een paar vragen later nog een keer.`),
       h('div', {class: 'btns'}, h('button', {class: 'btn', onclick: () => go('#/')}, 'Naar home'),
         again ? h('button', {class: 'btn primary', onclick: () => { queue = null; render(); }}, `Nog een keer (${again})`) : null)));
     return;
@@ -785,8 +787,8 @@ function renderReview(page, items, key, mode) {
     renderItem(it, (sc, mx) => {
       if (answered !== null) return;
       answered = sc === mx;
-      record(it, sc, mx); next.disabled = false;
-    }, () => { override(it); answered = true; }),
+      reviewRecord(it, sc, mx); next.disabled = false;
+    }, () => { answered = true; const r = S.hist[it.code]; if (r && r.wrong > 0) r.wrong--; markFixed(it); save(); }),
     h('div', {class: 'btns', style: 'justify-content:flex-end'}, next));
 }
 
