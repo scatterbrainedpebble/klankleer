@@ -243,10 +243,13 @@ function termSet() {
     if (it.type === 'drag') it.els.forEach(e => TERMS.add(norm(e.text.replace(/<[^>]+>/g, '')))); });
   return TERMS;
 }
+// stam voor woordvormen: -heid/-e/-en eraf, lange klinker enkel (glottaal, glottale → glottal; stemhebbendheid → stemhebbend)
+const stem = w => w.replace(/heid$/, '').replace(/en?$/, '').replace(/([aeou])\1/g, '$1');
 function blankOK(given, alts) {
   const g = norm(given); if (!g) return false;
   const ts = alts.map(norm);
   if (ts.includes(g)) return true;
+  if (ts.some(t => stem(t) === stem(g))) return true; // andere woordvorm, zelfde betekenis (glottale = glottaal)
   if (termSet().has(g)) return false; // een bestaande andere vakterm is geen tikfout
   return ts.some(t => {
     const tol = t.length > 9 ? 2 : t.length > 3 ? 1 : 0; return lev(g, t) <= tol; });
