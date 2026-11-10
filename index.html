@@ -48,7 +48,9 @@ details.cat{border-top:1px solid var(--line);padding:12px 0}details.cat summary{
 .flag{border:1px solid var(--line);background:none;color:var(--muted);border-radius:999px;padding:2px 10px;font:inherit;font-size:13px;cursor:pointer;display:inline-flex;gap:5px;align-items:center}
 .flag .ic{font-size:14px}.flag.on{border-color:var(--flag);color:var(--flag);background:var(--flag-bg);font-weight:600}
 .fl{color:var(--flag)}.revbox{margin-top:14px;padding-top:4px}
-.modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.modes a{padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--text,inherit);text-decoration:none;font-size:14px}.modes a.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.times{color:var(--bad);font-size:12px}.ovrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}.revlinks{margin:6px 0 0}.revlinks a{color:var(--accent)}.grp h4{margin:8px 0 2px;font-size:14px}.grp ul{margin:0;padding-left:18px;font-size:14px}.grp li{margin-bottom:var(--s2)}.rounds{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s3);margin-top:var(--s4);padding:var(--s3) var(--s4);background:var(--bg);border-radius:12px}.rounds .btn{margin-left:auto}
+.modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.modes a{padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--text,inherit);text-decoration:none;font-size:14px}.modes a.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.times{color:var(--bad);font-size:12px}.ovrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}.revlinks{margin:6px 0 0}.revlinks a{color:var(--accent)}.grp h4{margin:8px 0 2px;font-size:14px}.grp ul{margin:0;padding-left:18px;font-size:14px}.grp li{margin-bottom:var(--s2)}.rounds{margin-top:var(--s4);padding:var(--s3) var(--s4);background:var(--bg);border-radius:12px}
+.optgroup{margin-top:var(--s6)}.optgroup h3{font-size:16px;margin:0 0 var(--s2)}
+.opt{display:flex;gap:var(--s3);align-items:flex-start;padding:var(--s3) var(--s4);border:1px solid var(--line);border-radius:12px;margin-top:var(--s2);cursor:pointer}.opt:has(input:checked){border-color:var(--accent);background:var(--bg)}.opt input{margin-top:5px}.opt span{display:flex;flex-direction:column;gap:var(--s1)}
 .qprev{color:var(--muted);font-size:13px;line-height:18px}.qprev .ans{color:var(--ink)}.grp li button{border:0;background:none;color:var(--accent);padding:2px 0;text-decoration:underline;font:inherit;text-align:left}
 .legend{display:flex;gap:14px;font-size:13px;color:var(--muted);margin:4px 0 8px}.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px;background:var(--c)}
 .crumb{color:var(--muted);font-size:14px;margin-bottom:6px;display:flex;justify-content:space-between;gap:8px}
@@ -422,7 +424,7 @@ const DAY = 86400000;
 
 // ---------- opslag (alleen in deze browser) ----------
 const KEY = 'klankleer-v1';
-const fresh = () => ({book: {}, hist: {}, flags: {}, pos: {}, rounds: {}, lastBackup: 0});
+const fresh = () => ({book: {}, hist: {}, flags: {}, carry: {}, pos: {}, rounds: {}, lastBackup: 0});
 let S = fresh();
 try {
   const raw = localStorage.getItem(KEY);
@@ -448,9 +450,11 @@ function statBoxes(c) {
   return h('div', {class: 'stat'}, h('div', {}, h('b', {}, pct(c.good + c.bad, c.n)), 'gedaan'),
     h('div', {}, h('b', {}, pct(c.good, c.n)), 'goed'), h('div', {}, h('b', {}, pct(c.bad, c.n)), 'onjuist'));
 }
-const wrongOf = items => items.filter(it => status(it) === 'bad');
+// onjuist = laatste antwoord onjuist, of meegenomen uit een vorige ronde en sindsdien nog niet goed beantwoord
+const isWrong = it => status(it) === 'bad' || (status(it) === 'todo' && !!(S.carry || {})[it.code]);
+const wrongOf = items => items.filter(isWrong);
 const dueCount = items => wrongOf(items).length;
-const revCount = items => items.filter(it => status(it) === 'bad' || S.flags[it.code]).length;
+const revCount = items => items.filter(it => isWrong(it) || S.flags[it.code]).length;
 
 // ---------- routes: #/  #/overzicht  #/review  #/c1/oefenen|review|voortgang ----------
 let openCat = null, queue = null, queueKey = '';
@@ -464,6 +468,7 @@ function render() {
   const isReview = parts[0] === 'review' || parts[1] === 'review';
   if (!isReview) queue = null; // review opnieuw opbouwen bij de volgende keer
   if (!parts.length) { renderHome(page); nav.append(tab('Home', '#/', true), tab('Overzicht', '#/overzicht', false)); }
+  else if (parts[0] === 'nieuwe-ronde') { renderNewRound(page); nav.append(tab('Home', '#/', false)); }
   else if (parts[0] === 'overzicht') { renderOverview(page); nav.append(tab('Home', '#/', false), tab('Overzicht', '#/overzicht', true)); }
   else if (parts[0] === 'review') { nav.append(tab('Home', '#/', false), tab('Review alles', '#/review', true)); renderReview(page, ALL, 'all', parts[1]); }
   else if (colById[parts[0]]) {
@@ -486,7 +491,8 @@ function renderHome(page) {
   const tot = counts(ALL), due = revCount(ALL);
   add(page, h('div', {class: 'card'}, h('h2', {}, 'Je voortgang'), statBoxes(tot), sbar(tot), legend(),
     h('div', {class: 'btns'}, h('button', {class: 'btn primary', disabled: !due, onclick: () => go('#/review/beide')}, due ? `Review: onjuist + bladwijzers (${due})` : 'Niets te reviewen'),
-      h('button', {class: 'btn', onclick: () => go('#/overzicht')}, 'Overzicht per onderwerp'))));
+      h('button', {class: 'btn', onclick: () => go('#/overzicht')}, 'Overzicht per onderwerp'),
+      h('button', {class: 'btn', onclick: () => go('#/nieuwe-ronde')}, 'Nieuwe ronde'))));
   const grid = h('div', {class: 'grid'});
   COLLEGES.forEach(c => {
     const cc = counts(c.items), d = revCount(c.items);
@@ -549,12 +555,13 @@ function renderProgress(page, c) {
   const all = counts(c.items);
   const rs = roundsOf(c);
   const card = h('div', {class: 'card'}, h('h2', {}, 'Voortgang · ' + c.title + (rs.length ? ` · ronde ${rs.length + 1}` : '')), statBoxes(all), sbar(all), legend(),
-    roundBox(c, all),
+    roundBox(c),
     h('p', {class: 'muted'}, 'Klik op een hoofdstuk om te zien welke vragen je goed had, onjuist had of nog niet gedaan hebt. Achter een vraag staat hoe vaak je hem onjuist had, ook als hij inmiddels goed is. Met ⚑ Bladwijzer (bovenaan elke vraag) markeer je een vraag die je extra wilt reviewen.'),
     reviewBtns(c));
   const link = it => h('li', {}, h('button', {onclick: () => { S.pos[c.id] = c.items.indexOf(it); save(); go(`#/${c.id}/oefenen`); }}, `${it.num}. ${it.title}`),
     flagged(it) ? h('span', {class: 'fl', title: 'bladwijzer'}, ' ⚑') : null,
     wrongTimes(it) ? h('span', {class: 'times'}, ` ${wrongTimes(it)}× onjuist gehad`) : null,
+    isWrong(it) && status(it) === 'todo' ? h('span', {class: 'times'}, ' · staat nog in Review') : null,
     h('div', {class: 'qprev'}, preview(it)));
   catsOf(c.items).forEach(cat => {
     const its = c.items.filter(it => it.cat === cat), cc = counts(its);
@@ -602,29 +609,59 @@ function preview(it) {
 
 // ---------- rondes: alles opnieuw oefenen zonder bladwijzers en moeite-telling kwijt te raken ----------
 const roundsOf = c => (S.rounds && S.rounds[c.id]) || [];
-function roundBox(c, all) {
-  const rs = roundsOf(c), done = all.good + all.bad;
+function roundBox(c) {
+  const rs = roundsOf(c); if (!rs.length) return null;
   const date = t => new Date(t).toLocaleDateString('nl-NL', {day: 'numeric', month: 'short'});
-  return h('div', {class: 'rounds'},
-    rs.length ? h('div', {class: 'small muted'}, 'Vorige rondes: ' + rs.map((r, i) => `ronde ${i + 1}: ${pct(r.good, r.n)} goed (${date(r.t)})`).join(' · ')) : null,
-    h('button', {class: 'btn', disabled: !done, onclick: () => newRound(c)}, 'Nieuwe ronde starten'));
+  return h('div', {class: 'rounds small muted'}, 'Vorige rondes: ' + rs.map((r, i) => `ronde ${i + 1}: ${pct(r.good, r.n)} goed (${date(r.t)})`).join(' · '));
 }
-function newRound(c) {
-  const cc = counts(c.items);
-  if (!confirm(`Nieuwe ronde voor ${c.title.toLowerCase()}? Alle ${cc.n} vragen staan dan weer open en je begint bij vraag 1. Je score van deze ronde (${pct(cc.good, cc.n)} goed) wordt bewaard, net als je bladwijzers en hoe vaak je een vraag onjuist had.`)) return;
-  S.rounds = S.rounds || {}; (S.rounds[c.id] = S.rounds[c.id] || []).push({good: cc.good, bad: cc.bad, n: cc.n, t: Date.now()});
-  c.items.forEach(it => delete S.book[it.code]);
-  S.pos[c.id] = 0; queue = null; save(); go(`#/${c.id}/oefenen`);
+
+// pagina 'Nieuwe ronde': uitleg + keuzes
+function renderNewRound(page) {
+  let scope = COLLEGES.length > 1 ? 'all' : COLLEGES[0].id, mode = 'keep';
+  const itemsOf = () => scope === 'all' ? ALL : colById[scope].items;
+  const info = h('p', {class: 'muted'});
+  const upd = () => { const its = itemsOf(), cc = counts(its), w = wrongOf(its).length;
+    info.textContent = `Nu: ${cc.good + cc.bad} van de ${cc.n} vragen gedaan, ${pct(cc.good, cc.n)} goed, ${w} onjuist.`; go_.disabled = !(cc.good + cc.bad) && !w; };
+  const radio = (name, val, cur, label, sub, on) => h('label', {class: 'opt'},
+    h('input', {type: 'radio', name, value: val, checked: val === cur ? 'checked' : false, onchange: () => { on(val); upd(); }}),
+    h('span', {}, h('b', {}, label), sub ? h('span', {class: 'small muted'}, sub) : null));
+  const go_ = h('button', {class: 'btn primary', onclick: () => {
+    const its = itemsOf(), cols = scope === 'all' ? COLLEGES : [colById[scope]];
+    if (!confirm('Weet je het zeker? Je huidige ronde wordt afgesloten.')) return;
+    S.carry = S.carry || {}; S.rounds = S.rounds || {};
+    const wrong = wrongOf(its);
+    if (mode === 'keep') wrong.forEach(it => { S.carry[it.code] = 1; });
+    else wrong.forEach(it => { delete S.carry[it.code]; });
+    if (mode === 'reset') wrong.forEach(it => { const r = S.hist[it.code]; if (r) r.wrong = 0; });
+    cols.forEach(c => { const cc = counts(c.items);
+      if (cc.good + cc.bad) (S.rounds[c.id] = S.rounds[c.id] || []).push({good: cc.good, bad: cc.bad, n: cc.n, t: Date.now()});
+      c.items.forEach(it => delete S.book[it.code]); S.pos[c.id] = 0; });
+    queue = null; save(); go(cols.length === 1 ? `#/${cols[0].id}/oefenen` : '#/');
+  }}, 'Nieuwe ronde starten');
+  add(page, h('div', {class: 'card'}, h('h2', {}, 'Nieuwe ronde'),
+    h('p', {}, 'Een nieuwe ronde zet Oefenen terug: alle vragen staan weer open en je begint bij vraag 1. Je score van de huidige ronde wordt bewaard bij Voortgang. Je bladwijzers blijven altijd staan.'),
+    COLLEGES.length > 1 ? h('div', {class: 'optgroup'}, h('h3', {}, 'Welk college?'),
+      radio('scope', 'all', scope, 'Alle colleges', null, v => scope = v),
+      COLLEGES.map(c => radio('scope', c.id, scope, c.title, c.sub, v => scope = v))) : null,
+    h('div', {class: 'optgroup'}, h('h3', {}, 'Wat doen we met de vragen die je onjuist had?'),
+      radio('mode', 'keep', mode, 'Laten staan in Review', 'Ze blijven onder Review › Onjuist tot je ze goed hebt, ook als ze in de nieuwe ronde weer langskomen.', v => mode = v),
+      radio('mode', 'hard', mode, 'Alleen bij Lastige vragen', 'Review › Onjuist begint leeg; je vindt ze terug onder Lastige vragen.', v => mode = v),
+      radio('mode', 'reset', mode, 'Helemaal opnieuw beginnen', 'Review › Onjuist begint leeg en de telling "× onjuist gehad" van deze vragen gaat terug naar 0.', v => mode = v)),
+    info,
+    h('div', {class: 'btns'}, h('button', {class: 'btn', onclick: () => history.back()}, 'Annuleren'), go_)));
+  upd();
 }
 
 // ---------- oefenen: vraag voor vraag ----------
 function record(it, sc, mx) {
   S.book[it.code] = {score: sc, max: mx, t: Date.now()};
   const r = S.hist[it.code] = S.hist[it.code] || {n: 0, wrong: 0};
-  r.n++; if (sc < mx) r.wrong++; save();
+  r.n++; if (sc < mx) r.wrong++;
+  if (sc === mx && S.carry) delete S.carry[it.code];
+  save();
 }
 function override(it) { // 'Ik had deze wel goed': telt als goed en niet als onjuiste poging
-  const b = S.book[it.code]; if (b) b.score = b.max;
+  const b = S.book[it.code]; if (b) b.score = b.max; if (S.carry) delete S.carry[it.code];
   const r = S.hist[it.code]; if (r && r.wrong > 0) r.wrong--;
   save();
 }
@@ -634,7 +671,7 @@ const flaggedOf = items => items.filter(flagged);
 const MODES = {
   onjuist: {label: 'Onjuist', long: 'onjuiste antwoorden', pick: items => wrongOf(items)},
   bladwijzer: {label: 'Bladwijzers', long: 'vragen met een bladwijzer', pick: items => flaggedOf(items)},
-  beide: {label: 'Onjuist + bladwijzers', long: 'onjuiste antwoorden en vragen met een bladwijzer', pick: items => items.filter(it => status(it) === 'bad' || flagged(it))},
+  beide: {label: 'Onjuist + bladwijzers', long: 'onjuiste antwoorden en vragen met een bladwijzer', pick: items => items.filter(it => isWrong(it) || flagged(it))},
   lastig: {label: 'Lastige vragen', long: 'vragen die je ooit onjuist had (lastigste eerst)', pick: items => hardOf(items)},
 };
 function flagBtn(it) {
