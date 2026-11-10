@@ -254,8 +254,8 @@ function blankOK(given, alts) {
   return ts.some(t => {
     const tol = t.length > 9 ? 2 : t.length > 3 ? 1 : 0; return lev(g, t) <= tol; });
 }
-// IPA-vragen: tekens die je niet op een gewoon toetsenbord hebt (dia 21); nakijken zonder spaties/haken, ':' telt als 'ː'
-const IPA_KEYS = [['ɑ', 'ɑ', 'ɑ'], ['ɛ', 'ɛ', 'ɛ'], ['ə', 'ə', 'ə'], ['ɪ', 'ɪ', 'ɪ'], ['ɔ', 'ɔ', 'ɔ'], ['ʏ', 'ʏ', 'ʏ'], ['ø', 'ø', 'ø'], ['œ', 'œ', 'œ'],
+// IPA-vragen: alle tekens van dia 21 als knopjes, ook de gewone letters (anders zoek je het antwoord tussen de knopjes); nakijken zonder spaties/haken, ':' telt als 'ː'
+const IPA_KEYS = [['a', 'a', 'a'], ['e', 'e', 'e'], ['i', 'i', 'i'], ['o', 'o', 'o'], ['u', 'u', 'u'], ['y', 'y', 'y'], ['ɑ', 'ɑ', 'ɑ'], ['ɛ', 'ɛ', 'ɛ'], ['ə', 'ə', 'ə'], ['ɪ', 'ɪ', 'ɪ'], ['ɔ', 'ɔ', 'ɔ'], ['ʏ', 'ʏ', 'ʏ'], ['ø', 'ø', 'ø'], ['œ', 'œ', 'œ'],
   ['ː', 'ː', 'lengteteken'], ['̯', '◌̯', 'boogje eronder']];
 const ipaNorm = s => s.normalize('NFD').replace(/[\s\[\]\/]/g, '').replace(/:/g, 'ː').replace(/̑/g, '̯');
 function add(el, ...k) { el.append(...k.flat().filter(x => x != null)); return el; }
