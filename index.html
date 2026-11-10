@@ -48,7 +48,8 @@ details.cat{border-top:1px solid var(--line);padding:12px 0}details.cat summary{
 .flag{border:1px solid var(--line);background:none;color:var(--muted);border-radius:999px;padding:2px 10px;font:inherit;font-size:13px;cursor:pointer;display:inline-flex;gap:5px;align-items:center}
 .flag .ic{font-size:14px}.flag.on{border-color:var(--flag);color:var(--flag);background:var(--flag-bg);font-weight:600}
 .fl{color:var(--flag)}.revbox{margin-top:14px;padding-top:4px}
-.modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.modes a{padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--text,inherit);text-decoration:none;font-size:14px}.modes a.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.times{color:var(--bad);font-size:12px}.ovrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}.revlinks{margin:6px 0 0}.revlinks a{color:var(--accent)}.grp h4{margin:8px 0 2px;font-size:14px}.grp ul{margin:0;padding-left:18px;font-size:14px}.grp li{margin-bottom:var(--s2)}.qprev{color:var(--muted);font-size:13px;line-height:18px}.qprev .ans{color:var(--ink)}.grp li button{border:0;background:none;color:var(--accent);padding:2px 0;text-decoration:underline;font:inherit;text-align:left}
+.modes{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.modes a{padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--text,inherit);text-decoration:none;font-size:14px}.modes a.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}.times{color:var(--bad);font-size:12px}.ovrow{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}.revlinks{margin:6px 0 0}.revlinks a{color:var(--accent)}.grp h4{margin:8px 0 2px;font-size:14px}.grp ul{margin:0;padding-left:18px;font-size:14px}.grp li{margin-bottom:var(--s2)}.rounds{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s3);margin-top:var(--s4);padding:var(--s3) var(--s4);background:var(--bg);border-radius:12px}.rounds .btn{margin-left:auto}
+.qprev{color:var(--muted);font-size:13px;line-height:18px}.qprev .ans{color:var(--ink)}.grp li button{border:0;background:none;color:var(--accent);padding:2px 0;text-decoration:underline;font:inherit;text-align:left}
 .legend{display:flex;gap:14px;font-size:13px;color:var(--muted);margin:4px 0 8px}.legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px;background:var(--c)}
 .crumb{color:var(--muted);font-size:14px;margin-bottom:6px;display:flex;justify-content:space-between;gap:8px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
@@ -421,7 +422,7 @@ const DAY = 86400000;
 
 // ---------- opslag (alleen in deze browser) ----------
 const KEY = 'klankleer-v1';
-const fresh = () => ({book: {}, hist: {}, flags: {}, pos: {}, lastBackup: 0});
+const fresh = () => ({book: {}, hist: {}, flags: {}, pos: {}, rounds: {}, lastBackup: 0});
 let S = fresh();
 try {
   const raw = localStorage.getItem(KEY);
@@ -490,7 +491,7 @@ function renderHome(page) {
   COLLEGES.forEach(c => {
     const cc = counts(c.items), d = revCount(c.items);
     grid.append(h('div', {class: 'card col'},
-      h('div', {class: 'muted small'}, c.week), h('h3', {}, c.title), h('p', {class: 'muted'}, c.sub),
+      h('div', {class: 'muted small'}, c.week + (roundsOf(c).length ? ` · ronde ${roundsOf(c).length + 1}` : '')), h('h3', {}, c.title), h('p', {class: 'muted'}, c.sub),
       sbar(cc), h('div', {class: 'nums'}, `gedaan ${pct(cc.good + cc.bad, cc.n)} · goed ${pct(cc.good, cc.n)} · onjuist ${pct(cc.bad, cc.n)} · ${cc.n} vragen`),
       h('div', {class: 'btns'}, h('button', {class: 'btn primary', onclick: () => go(`#/${c.id}/oefenen`)}, (S.pos[c.id] || 0) > 0 ? 'Verder oefenen' : 'Oefenen'),
         h('button', {class: 'btn', disabled: !d, onclick: () => go(`#/${c.id}/review/beide`)}, `Review (${d})`),
@@ -546,7 +547,9 @@ function renderOverview(page) {
 // ---------- voortgang per hoofdstuk (categorie) binnen een college ----------
 function renderProgress(page, c) {
   const all = counts(c.items);
-  const card = h('div', {class: 'card'}, h('h2', {}, 'Voortgang · ' + c.title), statBoxes(all), sbar(all), legend(),
+  const rs = roundsOf(c);
+  const card = h('div', {class: 'card'}, h('h2', {}, 'Voortgang · ' + c.title + (rs.length ? ` · ronde ${rs.length + 1}` : '')), statBoxes(all), sbar(all), legend(),
+    roundBox(c, all),
     h('p', {class: 'muted'}, 'Klik op een hoofdstuk om te zien welke vragen je goed had, onjuist had of nog niet gedaan hebt. Achter een vraag staat hoe vaak je hem onjuist had, ook als hij inmiddels goed is. Met ⚑ Bladwijzer (bovenaan elke vraag) markeer je een vraag die je extra wilt reviewen.'),
     reviewBtns(c));
   const link = it => h('li', {}, h('button', {onclick: () => { S.pos[c.id] = c.items.indexOf(it); save(); go(`#/${c.id}/oefenen`); }}, `${it.num}. ${it.title}`),
@@ -595,6 +598,23 @@ function preview(it) {
     else if (it.type === 'card') ans = txt(it.back);
   }
   return [cut(q, 140), ans ? h('span', {class: 'ans'}, ' → ' + cut(ans, 90)) : null];
+}
+
+// ---------- rondes: alles opnieuw oefenen zonder bladwijzers en moeite-telling kwijt te raken ----------
+const roundsOf = c => (S.rounds && S.rounds[c.id]) || [];
+function roundBox(c, all) {
+  const rs = roundsOf(c), done = all.good + all.bad;
+  const date = t => new Date(t).toLocaleDateString('nl-NL', {day: 'numeric', month: 'short'});
+  return h('div', {class: 'rounds'},
+    rs.length ? h('div', {class: 'small muted'}, 'Vorige rondes: ' + rs.map((r, i) => `ronde ${i + 1}: ${pct(r.good, r.n)} goed (${date(r.t)})`).join(' · ')) : null,
+    h('button', {class: 'btn', disabled: !done, onclick: () => newRound(c)}, 'Nieuwe ronde starten'));
+}
+function newRound(c) {
+  const cc = counts(c.items);
+  if (!confirm(`Nieuwe ronde voor ${c.title.toLowerCase()}? Alle ${cc.n} vragen staan dan weer open en je begint bij vraag 1. Je score van deze ronde (${pct(cc.good, cc.n)} goed) wordt bewaard, net als je bladwijzers en hoe vaak je een vraag onjuist had.`)) return;
+  S.rounds = S.rounds || {}; (S.rounds[c.id] = S.rounds[c.id] || []).push({good: cc.good, bad: cc.bad, n: cc.n, t: Date.now()});
+  c.items.forEach(it => delete S.book[it.code]);
+  S.pos[c.id] = 0; queue = null; save(); go(`#/${c.id}/oefenen`);
 }
 
 // ---------- oefenen: vraag voor vraag ----------
