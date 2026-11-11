@@ -1,0 +1,1225 @@
+/*
+ * style.css – de vormgeving van de hele site.
+ *
+ * Inhoud
+ *    1. Kleuren en maten (variabelen)
+ *    2. Basis
+ *    3. Kop en navigatie
+ *    4. Pagina en kaarten
+ *    5. Knoppen en uitslag
+ *    6. Voortgang: cijfers, balken en tegels
+ *    7. Voortgang: lijst per onderwerp
+ *    8. Keuzes bij Review en Nieuwe ronde
+ *    9. Oefenen: regel boven de vraag
+ *   10. Vraagsoort: kaartje
+ *   11. Vraagsoort: rijtje met een ontbrekend vakje
+ *   12. Vraagsoort: invullen en IPA typen
+ *   13. Vraagsoort: meerkeuze
+ *   14. Vraagsoort: klikken op een lijn
+ *   15. Vraagsoort: slepen
+ *   16. Smalle schermen
+ *
+ * Afspraken
+ *   - Kleuren en afstanden staan als variabelen in deel 1. Verderop gebruik je ze met var(--naam).
+ *   - De site volgt de systeeminstelling voor licht of donker (zie deel 1).
+ *   - De volgorde van de regels doet ertoe: bij gelijke kracht wint de regel die het laatst staat.
+ *     Waar dat belangrijk is, staat het erbij.
+ */
+
+/* ==========================================================================
+   1. Kleuren en maten (variabelen)
+   ========================================================================== */
+
+:root {
+  /* Achtergrond van de pagina, vlakken (kaarten), tekst, grijze tekst en lijnen */
+  --bg: #f4f5f7;
+  --panel: #ffffff;
+  --ink: #1d2330;
+  --muted: #5f6878;
+  --line: #dfe3ea;
+
+  /* Accentkleur (knoppen en links), de tekst daarop, en de rand om het onderdeel met de focus */
+  --accent: #1f5fbf;
+  --accent-ink: #ffffff;
+  --focus: #f2b705;
+
+  /* Goed, onjuist en bladwijzer: steeds een kleur voor tekst en rand, en een voor de achtergrond */
+  --good: #1f7a43;
+  --good-bg: #e5f4ea;
+  --bad: #b3261e;
+  --bad-bg: #fbe9e7;
+  --flag: #b25e00;
+  --flag-bg: #fff1dc;
+
+  /* Tegels op de pagina Overzicht: hoog, midden en laag percentage */
+  --hi: #2e8b57;
+  --mid: #e0a526;
+  --lo: #c8453b;
+
+  /* Sleepkaartjes en invulvakjes: in licht en donker gelijk */
+  --chip: #ffffff;
+  --chip-line: #9aa4b5;
+
+  /* Afstanden op een raster van 4px: --s1 is 4px, --s2 is 8px, enzovoort */
+  --s1: 4px;
+  --s2: 8px;
+  --s3: 12px;
+  --s4: 16px;
+  --s6: 24px;
+  --s8: 32px;
+  --s12: 48px;
+
+  /* Breedte van de pagina en de lettertypen voor IPA-tekens */
+  --page: 860px;
+  --ipa: 'Charis SIL', 'Doulos SIL', 'Noto Sans', 'DejaVu Sans', 'Segoe UI', sans-serif;
+}
+
+/* Donkere modus: dezelfde namen, andere kleuren. Wat hier niet staat, blijft zoals hierboven. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15181e;
+    --panel: #1e232b;
+    --ink: #e7eaf0;
+    --muted: #a3abb9;
+    --line: #323946;
+    --accent: #6ea2ff;
+    --accent-ink: #0d1420;
+    --good: #6fd49a;
+    --good-bg: #18301f;
+    --bad: #ff8a80;
+    --bad-bg: #3a1d1b;
+    --flag: #ffb357;
+    --flag-bg: #3a2a12;
+  }
+}
+
+/* ==========================================================================
+   2. Basis
+   ========================================================================== */
+
+/* Regels voor de hele pagina en een paar kleine hulpklassen. */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font:
+    16px/1.5 system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    Ubuntu,
+    sans-serif;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: var(--accent);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 13px;
+}
+
+.ipa {
+  font-family: var(--ipa);
+}
+
+.btn:focus-visible,
+.chip:focus-visible,
+.zone:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   3. Kop en navigatie
+   ========================================================================== */
+
+/* De vaste balk bovenaan: links de titel, rechts de tabbladen. */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: var(--s4);
+  height: 64px;
+  padding: 0 max(var(--s4), calc((100% - var(--page)) / 2));
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+}
+
+header h1 {
+  flex: 1;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 650;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#brand {
+  color: inherit;
+  text-decoration: none;
+}
+
+.tabs {
+  display: flex;
+  gap: var(--s1);
+  padding: var(--s1);
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.tabs a {
+  padding: var(--s2) var(--s3);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.tabs a.on {
+  background: var(--panel);
+  color: var(--ink);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  font-weight: 600;
+}
+
+.tabs a.back {
+  color: var(--accent);
+}
+
+/* ==========================================================================
+   4. Pagina en kaarten
+   ========================================================================== */
+
+/* Een "kaart" (.card) is een wit vlak met een rand. Bijna alles op de site staat in een kaart. */
+
+.wrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+main {
+  padding: var(--s8) var(--s4) var(--s12);
+}
+
+.page {
+  max-width: var(--page);
+  margin: 0 auto;
+}
+
+.card {
+  padding: var(--s6);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.card + .card,
+.grid + .card,
+.card + .grid {
+  margin-top: var(--s6);
+}
+
+.card h2 {
+  margin: 0 0 var(--s4);
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.card h2 p {
+  margin: 0;
+}
+
+.card h2 p + p {
+  margin-top: var(--s2);
+}
+
+.card h3 {
+  margin: 0 0 var(--s1);
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.card > p.muted {
+  margin: var(--s4) 0 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s6);
+  margin-top: var(--s6);
+}
+
+/* Moet na '.card + .card' staan: in het raster regelt 'gap' de afstand tussen de kaarten. */
+.grid .card {
+  margin: 0;
+}
+
+.grid .card.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.card.col .small {
+  margin-bottom: var(--s1);
+}
+
+.card.col > p.muted {
+  margin: var(--s1) 0 var(--s4);
+}
+
+.card.col .btns {
+  margin-top: auto;
+  padding-top: var(--s6);
+}
+
+/* ==========================================================================
+   5. Knoppen en uitslag
+   ========================================================================== */
+
+/* Knoppen (.btn), het vak met de uitslag na het nakijken (.feedback) en de verwijzing naar de dia (.ref). */
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2);
+  margin-top: var(--s6);
+}
+
+.btns.center {
+  justify-content: center;
+}
+
+.btns.end {
+  justify-content: flex-end;
+}
+
+.btns.between {
+  justify-content: space-between;
+}
+
+.btn {
+  min-height: 40px;
+  padding: var(--s2) var(--s4);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--ink);
+  line-height: 22px;
+}
+
+.btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
+.btn.good {
+  border-color: var(--good);
+  color: var(--good);
+}
+
+.btn.bad {
+  border-color: var(--bad);
+  color: var(--bad);
+}
+
+/* Een knop die uit staat is grijs. Moet na .primary, .good en .bad staan, anders houdt de knop zijn kleur. */
+.btn:disabled {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--muted);
+  font-weight: 400;
+  cursor: default;
+}
+
+/* Na 'Had ik goed' of 'Had ik fout' staan beide knoppen uit, maar je keuze houdt zijn kleur.
+   Moet na .btn:disabled staan. */
+.btn.good.chosen:disabled {
+  background: var(--good-bg);
+  border-color: var(--good);
+  color: var(--good);
+}
+
+.btn.bad.chosen:disabled {
+  background: var(--bad-bg);
+  border-color: var(--bad);
+  color: var(--bad);
+}
+
+.feedback {
+  display: none;
+  margin-top: var(--s4);
+  padding: var(--s3) var(--s4);
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.feedback.show {
+  display: block;
+}
+
+.feedback.good {
+  background: var(--good-bg);
+}
+
+.feedback.bad {
+  background: var(--bad-bg);
+}
+
+.feedback .score {
+  font-weight: 650;
+}
+
+.feedback .btns {
+  margin-top: 10px;
+}
+
+.ref {
+  margin-top: var(--s2);
+  color: var(--muted);
+  font-size: 15px;
+  font-style: italic;
+}
+
+.ovrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: var(--s3);
+}
+
+.hint {
+  margin: var(--s2) 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.figure {
+  margin: var(--s3) 0;
+  text-align: center;
+}
+
+.figure img {
+  max-width: 100%;
+  max-height: 60vh;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* ==========================================================================
+   6. Voortgang: cijfers, balken en tegels
+   ========================================================================== */
+
+/* Gebruikt op Home, Voortgang en Overzicht. */
+
+.stat {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin: 0 0 var(--s6);
+}
+
+.stat div {
+  min-width: 96px;
+  padding: var(--s3) var(--s4);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.stat b {
+  display: block;
+  color: var(--ink);
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.sbar {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.sbar .g {
+  background: var(--good);
+}
+
+.sbar .b {
+  background: var(--bad);
+}
+
+.legend {
+  display: flex;
+  gap: var(--s4);
+  margin: var(--s2) 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.legend span::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+  border-radius: 2px;
+  vertical-align: -1px;
+  background: var(--c);
+}
+
+.nums {
+  margin-top: var(--s2);
+  color: var(--muted);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.done {
+  margin-top: var(--s2);
+  color: var(--good);
+}
+
+.warn {
+  margin: var(--s4) 0 0;
+  padding: var(--s2) var(--s3);
+  border-radius: 8px;
+  background: var(--bad-bg);
+  color: var(--ink);
+}
+
+.rounds {
+  margin-top: var(--s4);
+  padding: var(--s3) var(--s4);
+  border-radius: 12px;
+  background: var(--bg);
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--s3);
+  margin-top: var(--s3);
+}
+
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--s1);
+  padding: var(--s3) var(--s4);
+  border: 0;
+  border-radius: 12px;
+  color: #fff;
+  text-align: left;
+  transition:
+    transform 0.1s,
+    box-shadow 0.1s;
+}
+
+.tile:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tile .big {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.tile .go {
+  position: absolute;
+  right: var(--s3);
+  bottom: var(--s3);
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.tile.hi {
+  background: var(--hi);
+}
+
+.tile.mid {
+  background: var(--mid);
+  color: #1d2330;
+}
+
+.tile.lo {
+  background: var(--lo);
+}
+
+.tile.todo {
+  border: 1px dashed var(--line);
+  background: var(--bg);
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   7. Voortgang: lijst per onderwerp
+   ========================================================================== */
+
+/* De uitklapbare onderwerpen op de pagina Voortgang, met de vragen eronder. */
+
+details.cat {
+  padding: var(--s2) 0;
+  border-top: 1px solid var(--line);
+}
+
+details.cat:first-of-type {
+  margin-top: var(--s6);
+}
+
+details.cat summary {
+  margin: 0 calc(-1 * var(--s2));
+  padding: var(--s2);
+  border-radius: 8px;
+  cursor: pointer;
+  list-style: none;
+}
+
+details.cat summary::-webkit-details-marker {
+  display: none;
+}
+
+details.cat summary:hover {
+  background: var(--bg);
+}
+
+details.cat summary:focus-visible {
+  outline: 3px solid var(--focus);
+}
+
+.chev {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 var(--s3) 0 var(--s1);
+  border-right: 2px solid var(--muted);
+  border-bottom: 2px solid var(--muted);
+  transform: rotate(-45deg);
+  vertical-align: 2px;
+  transition: transform 0.15s;
+}
+
+details.cat[open] .chev {
+  transform: rotate(45deg);
+  vertical-align: 4px;
+}
+
+.catrow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: var(--s2);
+}
+
+.catrow b {
+  font-size: 16px;
+}
+
+.catrow .nums {
+  margin-top: 0;
+}
+
+.grp {
+  margin: var(--s3) 0 0;
+}
+
+.grp h4 {
+  margin: var(--s3) 0 var(--s1);
+  font-size: 14px;
+}
+
+.grp ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 14px;
+}
+
+.grp li {
+  margin-bottom: var(--s2);
+}
+
+.grp li button {
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  text-align: left;
+  text-decoration: underline;
+}
+
+.qprev {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.qprev .ans {
+  color: var(--ink);
+}
+
+.fl {
+  color: var(--flag);
+}
+
+.times {
+  color: var(--bad);
+  font-size: 12px;
+}
+
+.revbox {
+  margin-top: var(--s6);
+}
+
+.revbox .btns {
+  margin-top: var(--s2);
+}
+
+/* ==========================================================================
+   8. Keuzes bij Review en Nieuwe ronde
+   ========================================================================== */
+
+/* De vakken met een vinkje of een keuzerondje. */
+
+.optgroup {
+  margin-top: var(--s6);
+}
+
+.opt {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s3);
+  margin-top: var(--s2);
+  padding: var(--s3) var(--s4);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.opt:has(input:checked) {
+  border-color: var(--accent);
+  background: var(--bg);
+}
+
+.opt input {
+  margin-top: 5px;
+}
+
+.opt span {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s1);
+}
+
+.opt span.cnt {
+  display: inline;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.revhead {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s3);
+  margin-bottom: var(--s3);
+}
+
+/* ==========================================================================
+   9. Oefenen: regel boven de vraag
+   ========================================================================== */
+
+/* Het voortgangsbalkje, het nummer van de vraag en de knop Bladwijzer. */
+
+.prog {
+  height: 4px;
+  margin: 0 0 var(--s4);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.prog i {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+.crumb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s2);
+  min-height: 32px;
+  margin-bottom: var(--s2);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.cr {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  white-space: nowrap;
+}
+
+.again {
+  color: var(--accent);
+}
+
+.flag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: none;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.flag .ic {
+  font-size: 14px;
+}
+
+.flag.on {
+  border-color: var(--flag);
+  background: var(--flag-bg);
+  color: var(--flag);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   10. Vraagsoort: kaartje
+   ========================================================================== */
+
+/* Voorkant, en na omdraaien ook de achterkant. */
+
+.flip {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.flip p {
+  margin: var(--s1) 0;
+}
+
+.flip .back {
+  margin-top: var(--s4);
+  padding-top: var(--s4);
+  border-top: 1px dashed var(--line);
+}
+
+/* ==========================================================================
+   11. Vraagsoort: rijtje met een ontbrekend vakje
+   ========================================================================== */
+
+/* Een rij vakjes waarvan er één verborgen is (cz = cloze). */
+
+.czbox {
+  margin: var(--s6) 0;
+  padding: var(--s6) var(--s4);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg);
+  text-align: center;
+}
+
+.czlabel {
+  margin-bottom: var(--s4);
+  color: var(--muted);
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.czrow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.czsep {
+  color: var(--muted);
+}
+
+.cz {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 120px;
+  padding: var(--s3) var(--s4);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.cz.gap {
+  border-style: dashed;
+  border-color: var(--accent);
+  background: transparent;
+  color: var(--accent);
+}
+
+.cz.gap.shown {
+  border-style: solid;
+  border-color: var(--good);
+  background: var(--good-bg);
+  color: var(--good);
+}
+
+/* ==========================================================================
+   12. Vraagsoort: invullen en IPA typen
+   ========================================================================== */
+
+/* Invulvelden in een zin, en het veld met toetsenbordje voor IPA-tekens. */
+
+.blankline {
+  font-size: 17px;
+  line-height: 2.2;
+}
+
+.blankline p {
+  margin: 0;
+}
+
+.blank {
+  width: 12em;
+  max-width: 100%;
+  padding: var(--s1) var(--s2);
+  border: 1px solid var(--chip-line);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+}
+
+.blank.good {
+  border-color: var(--good);
+  background: var(--good-bg);
+}
+
+.blank.bad {
+  border-color: var(--bad);
+  background: var(--bad-bg);
+}
+
+.sol {
+  margin-left: 6px;
+  color: var(--good);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.card h2.ipaq {
+  font-weight: 400;
+}
+
+.card h2.ipaq b {
+  font-weight: 800;
+}
+
+/* Moet na .blank staan: het IPA-vak is groter. */
+.ipain {
+  min-width: 7em;
+  font-family: var(--ipa);
+  font-size: 22px;
+  text-align: center;
+}
+
+.ipakeys {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: var(--s3);
+}
+
+.btn.ipakey {
+  min-width: 48px;
+  padding: var(--s1) 10px;
+  font-family: var(--ipa);
+  font-size: 22px;
+}
+
+/* ==========================================================================
+   13. Vraagsoort: meerkeuze
+   ========================================================================== */
+
+/* Elk antwoord is een vak dat je kunt aanklikken. */
+
+.mc label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s3);
+  margin: var(--s2) 0;
+  padding: var(--s3) var(--s4);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.mc label.good {
+  border-color: var(--good);
+  background: var(--good-bg);
+}
+
+.mc label.bad {
+  border-color: var(--bad);
+  background: var(--bad-bg);
+}
+
+/* ==========================================================================
+   14. Vraagsoort: klikken op een lijn
+   ========================================================================== */
+
+/* De tekening is een svg; je klik wordt een stip. */
+
+.clickwrap {
+  max-width: 520px;
+  padding: var(--s4);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+
+.clicksvg {
+  display: block;
+  width: 100%;
+  height: auto;
+  cursor: crosshair;
+}
+
+.clicksvg .seg {
+  stroke: #222;
+  stroke-width: 1.6;
+}
+
+.clicksvg .seg.target {
+  stroke: #1e8e3e;
+  stroke-width: 5;
+}
+
+.clicksvg .dot {
+  fill: #1a56c4;
+}
+
+.clicksvg .dot.good {
+  fill: #1e8e3e;
+}
+
+.clicksvg .dot.bad {
+  fill: #c5221f;
+}
+
+/* ==========================================================================
+   15. Vraagsoort: slepen
+   ========================================================================== */
+
+/* Kaartjes (.chip) sleep je naar vakken (.zone) op een plaatje (.dq).
+   De maten staan in em: zo schaalt alles mee met de breedte van het veld (zie drag.js). */
+
+.dqwrap {
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+.dq {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.dq img.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.zone {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  gap: 0.2em;
+  padding: 0.15em;
+  border-radius: 0.3em;
+}
+
+.zone.hover {
+  outline: 0.15em dashed var(--accent);
+  background: rgba(31, 95, 191, 0.08);
+}
+
+.zone.target {
+  outline: 0.12em dashed rgba(31, 95, 191, 0.55);
+}
+
+.chip {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.1em 0.25em;
+  border: 0.08em solid var(--chip-line);
+  border-radius: 0.3em;
+  background: var(--chip);
+  color: #1d2330;
+  box-shadow: 0 0.08em 0.2em rgba(0, 0, 0, 0.18);
+  font-size: 1em;
+  line-height: 1.1;
+  text-align: center;
+  hyphens: manual;
+  overflow-wrap: normal;
+  cursor: grab;
+  touch-action: none;
+}
+
+.chip p {
+  margin: 0;
+}
+
+.chip .ipa {
+  font-size: 1.5em;
+}
+
+.zone .chip {
+  position: static;
+}
+
+.viewonly .chip {
+  cursor: default;
+}
+
+.chip.drag {
+  z-index: 50;
+  box-shadow: 0 0.3em 0.8em rgba(0, 0, 0, 0.3);
+  cursor: grabbing;
+}
+
+.chip.sel {
+  outline: 0.15em solid var(--focus);
+}
+
+.chip.good {
+  border-color: #1f7a43;
+  background: #e5f4ea;
+}
+
+.chip.bad {
+  border-color: #b3261e;
+  background: #fbe9e7;
+}
+
+/* ==========================================================================
+   16. Smalle schermen
+   ========================================================================== */
+
+/* Aanpassingen voor tablets en telefoons.
+   Deze regels staan onderaan, zodat ze de regels hierboven vervangen. */
+
+@media (max-width: 820px) {
+  main {
+    padding: var(--s6) var(--s4) var(--s12);
+  }
+
+  .card {
+    padding: var(--s4);
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-wrap: wrap;
+    height: auto;
+    padding: var(--s2) var(--s4);
+    gap: var(--s2);
+  }
+
+  header h1 {
+    flex-basis: 100%;
+  }
+
+  .tabs {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .czsep {
+    display: none;
+  }
+
+  .czrow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cz {
+    min-width: 0;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  .flag .lbl {
+    display: none;
+  }
+}
