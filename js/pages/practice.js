@@ -37,7 +37,9 @@ function renderPractice(page, college) {
   function advance() {
     // Alleen vragen die nog steeds onjuist staan, blijven in de rij.
     const retries = (state.retry[college.id] || []).filter(
-      (retry) => state.book[retry.code] && status(byCode[retry.code]) === 'bad',
+      // byCode[...] ontbreekt als een vraag later van de site is gehaald; zo'n herhaling vervalt.
+      (retry) =>
+        byCode[retry.code] && state.book[retry.code] && status(byCode[retry.code]) === 'bad',
     );
     state.retry[college.id] = retries;
 
