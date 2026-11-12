@@ -5,8 +5,9 @@
  * Dat object wordt bewaard in localStorage (opslag van de browser, alleen op dit apparaat).
  *
  * Wat er in state staat:
- *   state.book[code]      je antwoord in de huidige oefenronde: { score, max, t, fixed }
- *                         t = het moment van antwoorden; fixed = eerst onjuist, later alsnog goed
+ *   state.book[code]      je antwoord in de huidige oefenronde: { score, max, t, fixed, given }
+ *                         t = het moment van antwoorden; fixed = eerst onjuist, later alsnog goed;
+ *                         given = wat je hebt ingevuld of gekozen (ontbreekt bij oudere antwoorden)
  *   state.hist[code]      { n, wrong }: aantal pogingen en aantal keer onjuist,
  *                         over alle rondes en Review samen
  *   state.flags[code]     staat er als de vraag een bladwijzer heeft

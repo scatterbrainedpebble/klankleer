@@ -106,9 +106,15 @@ function markFixed(item) {
   dropRetry(item.code);
 }
 
-/** Eerste poging bij Oefenen: dit is je antwoord in deze ronde. */
-function recordFirst(item, score, max) {
+/**
+ * Eerste poging bij Oefenen: dit is je antwoord in deze ronde.
+ * given = wat je hebt ingevuld of gekozen; dat wordt bewaard zodat je het later terugziet.
+ */
+function recordFirst(item, score, max, given = null) {
   state.book[item.code] = { score, max, t: Date.now() };
+  if (given != null) {
+    state.book[item.code].given = given;
+  }
   countAttempt(item, score === max);
   save();
 }

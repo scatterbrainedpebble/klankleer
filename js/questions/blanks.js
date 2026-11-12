@@ -14,7 +14,7 @@
 'use strict';
 
 /** Vult de kaart met een invulvraag. Wat er in 'parts' zit, staat in question.js. */
-function drawBlanks({ item, view, card, feedback, figure, finish }) {
+function drawBlanks({ item, view, given, card, feedback, figure, finish, remember }) {
   // Per invulveld de antwoorden die goed zijn. Het eerste is 'het' antwoord dat we laten zien.
   const answers = item.segs.filter((segment) => segment.blank).map((segment) => segment.blank);
 
@@ -45,6 +45,7 @@ function drawBlanks({ item, view, card, feedback, figure, finish }) {
       }
     });
     checkButton.hidden = true;
+    remember(fields.map((field) => field.value));
 
     const allCorrect = score === fields.length;
     const headline = allCorrect ? 'Goed!' : `${score} van ${fields.length} goed`;
@@ -56,12 +57,16 @@ function drawBlanks({ item, view, card, feedback, figure, finish }) {
   add(card, h('h2', { html: item.question }), figure, line);
 
   if (view) {
-    // Alleen bekijken: velden op slot, en bij 'solved' het antwoord erin.
+    // Alleen bekijken: velden op slot. Bij 'solved' het juiste antwoord erin,
+    // bij 'locked' wat je toen zelf had ingevuld (groen of rood), maar niet de oplossing.
     fields.forEach((field, index) => {
       field.disabled = true;
       if (view === 'solved') {
         field.value = answers[index][0];
         field.classList.add('good');
+      } else if (given && given[index] != null) {
+        field.value = given[index];
+        field.classList.add(blankOK(given[index], answers[index]) ? 'good' : 'bad');
       }
     });
     return;
