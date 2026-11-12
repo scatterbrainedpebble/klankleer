@@ -2064,7 +2064,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "drag",
-          "question": "Sleep elke passieve articulator naar het juiste vak.",
+          "question": "Passieve articulatoren zijn de plekken in het spraakkanaal waar een actieve articulator (bijvoorbeeld de tong) naartoe beweegt. Sleep elke passieve articulator naar het juiste vak.",
           "size": {
             "width": 1000,
             "height": 658.3
@@ -2542,7 +2542,7 @@ const DATA = {
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolom) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2691,7 +2691,7 @@ const DATA = {
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolom) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2826,7 +2826,7 @@ const DATA = {
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolom) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2964,7 +2964,7 @@ const DATA = {
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolom) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3323,7 +3323,7 @@ const DATA = {
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolom) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3537,7 +3537,7 @@ const DATA = {
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
-          "question": "<p>Welke wijze van articulatie (rij) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze rij?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3634,7 +3634,7 @@ const DATA = {
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolom) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3813,7 +3813,7 @@ const DATA = {
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
-          "question": "<p>Welke wijze van articulatie (rij) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze rij?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3896,7 +3896,7 @@ const DATA = {
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolom) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -4596,7 +4596,7 @@ const DATA = {
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
-          "question": "<p>Welke wijze van articulatie (rij) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze rij?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -4682,7 +4682,7 @@ const DATA = {
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolom) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -4851,7 +4851,7 @@ const DATA = {
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
-          "question": "<p>Welke wijze van articulatie (rij) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze rij?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -4937,7 +4937,7 @@ const DATA = {
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolom) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -5006,7 +5006,7 @@ const DATA = {
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
-          "question": "<p>Welke wijze van articulatie (rij) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze rij?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -5089,7 +5089,7 @@ const DATA = {
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolom) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -5195,7 +5195,7 @@ const DATA = {
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
-          "question": "<p>Welke wijze van articulatie (rij) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze rij?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -5250,7 +5250,7 @@ const DATA = {
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolom) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -5330,7 +5330,7 @@ const DATA = {
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
-          "question": "<p>Welke wijze van articulatie (rij) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze rij?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -5647,7 +5647,7 @@ const DATA = {
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
-          "question": "<p>Welke wijze van articulatie (rij) hoort op de plek van het rode vraagteken in de IPA-tabel?</p>",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze rij?</p>",
           "segs": [
             {
               "text": "<p>"
