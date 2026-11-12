@@ -7,6 +7,11 @@
  *   - tikken: eerst een kaartje, dan een vak;
  *   - toetsenbord: Tab naar een kaartje en Enter, dan Tab naar een vak en Enter (Esc annuleert).
  *
+ * Op een smal scherm (telefoon) past een breed plaatje niet. Dan werkt de vraag 'compact':
+ * het plaatje wordt zo smal als het scherm, de vakken krijgen alleen een nummer, en onder
+ * het plaatje staat een lijst met die nummers. De kaartjes staan daaronder; je tikt eerst
+ * een kaartje aan en dan een regel van de lijst (of het vak op het plaatje).
+ *
  * Velden in data.js:
  *   question  de vraag
  *   bg        het plaatje op de achtergrond
@@ -32,16 +37,27 @@ function drawDrag({ item, view, card, feedback, finish }) {
 
   /* ---------- het veld, de vakken en de kaartjes maken ---------- */
 
-  // Brede velden worden niet smaller dan 640px; op een smal scherm kun je dan opzij schuiven.
+  // Brede velden worden niet smaller dan 640px. Is het scherm daarvoor te smal (telefoon),
+  // dan gebruiken we de compacte vorm met een genummerde lijst (zie boven).
   const minWidth = fieldWidth >= 900 ? 640 : 0;
+  const compact = minWidth > 0 && document.documentElement.clientWidth < minWidth + 80;
   const field = h(
     'div',
     {
-      class: 'dq',
-      style: `aspect-ratio:${fieldWidth}/${fieldHeight};min-width:${minWidth}px`,
+      class: 'dq' + (compact ? ' compact' : ''),
+      style: `aspect-ratio:${fieldWidth}/${fieldHeight};min-width:${compact ? 0 : minWidth}px`,
     },
     h('img', { class: 'bg', src: item.bg, alt: '' }),
   );
+
+  // Nummers voor de vakken in leesvolgorde: van boven naar beneden, dan van links naar rechts.
+  const readingOrder = item.zones
+    .map((zone, zoneIndex) => zoneIndex)
+    .sort((a, b) => item.zones[a].y - item.zones[b].y || item.zones[a].x - item.zones[b].x);
+  const zoneNumber = [];
+  readingOrder.forEach((zoneIndex, rank) => {
+    zoneNumber[zoneIndex] = rank + 1;
+  });
 
   const zones = item.zones.map((zone, zoneIndex) => {
     const widthPercent = ((zone.w * UNITS_PER_EM) / fieldWidth) * 100;
@@ -50,11 +66,36 @@ function drawDrag({ item, view, card, feedback, finish }) {
       class: 'zone',
       'data-z': zoneIndex,
       role: 'button',
-      'aria-label': 'vak ' + (zoneIndex + 1),
+      'aria-label': 'vak ' + zoneNumber[zoneIndex],
       tabindex: -1,
       style: `left:${zone.x}%;top:${zone.y}%;width:${widthPercent}%;height:${heightPercent}%`,
+      html: compact ? `<span class="znum">${zoneNumber[zoneIndex]}</span>` : '',
     });
   });
+
+  // Alleen in de compacte vorm: de lijst met nummers en de voorraad kaartjes.
+  const slots = item.zones.map((zone, zoneIndex) =>
+    h('div', {
+      class: 'dqslot',
+      role: 'button',
+      tabindex: -1,
+      'aria-label': 'regel ' + zoneNumber[zoneIndex],
+      'data-z': zoneIndex,
+    }),
+  );
+  const list = h(
+    'ol',
+    { class: 'dqlist' },
+    readingOrder.map((zoneIndex) =>
+      h('li', {}, h('span', { class: 'dqnum' }, String(zoneNumber[zoneIndex])), slots[zoneIndex]),
+    ),
+  );
+  const pool = h('div', { class: 'dqpool' });
+
+  /** Waar de kaartjes van een vak in komen: het vak zelf, of in de compacte vorm de regel van de lijst. */
+  function holderOf(zoneIndex) {
+    return compact ? slots[zoneIndex] : zones[zoneIndex];
+  }
 
   // De startplekken husselen, zodat de volgorde niets verraadt. Kaartjes wisselen alleen
   // met kaartjes van dezelfde grootte, en nooit blijft alles op zijn oorspronkelijke plek.
@@ -92,14 +133,26 @@ function drawDrag({ item, view, card, feedback, finish }) {
       role: 'button',
       html: el.text,
       'data-e': chipIndex,
-      style: `left:${spot.x}%;top:${spot.y}%;width:${el.w}em;height:${el.h}em`,
+      style: compact ? '' : `left:${spot.x}%;top:${spot.y}%;width:${el.w}em;height:${el.h}em`,
     });
   });
 
   // De stijl van elk kaartje op zijn startplek, om het later terug te kunnen leggen.
   const homeStyles = chips.map((chip) => chip.getAttribute('style'));
 
-  add(field, zones, chips);
+  if (compact) {
+    // In de voorraad staan de kaartjes in de gehusselde volgorde van hun startplekken.
+    const poolOrder = chips
+      .map((chip, chipIndex) => chipIndex)
+      .sort((a, b) => spots[a].y - spots[b].y || spots[a].x - spots[b].x);
+    add(field, zones);
+    add(
+      pool,
+      poolOrder.map((chipIndex) => chips[chipIndex]),
+    );
+  } else {
+    add(field, zones, chips);
+  }
 
   /** Past de lettergrootte aan de breedte van het veld aan: 1 em = 16 eenheden van het veld. */
   function fit() {
@@ -121,7 +174,7 @@ function drawDrag({ item, view, card, feedback, finish }) {
   /** Legt een kaartje terug op zijn startplek. */
   function sendHome(chip) {
     const chipIndex = chipIndexOf(chip);
-    field.append(chip);
+    (compact ? pool : field).append(chip);
     chip.setAttribute('style', homeStyles[chipIndex]);
     zoneOfChip.delete(chipIndex);
   }
@@ -130,15 +183,15 @@ function drawDrag({ item, view, card, feedback, finish }) {
   function place(chip, zoneIndex) {
     const chipIndex = chipIndexOf(chip);
     if (item.zones[zoneIndex].single) {
-      for (const other of [...zones[zoneIndex].children]) {
+      for (const other of [...holderOf(zoneIndex).querySelectorAll('.chip')]) {
         if (other !== chip) {
           sendHome(other);
         }
       }
     }
-    zones[zoneIndex].append(chip);
+    holderOf(zoneIndex).append(chip);
     const el = item.els[chipIndex];
-    chip.setAttribute('style', `width:${el.w}em;height:${el.h}em`);
+    chip.setAttribute('style', compact ? '' : `width:${el.w}em;height:${el.h}em`);
     zoneOfChip.set(chipIndex, zoneIndex);
   }
 
@@ -163,7 +216,11 @@ function drawDrag({ item, view, card, feedback, finish }) {
     }
     for (const zone of zones) {
       zone.classList.toggle('target', Boolean(chip));
-      zone.tabIndex = chip ? 0 : -1;
+      zone.tabIndex = chip && !compact ? 0 : -1;
+    }
+    for (const slot of slots) {
+      slot.classList.toggle('target', Boolean(chip));
+      slot.tabIndex = chip && compact ? 0 : -1;
     }
   }
 
@@ -180,8 +237,8 @@ function drawDrag({ item, view, card, feedback, finish }) {
     let grip = null; // op welke plek binnen het kaartje je het vasthebt
 
     function onMove(event) {
-      if (!start || locked) {
-        return;
+      if (!start || locked || compact) {
+        return; // in de compacte vorm wordt er niet gesleept, alleen getikt
       }
       const distance = Math.hypot(event.clientX - start.x, event.clientY - start.y);
       if (!moved && distance < DRAG_THRESHOLD) {
@@ -254,7 +311,7 @@ function drawDrag({ item, view, card, feedback, finish }) {
         event.preventDefault();
         select(selected === chip ? null : chip);
         if (selected) {
-          zones[0].focus();
+          holderOf(readingOrder[0]).focus();
         }
       }
       if (event.key === 'Escape') {
@@ -266,9 +323,10 @@ function drawDrag({ item, view, card, feedback, finish }) {
 
   /* ---------- vakken: een gekozen kaartje erin leggen ---------- */
 
-  zones.forEach((zone, zoneIndex) => {
+  [...zones, ...slots].forEach((zone) => {
+    const zoneIndex = Number(zone.dataset.z);
     zone.addEventListener('click', (event) => {
-      if (selected && !locked && event.target === zone) {
+      if (selected && !locked && !event.target.closest('.chip')) {
         place(selected, zoneIndex);
         select(null);
       }
@@ -291,16 +349,19 @@ function drawDrag({ item, view, card, feedback, finish }) {
   });
 
   // Een klik naast de vakken: een gekozen kaartje dat al in een vak lag, gaat terug naar de voorraad.
-  field.addEventListener('click', (event) => {
-    const clickedBackground = event.target === field || event.target.classList.contains('bg');
-    if (!clickedBackground) {
-      return;
-    }
-    if (selected && zoneOfChip.has(chipIndexOf(selected))) {
-      sendHome(selected);
-    }
-    select(null);
-  });
+  [field, pool].forEach((area) =>
+    area.addEventListener('click', (event) => {
+      const clickedBackground =
+        event.target === field || event.target === pool || event.target.classList.contains('bg');
+      if (!clickedBackground) {
+        return;
+      }
+      if (selected && zoneOfChip.has(chipIndexOf(selected))) {
+        sendHome(selected);
+      }
+      select(null);
+    }),
+  );
 
   /* ---------- nakijken en de oplossing tonen ---------- */
 
@@ -345,7 +406,17 @@ function drawDrag({ item, view, card, feedback, finish }) {
     solveButton.hidden = true;
   }
 
-  add(card, h('h2', { html: item.question }), h('div', { class: 'dqwrap' }, field));
+  const compactHint =
+    'Op een telefoon tik je in plaats van te slepen: eerst een woord, dan een nummer in de lijst onder het plaatje.';
+  add(card, h('h2', { html: item.question }));
+  if (compact && !view) {
+    // Op de telefoon staat de uitleg meteen onder de vraag, nog boven het plaatje.
+    add(card, h('p', { class: 'hint' }, compactHint));
+  }
+  add(card, h('div', { class: 'dqwrap' }, field));
+  if (compact) {
+    add(card, list, pool);
+  }
 
   if (view) {
     // Alleen bekijken: alles op slot, en bij 'solved' de oplossing erin.
@@ -360,7 +431,7 @@ function drawDrag({ item, view, card, feedback, finish }) {
     'Sleep de woorden naar de vakken. Op een telefoon kun je ook eerst een woord en dan een vak aantikken. Met het toetsenbord: Tab naar een woord en Enter, daarna met Tab naar het juiste vak en Enter.';
   add(
     card,
-    h('p', { class: 'hint' }, item.hint || defaultHint),
+    compact ? null : h('p', { class: 'hint' }, item.hint || defaultHint),
     h('div', { class: 'btns' }, checkButton, solveButton),
     feedback,
   );
