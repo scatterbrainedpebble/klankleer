@@ -220,7 +220,7 @@ function answeredCard(item) {
       { class: 'feedback show ' + (correct ? 'good' : 'bad') },
       h('div', { class: 'score' }, headline),
       h('div', {}, explanation),
-      item.ref ? h('div', { class: 'ref' }, item.ref) : null,
+      refLine(item),
     ),
   );
 }
