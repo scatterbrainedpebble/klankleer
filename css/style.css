@@ -1231,7 +1231,7 @@ details.cat[open] .chev {
   padding: 0 0.3em;
   border-radius: 0.8em;
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-ink);
   font-size: max(1em, 12px);
   font-weight: 700;
   line-height: 1;
@@ -1263,7 +1263,7 @@ details.cat[open] .chev {
   width: 2em;
   border-radius: 6px;
   background: var(--accent);
-  color: #fff;
+  color: var(--accent-ink);
   font-weight: 700;
 }
 
