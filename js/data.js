@@ -12,6 +12,7 @@
  *   cat    het onderwerp, voor de pagina's Voortgang en Overzicht
  *   type   de soort vraag: card, blanks, mc, click, ipa of drag
  *   ref    de verwijzing naar de dia ("Zie: week 1, college 1, dia 14")
+ *   theory een stukje theorie (HTML) dat na het antwoorden boven de verwijzing verschijnt
  * De overige velden verschillen per soort; ze staan uitgelegd bovenaan het bestand
  * van die soort in de map js/questions/.
  */
@@ -93,7 +94,8 @@ const DATA = {
               "label": "spraakperceptie"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 14"
+          "ref": "Zie: week 1, college 1, dia 14",
+          "theory": "<p>Dit zijn de deelgebieden van de spraakketen tussen spreker en luisteraar. Het vak Klankleer 1 richt zich met name op het articulatorische deel.</p>"
         },
         {
           "code": "KLC1D19V1",
@@ -112,7 +114,8 @@ const DATA = {
               "correct": true
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 19"
+          "ref": "Zie: week 1, college 1, dia 19",
+          "theory": "<p>Fonetiek is het instrument om de klanken van een taal te beschrijven, wat helpt met het begrijpen van het klanksysteem.</p>"
         },
         {
           "code": "KLC1D18V1",
@@ -137,7 +140,8 @@ const DATA = {
           "correct": "klanksystemen",
           "ref": "Zie: week 1, college 1, dia 18",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Fonologie vraagt: wat is het klanksysteem van een taal, welke functie heeft een klank, en met welke andere klanken kan hij voorkomen?</p>"
         },
         {
           "code": "KLC1D14V2",
@@ -162,7 +166,8 @@ const DATA = {
           "correct": "articulatorisch",
           "ref": "Zie: week 1, college 1, dia 14",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Articulatorische fonetiek gaat over hoe je klanken maakt met je spraakorganen.</p>"
         },
         {
           "code": "KLC1D13V1",
@@ -174,7 +179,8 @@ const DATA = {
           "back": "<p>spraakproductie, spraakgeluid, spraakperceptie</p>",
           "ref": "Zie: week 1, college 1, dia 13",
           "image": "images/image-2bIuHTAJ.webp",
-          "alt": "Schema spraakketen, dia 13, met de drie onderdelen van de fonetiek afgedekt"
+          "alt": "Schema spraakketen, dia 13, met de drie onderdelen van de fonetiek afgedekt",
+          "theory": "<p>De fonetiek bestudeert de hele spraakketen tussen spreker en luisteraar: het maken van spraak, het geluid zelf en het waarnemen ervan.</p>"
         },
         {
           "code": "KLC1D31V1",
@@ -246,7 +252,8 @@ const DATA = {
               "label": "supraglottale component"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 30–31"
+          "ref": "Zie: week 1, college 1, dia 30–31",
+          "theory": "<p>Voor spraak heb je een energiebron, een geluidsbron en een filter nodig. Met deze drie componenten kun je de articulatorische eigenschappen van klanken classificeren.</p>"
         },
         {
           "code": "KLC1D15V1",
@@ -258,7 +265,8 @@ const DATA = {
           "back": "<p>Spraak is de productie van individuele klanken.</p><p>Taal is het gebruik van spraak om te communiceren. </p>",
           "ref": "Zie: week 1, college 1, dia 15",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Bij spraak vraag je: hoe maken we klanken met onze longen en ons spraakkanaal?</p><p>Bij taal vraag je: hoe communiceren we daarmee, en wat betekent een woord?</p>"
         },
         {
           "code": "KLC1D20V1",
@@ -270,7 +278,8 @@ const DATA = {
           "back": "<p>Beide. </p><p><strong>Fonetisch</strong>: de r en de l klinken anders.</p><p><strong>Fonologisch</strong>: het klankverschil zorgt ook voor verschil in betekenis.</p>",
           "ref": "Zie: week 1, college 1, dia 20",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Fonetiek gaat over de productie van klanken, fonologie over hun functie: welke klanken maken betekenisonderscheid. Rood en lood zijn twee verschillende woorden, dus r en l zijn ook fonologisch verschillend.</p>"
         },
         {
           "code": "KLC1D18V2",
@@ -295,7 +304,8 @@ const DATA = {
           "correct": "fonologie",
           "ref": "Zie: week 1, college 1, dia 18",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Fonologie gaat over het systeem en de functie van klanken. Fonetiek gaat over de klanken zelf: productie, geluid en perceptie.</p>"
         },
         {
           "code": "KLC1D30V4",
@@ -320,7 +330,8 @@ const DATA = {
           "correct": "volume",
           "ref": "Zie: week 1, college 1, dia 30",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Energiebron geeft volume, geluidsbron geeft toonhoogte, filter geeft timbre. Meer lucht en spierspanning geeft een luidere klank.</p>"
         },
         {
           "code": "KLC1D24V1",
@@ -348,7 +359,8 @@ const DATA = {
           "correct": "supraglottale systeem",
           "ref": "Zie: week 1, college 1, dia 24",
           "image": "images/KLC1D24.webp",
-          "alt": "Doorsnede van het hoofd met drie gemarkeerde gebieden A, B en C"
+          "alt": "Doorsnede van het hoofd met drie gemarkeerde gebieden A, B en C",
+          "theory": "<p>Supra betekent boven: dit is alles boven de glottis, dus de mond-keelholte en de neusholte. Het werkt als filter van spraak.</p>"
         },
         {
           "code": "KLC1D24V4",
@@ -376,7 +388,8 @@ const DATA = {
           "correct": "power-source-filter model",
           "ref": "Zie: week 1, college 1, dia 24",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Power is de energiebron (subglottaal), source de geluidsbron (glottaal) en filter het spraakkanaal (supraglottaal). Dia 30 noemt het ook de bron-filtertheorie.</p>"
         },
         {
           "code": "KLC1D30V1",
@@ -384,11 +397,12 @@ const DATA = {
           "title": "Systemen – functie",
           "cat": "Systemen",
           "type": "card",
-          "front": "<p>Welke functie heeft het subglottale systeem?</p>",
+          "front": "<p>Wat doet het subglottale systeem?</p>",
           "back": "<p>Spierspanning, luchtaanvoer van de longen</p>",
           "ref": "Zie: week 1, college 1, dia 30",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Het subglottale systeem is de energiebron. Het effect dat je ervan hoort is volume.</p>"
         },
         {
           "code": "KLC1D25V1",
@@ -400,7 +414,8 @@ const DATA = {
           "back": "<p>Longen (en bijbehorende spieren), trachea (luchtpijp), luchtwegen onder de larynx</p>",
           "ref": "Zie: week 1, college 1, dia 25",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Het subglottale systeem is alles onder de glottis. Het levert de lucht en is daarmee de energiebron van spraak.</p>"
         },
         {
           "code": "KLC1D27V19",
@@ -652,7 +667,8 @@ const DATA = {
               "label": "slokdarm (esophagus)"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 27"
+          "ref": "Zie: week 1, college 1, dia 27",
+          "theory": "<p>Van boven naar beneden: neusholte, mondholte en keelholte (supraglottaal), dan strottenhoofd met de stemspleet (glottaal), dan de luchtpijp (subglottaal).</p>"
         },
         {
           "code": "KLC1D14V3",
@@ -677,7 +693,8 @@ const DATA = {
           "correct": "akoestisch",
           "ref": "Zie: week 1, college 1, dia 14",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Akoestische fonetiek gaat over het spraakgeluid zelf: de geluidsgolven tussen spreker en luisteraar.</p>"
         },
         {
           "code": "KLC1D20V2",
@@ -689,7 +706,8 @@ const DATA = {
           "back": "<p>Alleen fonetisch. </p><p>De [ʀ] en de [r] klinken anders, maar het blijft hetzelfde woord (rood).</p><p>Het verschil maakt in het Nederlands geen betekenisonderscheid.</p>",
           "ref": "Zie: week 1, college 1, dia 20",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>[ʀ] is de huig-r en [r] de tongpunt-r: twee manieren om dezelfde r te maken. Fonologie is taalspecifiek: in het Nederlands maakt geen ander woord.</p>"
         },
         {
           "code": "KLC1D27V20",
@@ -797,7 +815,8 @@ const DATA = {
               "label": "tongbeen"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 27"
+          "ref": "Zie: week 1, college 1, dia 27",
+          "theory": "<p>Van voor naar achter: tongpunt, tongblad, tongrug, tongwortel. Het tongbeen zit eronder. Deze namen komen terug bij de plaatsen van articulatie.</p>"
         },
         {
           "code": "KLC1D30V5",
@@ -822,7 +841,8 @@ const DATA = {
           "correct": "toonhoogte",
           "ref": "Zie: week 1, college 1, dia 30",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Energiebron geeft volume, geluidsbron geeft toonhoogte, filter geeft timbre. Sneller trillende stembanden geven een hogere toon.</p>"
         },
         {
           "code": "KLC1D24V2",
@@ -850,7 +870,8 @@ const DATA = {
           "correct": "glottale systeem",
           "ref": "Zie: week 1, college 1, dia 24",
           "image": "images/KLC1D24.webp",
-          "alt": "Doorsnede van het hoofd met drie gemarkeerde gebieden A, B en C"
+          "alt": "Doorsnede van het hoofd met drie gemarkeerde gebieden A, B en C",
+          "theory": "<p>Dit is het gebied rond de glottis: het strottenhoofd met de stembanden. Het is de geluidsbron van spraak.</p>"
         },
         {
           "code": "KLC1D28V10",
@@ -1030,7 +1051,8 @@ const DATA = {
               "label": "stemplooien"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 28"
+          "ref": "Zie: week 1, college 1, dia 28",
+          "theory": "<p>Het spraakkanaal loopt van de stemplooien tot de lippen. Het is het filter van spraak: hier krijgt het geluid zijn klankkleur (dia 30).</p>"
         },
         {
           "code": "KLC1D30V2",
@@ -1038,11 +1060,12 @@ const DATA = {
           "title": "Systemen – functie",
           "cat": "Systemen",
           "type": "card",
-          "front": "<p>Welke functie heeft het glottale systeem?</p>",
+          "front": "<p>Wat doet het glottale systeem?</p>",
           "back": "<p>Beweging van de stembanden (vocal fold vibration)</p>",
           "ref": "Zie: week 1, college 1, dia 30",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Het glottale systeem is de geluidsbron. Het effect dat je ervan hoort is toonhoogte.</p>"
         },
         {
           "code": "KLC1D29V2",
@@ -1054,7 +1077,8 @@ const DATA = {
           "back": "<p>Strottenhoofd, glottis (= opening tussen de stembanden), stembanden</p>",
           "ref": "Zie: week 1, college 1, dia 29",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Het glottale systeem zit tussen de luchtpijp en de keelholte. Hier ontstaat het geluid: het is de geluidsbron van spraak.</p>"
         },
         {
           "code": "KLC1D14V4",
@@ -1079,7 +1103,8 @@ const DATA = {
           "correct": "perceptief",
           "ref": "Zie: week 1, college 1, dia 14",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Perceptieve fonetiek gaat over hoe de luisteraar spraakklanken waarneemt.</p>"
         },
         {
           "code": "KLC1D30V6",
@@ -1106,7 +1131,8 @@ const DATA = {
           "correct": "timbre of klankkleur",
           "ref": "Zie: week 1, college 1, dia 30",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Energiebron geeft volume, geluidsbron geeft toonhoogte, filter geeft timbre. De vorm van mond-, keel- en neusholte bepaalt welke klank je hoort.</p>"
         },
         {
           "code": "KLC1D27V1",
@@ -1131,7 +1157,8 @@ const DATA = {
           "correct": "neusholte",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M",
+          "theory": "<p>De holte boven het gehemelte. Bij nasalen zoals [m] en [n] ontsnapt de lucht hierlangs. Hoort bij het supraglottale systeem.</p>"
         },
         {
           "code": "KLC1D27V14",
@@ -1156,7 +1183,8 @@ const DATA = {
           "correct": "tongrug",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27b.webp",
-          "alt": "Doorsnede van de tong, labels vervangen door letters A tot en met E"
+          "alt": "Doorsnede van de tong, labels vervangen door letters A tot en met E",
+          "theory": "<p>Het bovenste, achterste deel van de tong. Hiermee maak je onder andere velaire klanken: de tongrug tegen het zachte gehemelte.</p>"
         },
         {
           "code": "KLC1D28V6",
@@ -1181,7 +1209,8 @@ const DATA = {
           "correct": "faryngale wand",
           "ref": "Zie: week 1, college 1, dia 28",
           "image": "images/KLC1D28.webp",
-          "alt": "Doorsnede van het spraakkanaal, labels vervangen door letters A tot en met I"
+          "alt": "Doorsnede van het spraakkanaal, labels vervangen door letters A tot en met I",
+          "theory": "<p>De achterwand van de keelholte (farynx). Faryngale klanken worden gemaakt door de tongwortel hier dichtbij te brengen.</p>"
         },
         {
           "code": "KLC1D27V22",
@@ -1207,7 +1236,8 @@ const DATA = {
           "correct": "alveolen",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Van alveolen komt alveolair, de naam van de plaats van articulatie bij de tandkassen.</p>"
         },
         {
           "code": "KLC1D24V3",
@@ -1235,7 +1265,8 @@ const DATA = {
           "correct": "subglottale systeem",
           "ref": "Zie: week 1, college 1, dia 24",
           "image": "images/KLC1D24.webp",
-          "alt": "Doorsnede van het hoofd met drie gemarkeerde gebieden A, B en C"
+          "alt": "Doorsnede van het hoofd met drie gemarkeerde gebieden A, B en C",
+          "theory": "<p>Sub betekent onder: dit is alles onder de glottis, dus de longen en de luchtpijp. Het is de energiebron van spraak.</p>"
         },
         {
           "code": "KLC1D30V3",
@@ -1243,11 +1274,12 @@ const DATA = {
           "title": "Systemen – functie",
           "cat": "Systemen",
           "type": "card",
-          "front": "<p>Welke functie heeft het supraglottale systeem?</p>",
+          "front": "<p>Wat doet het supraglottale systeem?</p>",
           "back": "<p>Resonantie in de spraakbuis (het spraakkanaal)</p>",
           "ref": "Zie: week 1, college 1, dia 30",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Het supraglottale systeem is het filter. Het effect dat je ervan hoort is timbre of klankkleur.</p>"
         },
         {
           "code": "KLC1D26V1",
@@ -1259,7 +1291,8 @@ const DATA = {
           "back": "<p>De mond-keelholte en de neusholte (ook wel: spraakkanaal of spraakbuis)</p>",
           "ref": "Zie: week 1, college 1, dia 26",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Het supraglottale systeem is alles boven de glottis. Het geluid van de stembanden krijgt hier zijn vorm: het is het filter van spraak.</p>"
         },
         {
           "code": "KLC1D27V2",
@@ -1284,7 +1317,8 @@ const DATA = {
           "correct": "mondholte",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M",
+          "theory": "<p>De ruimte tussen de lippen en de keelholte. Hier worden de meeste vernauwingen voor consonanten gemaakt. Hoort bij het supraglottale systeem.</p>"
         },
         {
           "code": "KLC1D27V15",
@@ -1309,7 +1343,8 @@ const DATA = {
           "correct": "tongblad",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27b.webp",
-          "alt": "Doorsnede van de tong, labels vervangen door letters A tot en met E"
+          "alt": "Doorsnede van de tong, labels vervangen door letters A tot en met E",
+          "theory": "<p>Het deel net achter de tongpunt. Hiermee maak je onder andere alveolaire en postalveolaire klanken.</p>"
         },
         {
           "code": "KLC1D28V9",
@@ -1334,7 +1369,8 @@ const DATA = {
           "correct": "stemplooien",
           "ref": "Zie: week 1, college 1, dia 28",
           "image": "images/KLC1D28.webp",
-          "alt": "Doorsnede van het spraakkanaal, labels vervangen door letters A tot en met I"
+          "alt": "Doorsnede van het spraakkanaal, labels vervangen door letters A tot en met I",
+          "theory": "<p>Stemplooien is een ander woord voor stembanden. Als ze trillen is een klank stemhebbend (dia 43). De opening ertussen is de glottis.</p>"
         },
         {
           "code": "KLC1D27V26",
@@ -1359,7 +1395,8 @@ const DATA = {
           "correct": "larynx",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Van larynx komen laryngaal en supralaryngaal (dia 66). In het strottenhoofd zitten de stembanden.</p>"
         },
         {
           "code": "KLC1D27V3",
@@ -1385,7 +1422,8 @@ const DATA = {
           "correct": "hard gehemelte (palatum)",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M",
+          "theory": "<p>Het harde, voorste deel van het gehemelte. Klanken die hier gemaakt worden heten palataal, zoals [j].</p>"
         },
         {
           "code": "KLC1D27V16",
@@ -1410,7 +1448,8 @@ const DATA = {
           "correct": "tongpunt",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27b.webp",
-          "alt": "Doorsnede van de tong, labels vervangen door letters A tot en met E"
+          "alt": "Doorsnede van de tong, labels vervangen door letters A tot en met E",
+          "theory": "<p>Het uiterste puntje van de tong. Hiermee maak je onder andere dentale en alveolaire klanken, zoals de tongpunt-r [r].</p>"
         },
         {
           "code": "KLC1D27V23",
@@ -1435,7 +1474,8 @@ const DATA = {
           "correct": "velum",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Van velum komt velair, de naam van de plaats van articulatie bij het zachte gehemelte.</p>"
         },
         {
           "code": "KLC1D32V1",
@@ -1489,7 +1529,8 @@ const DATA = {
               "label": "lucht van buiten naar binnen"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 32"
+          "ref": "Zie: week 1, college 1, dia 32",
+          "theory": "<p>De meeste talen gebruiken alleen egressieve klanken. Ingressief zijn bijvoorbeeld Frans 'ouais' en Noors 'ja'. Ook het Nederlandse 'ja' kan ingressief gebruikt worden.</p>"
         },
         {
           "code": "KLC1D27V4",
@@ -1515,7 +1556,8 @@ const DATA = {
           "correct": "tandkassen (alveolen)",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M",
+          "theory": "<p>De rand vlak achter de boventanden. Klanken die hier gemaakt worden heten alveolair, zoals [t], [d], [n] en [s].</p>"
         },
         {
           "code": "KLC1D27V17",
@@ -1540,7 +1582,8 @@ const DATA = {
           "correct": "tongwortel",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27b.webp",
-          "alt": "Doorsnede van de tong, labels vervangen door letters A tot en met E"
+          "alt": "Doorsnede van de tong, labels vervangen door letters A tot en met E",
+          "theory": "<p>Het achterste deel van de tong, onder in de keelholte, tegenover de faryngale wand. Bij faryngale klanken gaat de tong naar achteren en omlaag.</p>"
         },
         {
           "code": "KLC1D35V1",
@@ -1612,7 +1655,8 @@ const DATA = {
               "label": "tong"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 35"
+          "ref": "Zie: week 1, college 1, dia 35",
+          "theory": "<p>De meeste spraakklanken zijn pulmonisch: de lucht wordt gestuurd door de longen. Bij sommige klanken stuurt de larynx (glottis) of de tong de lucht.</p>"
         },
         {
           "code": "KLC1D27V28",
@@ -1637,7 +1681,8 @@ const DATA = {
           "correct": "trachea",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>De trachea hoort bij het subglottale systeem (dia 25).</p>"
         },
         {
           "code": "KLC1D27V5",
@@ -1663,7 +1708,8 @@ const DATA = {
           "correct": "zacht gehemelte (velum)",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M",
+          "theory": "<p>Het zachte, achterste deel van het gehemelte. Klanken die hier gemaakt worden heten velair, zoals [k] en [ŋ].</p>"
         },
         {
           "code": "KLC1D36V1",
@@ -1717,7 +1763,8 @@ const DATA = {
               "label": "lingual"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 36"
+          "ref": "Zie: week 1, college 1, dia 36",
+          "theory": "<p>Bij ejectives, zoals [pʼ], stuurt de larynx de lucht. Bij clicks, zoals [ʘ], doet de tong dat. Klikklanken komen voor in het Xhosa en zijn ingressief.</p>"
         },
         {
           "code": "KLC1D27V18",
@@ -1742,7 +1789,8 @@ const DATA = {
           "correct": "tongbeen",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27b.webp",
-          "alt": "Doorsnede van de tong, labels vervangen door letters A tot en met E"
+          "alt": "Doorsnede van de tong, labels vervangen door letters A tot en met E",
+          "theory": "<p>Het botje onder de tongwortel waar de tong aan vastzit. Het is zelf geen articulator.</p>"
         },
         {
           "code": "KLC1D27V21",
@@ -1767,7 +1815,8 @@ const DATA = {
           "correct": "palatum",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Van palatum komt palataal, de naam van de plaats van articulatie bij het harde gehemelte.</p>"
         },
         {
           "code": "KLC1D43V4",
@@ -1869,7 +1918,8 @@ const DATA = {
               "label": "stemloos"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 43"
+          "ref": "Zie: week 1, college 1, dia 43",
+          "theory": "<p>De klanken vormen paren die alleen in stem verschillen: [p] en [b], [t] en [d], [k] en [g], [s] en [z].</p>"
         },
         {
           "code": "KLC1D27V6",
@@ -1896,7 +1946,8 @@ const DATA = {
           "correct": "keelholte (pharynx)",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M",
+          "theory": "<p>De ruimte achter de mondholte, boven het strottenhoofd. Klanken die hier gemaakt worden heten faryngaal. Hoort bij het supraglottale systeem.</p>"
         },
         {
           "code": "KLC1D27V25",
@@ -1921,7 +1972,8 @@ const DATA = {
           "correct": "epiglottis",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Epi betekent op of boven: de epiglottis is het klepje boven de glottis.</p>"
         },
         {
           "code": "KLC1D43V2",
@@ -1948,7 +2000,8 @@ const DATA = {
           "correct": "stemhebbend",
           "ref": "Zie: week 1, college 1, dia 43",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Bij een stemhebbende klank trillen de stembanden, zoals bij [b], [d] en [g]. Je voelt dat met je vingers op je keel.</p>"
         },
         {
           "code": "KLC1D45V1",
@@ -1976,7 +2029,8 @@ const DATA = {
           "correct": "consonanten (medeklinkers)",
           "ref": "Zie: week 1, college 1, dia 45",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Het verschil met vocalen zit in de vernauwing: bij consonanten wordt de luchtstroom deels of helemaal onderbroken, bij vocalen niet.</p>"
         },
         {
           "code": "KLC1D43V1",
@@ -1988,7 +2042,8 @@ const DATA = {
           "back": "<p>Klanken kunnen gemaakt worden met (stemhebbend) of zonder (stemloos) trilling van de stembanden.</p>",
           "ref": "Zie: week 1, college 1, dia 43",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>De vraag is steeds: gebruik je je stembanden bij het maken van de klank? Voorbeelden van paren: [s] en [z], [p] en [b].</p>"
         },
         {
           "code": "KLC1D44V1",
@@ -2000,7 +2055,8 @@ const DATA = {
           "back": "<p>De trilling van de stembanden kan vertraagd zijn: er ontsnapt eerst wat lucht voor de volgende klank begint. Bijvoorbeeld thee ~ tea: [teː] ~ [tʰiː].</p>",
           "ref": "Zie: week 1, college 1, dia 44",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Vergelijk Nederlands thee [teː] met Engels tea [tʰiː]. De kleine ʰ is het teken voor aspiratie. Net als stemhebbendheid is dit een glottaal kenmerk.</p>"
         },
         {
           "code": "KLC1D51V1",
@@ -2198,7 +2254,8 @@ const DATA = {
               "label": "glottal"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 51"
+          "ref": "Zie: week 1, college 1, dia 51",
+          "theory": "<p>De passieve articulator is de plek waar de actieve articulator naartoe beweegt (college 2, dia 3). De plaatsen lopen van de lippen (bilabiaal) tot de stembanden (glottaal).</p>"
         },
         {
           "code": "KLC1D45V3",
@@ -2224,7 +2281,8 @@ const DATA = {
           "correct": "consonanten",
           "ref": "Zie: week 1, college 1, dia 45",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Consonant is de vakterm voor medeklinker: een klank met een vernauwing in de spraakbuis.</p>"
         },
         {
           "code": "KLC1D27V7",
@@ -2249,7 +2307,8 @@ const DATA = {
           "correct": "tong",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M",
+          "theory": "<p>De tong is de belangrijkste actieve articulator: het deel dat beweegt (college 2, dia 3). De delen van de tong hebben elk een eigen naam.</p>"
         },
         {
           "code": "KLC1D27V29",
@@ -2275,7 +2334,8 @@ const DATA = {
           "correct": "esophagus (ook: oesophagus)",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>De slokdarm ligt achter de luchtpijp en speelt geen rol bij het maken van spraakklanken.</p>"
         },
         {
           "code": "KLC1D43V3",
@@ -2302,7 +2362,8 @@ const DATA = {
           "correct": "stemloos",
           "ref": "Zie: week 1, college 1, dia 43",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Bij een stemloze klank trillen de stembanden niet, zoals bij [p], [t] en [k].</p>"
         },
         {
           "code": "KLC1D45V2",
@@ -2310,7 +2371,7 @@ const DATA = {
           "title": "Stem",
           "cat": "Stem",
           "type": "blanks",
-          "question": "<p>Hoe heten klanken waarbij de vernauwing afwezig of gering is, wat ervoor zorgt dat de luchtstroom niet wordt onderbroken en gelijkmatig blijft?</p>",
+          "question": "<p>Hoe heten klanken waarbij er (bijna) geen vernauwing in de spraakbuis is, zodat de luchtstroom niet wordt onderbroken en gelijkmatig blijft?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2332,7 +2393,8 @@ const DATA = {
           "correct": "vokalen (klinkers)",
           "ref": "Zie: week 1, college 1, dia 45",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Het verschil met consonanten zit in de vernauwing: bij vocalen stroomt de lucht vrij door, bij consonanten wordt hij deels of helemaal onderbroken.</p>"
         },
         {
           "code": "KLC1D44V2",
@@ -2344,7 +2406,8 @@ const DATA = {
           "back": "<p>Het gebruik van de stembanden kan een stem <em>breathy</em> of <em>krakend</em> laten klinken.</p>",
           "ref": "Zie: week 1, college 1, dia 44",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>In IPA schrijf je dat met een teken onder de klinker: [e̤] is breathy en [ḛ] is krakend. Ook dit is een glottaal kenmerk.</p>"
         },
         {
           "code": "KLC1D45V4",
@@ -2372,7 +2435,8 @@ const DATA = {
           "correct": "vocalen (ook: vokalen)",
           "ref": "Zie: week 1, college 1, dia 45",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Vocaal is de vakterm voor klinker: een klank waarbij de luchtstroom niet wordt onderbroken.</p>"
         },
         {
           "code": "KLC1D43V5",
@@ -2401,7 +2465,8 @@ const DATA = {
           "correct": "het glottale systeem",
           "ref": "Zie: week 1, college 1, dia 42–43",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Stemhebbendheid gaat over de stembanden, en die zitten in het glottale systeem. Dia 43 noemt het daarom een glottaal kenmerk.</p>"
         },
         {
           "code": "KLC1D48V1",
@@ -2413,7 +2478,8 @@ const DATA = {
           "back": "<p>Plaats van articulatie, stemhebbendheid en wijze van articulatie</p>",
           "ref": "Zie: week 1, college 1, dia 48",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Plaats: waar is de constrictie? Stemhebbendheid: trillen de stembanden? Wijze: hoe sterk is de constrictie? Zo is [p] een stemloze bilabiale plosief.</p>"
         },
         {
           "code": "KLC1D51V2",
@@ -2421,7 +2487,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Wat staat op plek A?</p>",
+          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek A?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2440,7 +2506,8 @@ const DATA = {
           "correct": "postalveolar (postalveolair)",
           "ref": "Zie: week 1, college 1, dia 51",
           "image": "images/KLC1D51.webp",
-          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
+          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J",
+          "theory": "<p>Net achter de tandkassen, vóór het harde gehemelte.</p>"
         },
         {
           "code": "KLC1D47V4",
@@ -2448,7 +2515,7 @@ const DATA = {
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Hoe heet de plaats van articulatie waarbij de vernauwing gemaakt wordt met de onderlip tegen de bovenlip (twee lippen)?</p>",
+          "question": "<p>Benoem de plaats: de onderlip tegen de bovenlip?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2466,7 +2533,8 @@ const DATA = {
           "correct": "bilabial (bilabiaal)",
           "ref": "Zie: week 1, college 1, dia 47 en 51",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Bi betekent twee, labiaal betekent van de lippen. Nederlandse bilabialen zijn [p], [b] en [m].</p>"
         },
         {
           "code": "KLC1D47V29",
@@ -2492,7 +2560,8 @@ const DATA = {
           "correct": "Palatal (palataal)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V29.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>Het harde gehemelte. Hier staan [c], [ɟ], [ɲ] en [j].</p>"
         },
         {
           "code": "KLC1D27V8",
@@ -2518,7 +2587,8 @@ const DATA = {
           "correct": "strotklep (epiglottis)",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M",
+          "theory": "<p>Het klepje boven het strottenhoofd. Bij het slikken sluit het de luchtpijp af.</p>"
         },
         {
           "code": "KLC1D27V24",
@@ -2544,7 +2614,8 @@ const DATA = {
           "correct": "pharynx (ook: farynx)",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Van farynx komt faryngaal, de naam van de plaats van articulatie in de keelholte.</p>"
         },
         {
           "code": "KLC1D49V1",
@@ -2556,7 +2627,8 @@ const DATA = {
           "back": "<p>De plaats in het spraakkanaal waar de vernauwing plaatsvindt die turbulentie in de luchtstroom veroorzaakt; soms wordt ook het deel van de tong (actieve articulator) dat tegen de passieve articulator beweegt aangeduid.</p>",
           "ref": "Zie: week 1, college 1, dia 49",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Waar wordt de constrictie gemaakt? (dia 50).</p><p>Het is een van de drie kenmerken van consonanten, naast stemhebbendheid en wijze van articulatie.</p>"
         },
         {
           "code": "KLC1D51V3",
@@ -2564,7 +2636,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Wat staat op plek B?</p>",
+          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek B?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2582,7 +2654,8 @@ const DATA = {
           "correct": "palatal (palataal)",
           "ref": "Zie: week 1, college 1, dia 51",
           "image": "images/KLC1D51.webp",
-          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
+          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J",
+          "theory": "<p>Bij het harde gehemelte (palatum), tussen postalveolair en velair.</p>"
         },
         {
           "code": "KLC1D47V11",
@@ -2590,7 +2663,7 @@ const DATA = {
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Hoe heet de plaats van articulatie waarbij de vernauwing gemaakt wordt met de tongrug tegen het zachte gehemelte (velum)?</p>",
+          "question": "<p>Benoem de plaats: de tongrug tegen het zachte gehemelte?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2609,7 +2682,8 @@ const DATA = {
           "correct": "velar (velair)",
           "ref": "Zie: week 1, college 1, dia 47 en 51",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Genoemd naar het velum. Nederlandse velairen zijn [k], [x], [ɣ] en [ŋ].</p>"
         },
         {
           "code": "KLC1D47V25",
@@ -2635,7 +2709,8 @@ const DATA = {
           "correct": "Dental (dentaal)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V25.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>Tanden. Dentaal, alveolair en postalveolair liggen vlak bij elkaar en delen in de tabel vaak een vak.</p>"
         },
         {
           "code": "KLC1D27V9",
@@ -2660,7 +2735,8 @@ const DATA = {
           "correct": "lippen",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M",
+          "theory": "<p>Met de lippen maak je bilabiale klanken (twee lippen), zoals [p], [b] en [m]. De onderlip is de actieve articulator (college 2, dia 3). De lippen zijn het voorste eind van het spraakkanaal.</p>"
         },
         {
           "code": "KLC1D27V27",
@@ -2685,7 +2761,8 @@ const DATA = {
           "correct": "glottis",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Van glottis komen glottaal, subglottaal en supraglottaal. De glottis is de opening tussen de stembanden (dia 29).</p>"
         },
         {
           "code": "KLC1D51V4",
@@ -2693,7 +2770,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Wat staat op plek C?</p>",
+          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek C?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2712,7 +2789,8 @@ const DATA = {
           "correct": "alveolar (alveolair)",
           "ref": "Zie: week 1, college 1, dia 51",
           "image": "images/KLC1D51.webp",
-          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
+          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J",
+          "theory": "<p>Bij de tandkassen (alveolen), de rand vlak achter de boventanden.</p>"
         },
         {
           "code": "KLC1D47V7",
@@ -2720,7 +2798,7 @@ const DATA = {
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Hoe heet de plaats van articulatie waarbij de vernauwing gemaakt wordt met de tongpunt of het tongblad tegen de tandkassen (alveolen)?</p>",
+          "question": "<p>Benoem de plaats: de tongpunt of het tongblad tegen de tandkassen?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2739,7 +2817,8 @@ const DATA = {
           "correct": "alveolar (alveolair)",
           "ref": "Zie: week 1, college 1, dia 47 en 51",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Genoemd naar de alveolen, de rand achter de boventanden. Nederlandse alveolairen zijn onder andere [t], [d], [n], [s], [z] en [l].</p>"
         },
         {
           "code": "KLC1D47V32",
@@ -2767,7 +2846,8 @@ const DATA = {
           "correct": "Pharyngeal (faryngaal)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V32.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>De keelholte. Deze kolom is leeg in de Nederlandse klankentabel.</p>"
         },
         {
           "code": "KLC1D27V10",
@@ -2793,7 +2873,8 @@ const DATA = {
           "correct": "strottenhoofd (larynx)",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M",
+          "theory": "<p>Hierin zitten de stembanden (stemplooien). Het strottenhoofd hoort bij het glottale systeem, de geluidsbron van spraak (dia 29).</p>"
         },
         {
           "code": "KLC1D28V11",
@@ -2819,7 +2900,8 @@ const DATA = {
           "correct": "stemplooien",
           "ref": "Zie: week 1, college 1, dia 28 en 29",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Dia 28 noemt ze stemplooien, dia 29 stembanden: het is hetzelfde. Als ze trillen is een klank stemhebbend.</p>"
         },
         {
           "code": "KLC1D51V5",
@@ -2827,7 +2909,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Wat staat op plek D?</p>",
+          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek D?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2846,7 +2928,8 @@ const DATA = {
           "correct": "velar (velair)",
           "ref": "Zie: week 1, college 1, dia 51",
           "image": "images/KLC1D51.webp",
-          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
+          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J",
+          "theory": "<p>Bij het zachte gehemelte (velum), achter het harde gehemelte.</p>"
         },
         {
           "code": "KLC1D47V14",
@@ -2854,7 +2937,7 @@ const DATA = {
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Hoe heet de plaats van articulatie waarbij de vernauwing gemaakt wordt met de stembanden dicht bij elkaar (in de glottis)?</p>",
+          "question": "<p>Benoem de plaats: de stembanden dicht bij elkaar?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2872,7 +2955,8 @@ const DATA = {
           "correct": "glottal (glottaal)",
           "ref": "Zie: week 1, college 1, dia 47 en 51",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Genoemd naar de glottis, de opening tussen de stembanden. Nederlandse glottalen zijn [ʔ] en [h].</p>"
         },
         {
           "code": "KLC1D47V23",
@@ -2898,7 +2982,8 @@ const DATA = {
           "correct": "Bilabial (bilabiaal)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V23.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>De onderlip tegen de bovenlip: helemaal voor in de mond. Hier staan [p], [b] en [m]. Daarna komt labiodentaal.</p>"
         },
         {
           "code": "KLC1D47V2",
@@ -3060,7 +3145,8 @@ const DATA = {
               "label": "Lateral approximant"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 47"
+          "ref": "Zie: week 1, college 1, dia 47",
+          "theory": "<p>De rijen van de IPA-tabel zijn de wijzen van articulatie. Elke combinatie van plaats (kolom) en wijze (rij) heeft een eigen symbool.</p>"
         },
         {
           "code": "KLC1D27V11",
@@ -3086,7 +3172,8 @@ const DATA = {
           "correct": "stemspleet (glottis)",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M",
+          "theory": "<p>De glottis is de opening tussen de stembanden (dia 29). De drie systemen zijn ernaar genoemd: sub-, supra- en glottaal. Samen met het strottenhoofd en de stembanden vormt de glottis het glottale systeem.</p>"
         },
         {
           "code": "KLC1D51V6",
@@ -3094,7 +3181,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Wat staat op plek E?</p>",
+          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek E?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3112,7 +3199,8 @@ const DATA = {
           "correct": "dental (dentaal)",
           "ref": "Zie: week 1, college 1, dia 51",
           "image": "images/KLC1D51.webp",
-          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
+          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J",
+          "theory": "<p>Bij de boventanden.</p>"
         },
         {
           "code": "KLC1D64V2",
@@ -3200,7 +3288,8 @@ const DATA = {
               "label": "Nasalen"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 56–62"
+          "ref": "Zie: week 1, college 1, dia 56–62",
+          "theory": "<p>Plosief: volledige afsluiting, dan een plofje. Fricatief: ruis door een turbulente luchtstroom. Nasaal: mond dicht, lucht via de neus.</p>"
         },
         {
           "code": "KLC1D47V9",
@@ -3208,7 +3297,7 @@ const DATA = {
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Hoe heet de plaats van articulatie waarbij de vernauwing gemaakt wordt met de naar achteren omgekrulde tongpunt tegen het gebied achter de tandkassen?</p>",
+          "question": "<p>Benoem de plaats: de naar achteren omgekrulde tongpunt tegen het gebied achter de tandkassen?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3225,7 +3314,8 @@ const DATA = {
           "correct": "retroflex (retroflex)",
           "ref": "Zie: week 1, college 1, dia 47 en 51",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Retroflex betekent teruggebogen. Deze kolom is leeg in de Nederlandse klankentabel.</p>"
         },
         {
           "code": "KLC1D47V27",
@@ -3252,7 +3342,8 @@ const DATA = {
           "correct": "Postalveolar (postalveolair)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V27.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>Tussen alveolair en retroflex. Hier staan [ʃ] en [ʒ]. Dentaal, alveolair en postalveolair liggen vlak bij elkaar en delen in de tabel vaak een vak.</p>"
         },
         {
           "code": "KLC1D27V12",
@@ -3278,7 +3369,8 @@ const DATA = {
           "correct": "luchtpijp (trachea)",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M",
+          "theory": "<p>De luchtpijp brengt de lucht van de longen naar het strottenhoofd. Hij hoort bij het subglottale systeem (dia 25).</p>"
         },
         {
           "code": "KLC1D64V3",
@@ -3366,7 +3458,8 @@ const DATA = {
               "label": "Approximanten"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 56–62"
+          "ref": "Zie: week 1, college 1, dia 56–62",
+          "theory": "<p>Lateraal: lucht langs de zijkanten van de tong. Trilklank: serie korte afsluitingen (tongpunt-r en huig-r). Approximant: nauwelijks constrictie.</p>"
         },
         {
           "code": "KLC1D54V1",
@@ -3378,7 +3471,8 @@ const DATA = {
           "back": "<p>Definieert de mate van de vernauwing tussen de actieve en de passieve articulatoren.</p>",
           "ref": "Zie: week 1, college 1, dia 54",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Kort gezegd: hoe sterk is de (lucht)constrictie? (dia 55). Van helemaal dicht (plosief) tot bijna open (approximant).</p>"
         },
         {
           "code": "KLC1D47V15",
@@ -3407,7 +3501,8 @@ const DATA = {
           "correct": "plosive (plosief)",
           "ref": "Zie: week 1, college 1, dia 56",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Plosieven heten ook plofklanken of stops. De Nederlandse plosieven op de dia zijn [p], [b], [t], [d], [k] en [g].</p>"
         },
         {
           "code": "KLC1D56V3",
@@ -3433,7 +3528,8 @@ const DATA = {
           "correct": "plofklanken",
           "ref": "Zie: week 1, college 1, dia 56",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>De naam zegt wat je hoort: bij een plosief wordt de lucht helemaal tegengehouden en ontsnapt ze daarna met een plofje.</p>"
         },
         {
           "code": "KLC1D47V38",
@@ -3461,7 +3557,8 @@ const DATA = {
           "correct": "Fricative (fricatief)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V38.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>Een turbulente luchtstroom geeft een ruisachtig geluid.</p>"
         },
         {
           "code": "KLC1D64V1",
@@ -3473,7 +3570,8 @@ const DATA = {
           "back": "<p>Plosieven, fricatieven, nasalen, lateralen, trilklanken (ratelaars), taps, approximanten</p>",
           "ref": "Zie: week 1, college 1, dia 64",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>De wijze zegt hoe sterk de constrictie is. Plosieven sluiten de luchtstroom helemaal af; approximanten hebben nauwelijks constrictie.</p>"
         },
         {
           "code": "KLC1D51V7",
@@ -3481,7 +3579,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Wat staat op plek F?</p>",
+          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek F?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3500,7 +3598,8 @@ const DATA = {
           "correct": "uvular (uvulair)",
           "ref": "Zie: week 1, college 1, dia 51",
           "image": "images/KLC1D51.webp",
-          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
+          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J",
+          "theory": "<p>Bij de huig (uvula), het uiteinde van het zachte gehemelte.</p>"
         },
         {
           "code": "KLC1D47V5",
@@ -3508,7 +3607,7 @@ const DATA = {
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Hoe heet de plaats van articulatie waarbij de vernauwing gemaakt wordt met de onderlip tegen de boventanden?</p>",
+          "question": "<p>Benoem de plaats: de onderlip tegen de boventanden?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3526,7 +3625,8 @@ const DATA = {
           "correct": "labiodental (labiodentaal)",
           "ref": "Zie: week 1, college 1, dia 47 en 51",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Labio is lip, dentaal is tand. Nederlandse labiodentalen zijn [f], [v] en [ʋ].</p>"
         },
         {
           "code": "KLC1D47V30",
@@ -3553,7 +3653,8 @@ const DATA = {
           "correct": "Velar (velair)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V30.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>Het zachte gehemelte. Hier staan [k], [g], [ŋ], [x] en [ɣ].</p>"
         },
         {
           "code": "KLC1D27V13",
@@ -3580,7 +3681,8 @@ const DATA = {
           "correct": "slokdarm (esophagus)",
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M",
+          "theory": "<p>De slokdarm ligt achter de luchtpijp en is voor voedsel. Hij speelt geen rol bij het maken van spraakklanken.</p>"
         },
         {
           "code": "KLC1D64V4",
@@ -3660,7 +3762,8 @@ const DATA = {
               "label": "Approximanten"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 56–62"
+          "ref": "Zie: week 1, college 1, dia 56–62",
+          "theory": "<p>[ɹ] is de Gooische r: een approximant, geen trilklank. Plosief: volledige afsluiting. Nasaal: lucht via de neus.</p>"
         },
         {
           "code": "KLC1D47V19",
@@ -3688,7 +3791,8 @@ const DATA = {
           "correct": "fricative (fricatief)",
           "ref": "Zie: week 1, college 1, dia 56",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Fricatieven heten ook wrijfklanken. De vernauwing is nauw, maar niet helemaal dicht. Voorbeelden op de dia: [f], [v], [s], [z] en [χ].</p>"
         },
         {
           "code": "KLC1D58V1",
@@ -3700,7 +3804,8 @@ const DATA = {
           "back": "<p>In het Nederlands altijd stemhebbend. (Zeldzaam: in het Faeröers kunnen nasalen ook stemloos zijn: <em>einki</em>.)</p>",
           "ref": "Zie: week 1, college 1, dia 58",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Zeldzaam: in het Faeröers kunnen nasalen ook stemloos zijn, zoals in einki.</p>"
         },
         {
           "code": "KLC1D47V35",
@@ -3727,7 +3832,8 @@ const DATA = {
           "correct": "Nasal (nasaal)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V35.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>De mondholte is volledig afgesloten en de lucht ontsnapt via de neusholte. Hier staan [m], [ɱ], [n], [ɲ] en [ŋ].</p>"
         },
         {
           "code": "KLC1D51V8",
@@ -3735,7 +3841,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Wat staat op plek G?</p>",
+          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek G?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3753,7 +3859,8 @@ const DATA = {
           "correct": "bilabial (bilabiaal)",
           "ref": "Zie: week 1, college 1, dia 51",
           "image": "images/KLC1D51.webp",
-          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
+          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J",
+          "theory": "<p>Bij de lippen: de onderlip beweegt naar de bovenlip.</p>"
         },
         {
           "code": "KLC1D47V12",
@@ -3761,7 +3868,7 @@ const DATA = {
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Hoe heet de plaats van articulatie waarbij de vernauwing gemaakt wordt met de achterkant van de tong tegen de huig (uvula)?</p>",
+          "question": "<p>Benoem de plaats: de achterkant van de tong tegen de huig?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3780,7 +3887,8 @@ const DATA = {
           "correct": "uvular (uvulair)",
           "ref": "Zie: week 1, college 1, dia 47 en 51",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Genoemd naar de uvula, de huig. De huig-r [ʀ] is uvulair, net als [χ] in gans.</p>"
         },
         {
           "code": "KLC1D47V33",
@@ -3806,7 +3914,8 @@ const DATA = {
           "correct": "Glottal (glottaal)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V33.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>Helemaal achterin, genoemd naar de glottis, de opening tussen de stembanden. Hier staan [ʔ] en [h].</p>"
         },
         {
           "code": "KLC1D64V5",
@@ -3878,7 +3987,8 @@ const DATA = {
               "label": "Lateralen"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 56–62"
+          "ref": "Zie: week 1, college 1, dia 56–62",
+          "theory": "<p>[r] en [ɾ] lijken op elkaar: een trilklank heeft een serie afsluitingen, een tap maar één. Bij [l] stroomt de lucht langs de zijkanten van de tong.</p>"
         },
         {
           "code": "KLC1D47V16",
@@ -3905,7 +4015,8 @@ const DATA = {
           "correct": "nasal (nasaal)",
           "ref": "Zie: week 1, college 1, dia 58",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>De nasalen op de dia zijn [m], [n] en [ŋ]. In het Nederlands zijn nasalen altijd stemhebbend.</p>"
         },
         {
           "code": "KLC1D60V1",
@@ -3917,7 +4028,8 @@ const DATA = {
           "back": "<p>[r] = tongpunt-r en [ʀ] = huig-r. Voor transcripties mag je zelf kiezen, maar wees consistent!</p>",
           "ref": "Zie: week 1, college 1, dia 60",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Bij een trilklank trilt de actieve articulator: de tongpunt of de huig.</p>"
         },
         {
           "code": "KLC1D47V3",
@@ -4475,7 +4587,8 @@ const DATA = {
               "label": "l"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 47 en college 2, dia 46–47"
+          "ref": "Zie: week 1, college 1, dia 47 en college 2, dia 46–47",
+          "theory": "<p>Elke klank heeft één plek: de kolom is de plaats, de rij de wijze. Binnen een vak staat links de stemloze en rechts de stemhebbende klank.</p>"
         },
         {
           "code": "KLC1D47V40",
@@ -4503,7 +4616,8 @@ const DATA = {
           "correct": "Approximant (approximanten)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V40.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>Geen tot nauwelijks constrictie; niet echt een vocaal, maar ook niet echt een consonant.</p>"
         },
         {
           "code": "KLC1D51V9",
@@ -4511,7 +4625,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Wat staat op plek H?</p>",
+          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek H?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -4531,7 +4645,8 @@ const DATA = {
           "correct": "pharyngeal (faryngaal)",
           "ref": "Zie: week 1, college 1, dia 51",
           "image": "images/KLC1D51.webp",
-          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
+          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J",
+          "theory": "<p>In de keelholte (farynx), tussen de huig en het strottenhoofd.</p>"
         },
         {
           "code": "KLC1D47V8",
@@ -4539,7 +4654,7 @@ const DATA = {
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Hoe heet de plaats van articulatie waarbij de vernauwing gemaakt wordt met het tongblad tegen het gebied net achter de tandkassen?</p>",
+          "question": "<p>Benoem de plaats: het tongblad tegen het gebied net achter de tandkassen?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -4558,7 +4673,8 @@ const DATA = {
           "correct": "postalveolar (postalveolair)",
           "ref": "Zie: week 1, college 1, dia 47 en 51",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Post betekent achter: net achter de alveolen. In het Nederlands zijn dat [ʃ] en [ʒ], zoals in bagage.</p>"
         },
         {
           "code": "KLC1D47V26",
@@ -4585,7 +4701,8 @@ const DATA = {
           "correct": "Alveolar (alveolair)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V26.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>Genoemd naar de alveolen, de rand achter de boventanden. Hier staan onder andere [t], [d], [n], [s], [z] en [l]. Dentaal, alveolair en postalveolair liggen vlak bij elkaar en delen in de tabel vaak een vak.</p>"
         },
         {
           "code": "KLC1D64V6",
@@ -4683,7 +4800,8 @@ const DATA = {
               "label": "Approximanten"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 56–62"
+          "ref": "Zie: week 1, college 1, dia 56–62",
+          "theory": "<p>[χ] is de eerste klank in gans: een fricatief. [g] is de stemhebbende tegenhanger van [k], zoals in goal: een plosief. [w] is een approximant.</p>"
         },
         {
           "code": "KLC1D47V21",
@@ -4711,7 +4829,8 @@ const DATA = {
           "correct": "approximant (approximanten)",
           "ref": "Zie: week 1, college 1, dia 62",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Approximanten heten ook halfvocalen of halfklinkers. Voorbeelden: [j] in jan en [ʋ] in wesp. Vergelijk [i] met [j].</p>"
         },
         {
           "code": "KLC1D62V1",
@@ -4723,7 +4842,8 @@ const DATA = {
           "back": "<p>Ze zijn niet echt vocalen, maar ook niet echt consonanten: er is geen tot nauwelijks constrictie (vergelijk [i] met [j]).</p>",
           "ref": "Zie: week 1, college 1, dia 62",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Vergelijk de klinker [i] met de approximant [j]: ze lijken sterk op elkaar. Daarom heten approximanten ook halfvocalen of halfklinkers.</p>"
         },
         {
           "code": "KLC1D47V34",
@@ -4752,7 +4872,8 @@ const DATA = {
           "correct": "Plosive (plosief)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V34.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>De luchtstroom in de mondholte wordt volledig afgesloten en het ontsnappen van de lucht geeft een kleine plofklank.</p><p>In elk vak staat links de stemloze en rechts de stemhebbende klank.</p>"
         },
         {
           "code": "KLC1D51V10",
@@ -4760,7 +4881,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Wat staat op plek I?</p>",
+          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek I?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -4778,7 +4899,8 @@ const DATA = {
           "correct": "labiodental (labiodentaal)",
           "ref": "Zie: week 1, college 1, dia 51",
           "image": "images/KLC1D51.webp",
-          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
+          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J",
+          "theory": "<p>Bij de boventanden, waar de onderlip tegenaan komt.</p>"
         },
         {
           "code": "KLC1D47V13",
@@ -4786,7 +4908,7 @@ const DATA = {
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Hoe heet de plaats van articulatie waarbij de vernauwing gemaakt wordt met de tong naar achteren en omlaag, de keelholte (farynx) in?</p>",
+          "question": "<p>Benoem de plaats: de tong naar achteren en omlaag, de keelholte in?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -4806,7 +4928,8 @@ const DATA = {
           "correct": "pharyngeal (faryngaal)",
           "ref": "Zie: week 1, college 1, dia 47 en 51",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Genoemd naar de farynx, de keelholte. Deze kolom is leeg in de Nederlandse klankentabel.</p>"
         },
         {
           "code": "KLC1D47V24",
@@ -4832,7 +4955,8 @@ const DATA = {
           "correct": "Labiodental (labiodentaal)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V24.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>De onderlip tegen de boventanden. Hier staan [f], [v], [ʋ] en [ɱ].</p>"
         },
         {
           "code": "KLC1D47V17",
@@ -4860,7 +4984,8 @@ const DATA = {
           "correct": "trill (trilklank)",
           "ref": "Zie: week 1, college 1, dia 60",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Trilklanken heten ook ratelaars. Voorbeelden zijn de tongpunt-r [r] en de huig-r [ʀ].</p>"
         },
         {
           "code": "KLC1D56V2",
@@ -4868,11 +4993,12 @@ const DATA = {
           "title": "Wijze – plosieven en fricatieven",
           "cat": "Wijze",
           "type": "card",
-          "front": "<p>Welke klank is [χ]? Noem het voorbeeldwoord van de dia.</p>",
+          "front": "<p>Welke klank is [χ]?</p>",
           "back": "<p>De eerste klank in <em>gans</em> (een fricatief)</p>",
           "ref": "Zie: week 1, college 1, dia 56",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>[χ] is een fricatief: een turbulente luchtstroom geeft een ruisachtig geluid. Het is de harde g.</p>"
         },
         {
           "code": "KLC1D47V37",
@@ -4900,7 +5026,8 @@ const DATA = {
           "correct": "Tap or Flap (tap)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V37.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>Een enkele, zeer korte afsluiting tussen twee articulatoren, zonder dat er spanning wordt opgebouwd.</p>"
         },
         {
           "code": "KLC1D51V11",
@@ -4908,7 +5035,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Wat staat op plek J?</p>",
+          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek J?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -4926,7 +5053,8 @@ const DATA = {
           "correct": "glottal (glottaal)",
           "ref": "Zie: week 1, college 1, dia 51",
           "image": "images/KLC1D51.webp",
-          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
+          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J",
+          "theory": "<p>Bij de glottis, de opening tussen de stembanden. Dit is de achterste plaats van articulatie.</p>"
         },
         {
           "code": "KLC1D47V6",
@@ -4934,7 +5062,7 @@ const DATA = {
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Hoe heet de plaats van articulatie waarbij de vernauwing gemaakt wordt met de tongpunt of het tongblad tegen de boventanden?</p>",
+          "question": "<p>Benoem de plaats: de tongpunt of het tongblad tegen de boventanden?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -4952,7 +5080,8 @@ const DATA = {
           "correct": "dental (dentaal)",
           "ref": "Zie: week 1, college 1, dia 47 en 51",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Dentaal betekent van de tanden. Een bekend voorbeeld is de Engelse th.</p>"
         },
         {
           "code": "KLC1D47V31",
@@ -4979,7 +5108,8 @@ const DATA = {
           "correct": "Uvular (uvulair)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V31.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>De huig. Hier staat de huig-r [ʀ].</p>"
         },
         {
           "code": "KLC1D66V1",
@@ -5014,7 +5144,8 @@ const DATA = {
           "correct": "In het Nederlands kunnen we consonanten (medeklinkers) indelen op laryngale kenmerken en supralaryngale kenmerken.",
           "ref": "Zie: week 1, college 1, dia 66",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Laryngaal betekent van de larynx (het strottenhoofd): stemhebbend of stemloos. Supralaryngaal betekent boven de larynx: plaats en wijze van articulatie.</p>"
         },
         {
           "code": "KLC1D47V18",
@@ -5042,7 +5173,8 @@ const DATA = {
           "correct": "tap or flap (tap)",
           "ref": "Zie: week 1, college 1, dia 61",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Een tap lijkt op een trilklank, maar heeft maar één afsluiting. Voorbeeld: [ɾ] in Amerikaans-Engels better.</p>"
         },
         {
           "code": "KLC1D58V2",
@@ -5054,7 +5186,8 @@ const DATA = {
           "back": "<p>Alle nasalen zijn stops, maar niet alle stops zijn nasalen.</p>",
           "ref": "Zie: week 1, college 1, dia 58",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Bij een nasaal is de mondholte volledig afgesloten, net als bij een plosief. Het verschil is dat de lucht via de neusholte ontsnapt.</p>"
         },
         {
           "code": "KLC1D47V41",
@@ -5081,7 +5214,8 @@ const DATA = {
           "correct": "Lateral approximant (laterale approximant)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V41.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>De lucht stroomt langs de zijkanten van de tong, met geen tot nauwelijks constrictie.</p>"
         },
         {
           "code": "KLC1D47V10",
@@ -5089,7 +5223,7 @@ const DATA = {
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Hoe heet de plaats van articulatie waarbij de vernauwing gemaakt wordt met het tongblad en het voorste deel van de tongrug tegen het harde gehemelte (palatum)?</p>",
+          "question": "<p>Benoem de plaats: het tongblad en het voorste deel van de tongrug tegen het harde gehemelte?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -5107,7 +5241,8 @@ const DATA = {
           "correct": "palatal (palataal)",
           "ref": "Zie: week 1, college 1, dia 47 en 51",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Genoemd naar het palatum. De Nederlandse [j] is palataal. Door assimilatie hoor je ook [ɲ], zoals in aanjagen.</p>"
         },
         {
           "code": "KLC1D47V28",
@@ -5132,7 +5267,8 @@ const DATA = {
           "correct": "Retroflex (retroflex)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V28.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>De tongpunt is hier naar achteren gekruld. Deze kolom is leeg in de Nederlandse klankentabel.</p>"
         },
         {
           "code": "KLC1D65V1",
@@ -5144,7 +5280,8 @@ const DATA = {
           "back": "<p>Het subglottale systeem, het glottale systeem en het supraglottale systeem</p>",
           "ref": "Zie: week 1, college 1, dia 65",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>De namen zeggen waar het systeem zit ten opzichte van de glottis: eronder (sub), erbij, of erboven (supra). Samen vormen ze het power-source-filter model.</p>"
         },
         {
           "code": "KLC1D47V20",
@@ -5171,7 +5308,8 @@ const DATA = {
           "correct": "lateral fricative (laterale fricatief)",
           "ref": "Zie: week 1, college 1, dia 56 en 59",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Dit is een combinatie van twee wijzen: lateraal (lucht langs de zijkanten van de tong) en fricatief (ruis door turbulentie).</p>"
         },
         {
           "code": "KLC1D61V1",
@@ -5183,7 +5321,8 @@ const DATA = {
           "back": "<p>Een trilklank is een serie van zeer korte afsluitingen; een tap heeft één enkele afsluiting. Bij een tap bouwt er geen spanning op en is er dus geen release burst. Voorbeeld: [ɾ] in Amerikaans-Engels <em>better</em>.</p>",
           "ref": "Zie: week 1, college 1, dia 61",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Bij een tap bouwt er geen spanning op, dus er is ook geen release burst. Voorbeeld: [ɾ] in Amerikaans-Engels <i>bette<b>r</b></i>.</p>"
         },
         {
           "code": "KLC1D47V36",
@@ -5211,7 +5350,8 @@ const DATA = {
           "correct": "Trill (trilklank)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V36.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>Een serie zeer korte afsluitingen tussen twee articulatoren, waardoor de actieve articulator gaat trillen.</p>"
         },
         {
           "code": "KLC1D47V1",
@@ -5427,7 +5567,8 @@ const DATA = {
               "label": "Glottal"
             }
           ],
-          "ref": "Zie: week 1, college 1, dia 47"
+          "ref": "Zie: week 1, college 1, dia 47",
+          "theory": "<p>De kolommen van de IPA-tabel zijn de plaatsen van articulatie. Ze lopen van voor in de mond (de lippen) naar achter (de glottis).</p>"
         },
         {
           "code": "KLC1D66V2",
@@ -5456,7 +5597,8 @@ const DATA = {
           "correct": "stemhebbendheid (stemhebbend ~ stemloos)",
           "ref": "Zie: week 1, college 1, dia 66",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Laryngaal betekent van de larynx. Daar zitten de stembanden, en die bepalen of een klank stemhebbend of stemloos is.</p>"
         },
         {
           "code": "KLC1D47V22",
@@ -5483,7 +5625,8 @@ const DATA = {
           "correct": "lateral approximant (laterale approximant)",
           "ref": "Zie: week 1, college 1, dia 59 en 62",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Dit is een combinatie van lateraal en approximant. De Nederlandse [l] hoort hier.</p>"
         },
         {
           "code": "KLC1D63V1",
@@ -5495,7 +5638,8 @@ const DATA = {
           "back": "<p>Halfvocalen, halfklinkers, glides of glijklanken</p>",
           "ref": "Zie: week 1, college 1, dia 63",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Halfvocaal en halfklinker zeggen dat de klank tussen vocaal en consonant in zit. Glide en glijklank zeggen dat de klank een overgang tussen twee klanken is.</p>"
         },
         {
           "code": "KLC1D47V39",
@@ -5522,7 +5666,8 @@ const DATA = {
           "correct": "Lateral fricative (laterale fricatief)",
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V39.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken",
+          "theory": "<p>De lucht stroomt langs de zijkanten van de tong en een turbulente luchtstroom geeft een ruisachtig geluid.</p>"
         },
         {
           "code": "KLC1D66V3",
@@ -5534,7 +5679,8 @@ const DATA = {
           "back": "<p>Plaats van articulatie en wijze van articulatie</p>",
           "ref": "Zie: week 1, college 1, dia 66",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Supralaryngaal betekent boven de larynx. Plaats en wijze worden allebei bepaald in het spraakkanaal, dus boven het strottenhoofd.</p>"
         },
         {
           "code": "KLC1D58V3",
@@ -5546,7 +5692,8 @@ const DATA = {
           "back": "<p>De laatste klank in <em>slang</em></p>",
           "ref": "Zie: week 1, college 1, dia 58",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>[ŋ] is een nasaal: de mond is afgesloten en de lucht gaat door de neus.</p>"
         },
         {
           "code": "KLC1D56V4",
@@ -5572,7 +5719,8 @@ const DATA = {
           "correct": "wrijfklanken",
           "ref": "Zie: week 1, college 1, dia 56",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>De naam zegt wat je hoort: bij een fricatief wrijft de lucht door een nauwe opening en hoor je ruis.</p>"
         },
         {
           "code": "KLC1D58V4",
@@ -5584,7 +5732,8 @@ const DATA = {
           "back": "<p>Ja, bijvoorbeeld in het Frans: <em>un bon vin blanc</em> → /œ̃ bɔ̃ vɛ̃ blɑ̃/</p>",
           "ref": "Zie: week 1, college 1, dia 58",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>In IPA schrijf je een nasale klinker met een tilde (golfje) erboven. De vier klinkers in un bon vin blanc zijn alle vier nasaal.</p>"
         },
         {
           "code": "KLC1D63V2",
@@ -5596,7 +5745,8 @@ const DATA = {
           "back": "<p>Een transitie tussen twee klanken. Voorbeelden op de dia: <em>theater</em>, <em>power</em> en <em>januari</em>, met de glijklanken /j/ en /w/.</p>",
           "ref": "Zie: week 1, college 1, dia 63",
           "image": null,
-          "alt": ""
+          "alt": "",
+          "theory": "<p>Tussen twee klinkers ontstaat vanzelf een overgangsklank: een /j/ in theater en een /w/ in power en januari.</p>"
         }
       ]
     },
@@ -5616,7 +5766,8 @@ const DATA = {
           "back": "<p>Het deel dat beweegt (de onderlip of de tong).</p>",
           "image": null,
           "alt": "",
-          "num": 1
+          "num": 1,
+          "theory": "<p>Bij elke consonant beweegt de actieve articulator naar de passieve toe. Bij [p] is dat de onderlip, bij [t] de tong.</p>"
         },
         {
           "type": "card",
@@ -5642,7 +5793,8 @@ const DATA = {
               3
             ]
           },
-          "num": 2
+          "num": 2,
+          "theory": "<p>Constrictie zegt hoe sterk de vernauwing is: gesloten, mid of open.</p>"
         },
         {
           "type": "click",
@@ -5696,7 +5848,8 @@ const DATA = {
             ]
           ],
           "target": 0,
-          "num": 3
+          "num": 3,
+          "theory": "<p>De horizontale lijnen geven de constrictie aan, van gesloten (boven) naar open (onder). Gesloten klinkers zijn [i], [y] en [u].</p>"
         },
         {
           "type": "card",
@@ -5708,7 +5861,8 @@ const DATA = {
           "back": "<p>De plek waar de actieve articulator naartoe beweegt.</p>",
           "image": null,
           "alt": "",
-          "num": 4
+          "num": 4,
+          "theory": "<p>De plaatsen van articulatie zijn naar de passieve articulator genoemd, zoals alveolair (tandkassen) en velair (velum).</p>"
         },
         {
           "type": "card",
@@ -5734,7 +5888,8 @@ const DATA = {
               3
             ]
           },
-          "num": 5
+          "num": 5,
+          "theory": "<p>Plaats zegt waar de constrictie gemaakt wordt: voor, mid of achterin.</p>"
         },
         {
           "type": "click",
@@ -5788,7 +5943,8 @@ const DATA = {
             ]
           ],
           "target": 4,
-          "num": 6
+          "num": 6,
+          "theory": "<p>De lijnen van boven naar beneden geven de plaats aan. Links is voor in de mond: [i], [eː] en [ɛ].</p>"
         },
         {
           "type": "card",
@@ -5800,7 +5956,8 @@ const DATA = {
           "back": "<p>Gesloten – mid – open</p>",
           "image": null,
           "alt": "",
-          "num": 7
+          "num": 7,
+          "theory": "<p>Bij een gesloten klinker is de mond bijna dicht, zoals bij [u] in toekan. Bij een open klinker is de mond ver open, zoals bij [a] in schaap.</p>"
         },
         {
           "type": "click",
@@ -5854,7 +6011,8 @@ const DATA = {
             ]
           ],
           "target": 1,
-          "num": 8
+          "num": 8,
+          "theory": "<p>De horizontale lijnen lopen van gesloten (boven) naar open (onder). Close-mid is half gesloten: [eː], [øː] en [oː].</p>"
         },
         {
           "type": "ipa",
@@ -5868,7 +6026,8 @@ const DATA = {
             "eː"
           ],
           "show": "e (in de vocalendriehoek: eː)",
-          "num": 9
+          "num": 9,
+          "theory": "<p>Een lange klinker: close-mid, voor, niet gerond. De korte e van bek is [ɛ].</p>"
         },
         {
           "type": "card",
@@ -5894,7 +6053,8 @@ const DATA = {
               3
             ]
           },
-          "num": 10
+          "num": 10,
+          "theory": "<p>Ronding zegt of de lippen gerond zijn of niet. Zo is de [u] in toekan gerond en de [a] in schaap niet.</p>"
         },
         {
           "type": "ipa",
@@ -5907,7 +6067,8 @@ const DATA = {
             "ɑ"
           ],
           "show": "ɑ",
-          "num": 11
+          "num": 11,
+          "theory": "<p>De korte a. [ɑ] is een open klinker achterin; de lange aa van kaak is [aː] en zit meer naar voren.</p>"
         },
         {
           "type": "ipa",
@@ -5920,7 +6081,8 @@ const DATA = {
             "i"
           ],
           "show": "i",
-          "num": 12
+          "num": 12,
+          "theory": "<p>Gesloten, voor, niet gerond. De ie is kort; alleen vóór een r wordt hij lang: mier [iː].</p>"
         },
         {
           "type": "click",
@@ -5974,7 +6136,8 @@ const DATA = {
             ]
           ],
           "target": 5,
-          "num": 13
+          "num": 13,
+          "theory": "<p>De lijnen van boven naar beneden geven de plaats aan. In het midden staat de sjwa [ə].</p>"
         },
         {
           "type": "ipa",
@@ -5987,7 +6150,8 @@ const DATA = {
             "ɔ"
           ],
           "show": "ɔ",
-          "num": 14
+          "num": 14,
+          "theory": "<p>De korte o: open-mid, achter, gerond. Lang komt [ɔː] alleen in leenwoorden voor, zoals zone.</p>"
         },
         {
           "type": "ipa",
@@ -6000,7 +6164,8 @@ const DATA = {
             "y"
           ],
           "show": "y",
-          "num": 15
+          "num": 15,
+          "theory": "<p>Gesloten, voor, gerond. De uu is kort; alleen vóór een r wordt hij lang: muur [yː].</p>"
         },
         {
           "type": "card",
@@ -6012,7 +6177,8 @@ const DATA = {
           "back": "<p>Voor – mid – achterin</p>",
           "image": null,
           "alt": "",
-          "num": 16
+          "num": 16,
+          "theory": "<p>De [u] in toekan wordt achterin gemaakt. De [a] in schaap zit voor tot mid.</p>"
         },
         {
           "type": "ipa",
@@ -6025,7 +6191,8 @@ const DATA = {
             "ɛ"
           ],
           "show": "ɛ",
-          "num": 17
+          "num": 17,
+          "theory": "<p>De korte e: open-mid, voor, niet gerond. Lang komt [ɛː] alleen in leenwoorden voor, zoals crème.</p>"
         },
         {
           "type": "ipa",
@@ -6038,7 +6205,8 @@ const DATA = {
             "u"
           ],
           "show": "u",
-          "num": 18
+          "num": 18,
+          "theory": "<p>Gesloten, achter, gerond (zoals in toekan). De oe is kort; alleen vóór een r wordt hij lang: moer [uː].</p>"
         },
         {
           "type": "click",
@@ -6092,7 +6260,8 @@ const DATA = {
             ]
           ],
           "target": 2,
-          "num": 19
+          "num": 19,
+          "theory": "<p>De horizontale lijnen lopen van gesloten (boven) naar open (onder). Open-mid is half open: [ɛ] en [ɔ].</p>"
         },
         {
           "type": "ipa",
@@ -6106,7 +6275,8 @@ const DATA = {
             "aː"
           ],
           "show": "a (in de vocalendriehoek: aː)",
-          "num": 20
+          "num": 20,
+          "theory": "<p>De lange aa. [a] is een open klinker, niet gerond, voor tot mid (zoals in schaap).</p>"
         },
         {
           "type": "ipa",
@@ -6119,7 +6289,8 @@ const DATA = {
             "ɪ"
           ],
           "show": "ɪ",
-          "num": 21
+          "num": 21,
+          "theory": "<p>[ɪ] staat in de vocalendriehoek net onder [i], de ie van ziek.</p>"
         },
         {
           "type": "card",
@@ -6145,7 +6316,8 @@ const DATA = {
               3
             ]
           },
-          "num": 22
+          "num": 22,
+          "theory": "<p>Lengte zegt hoe lang de klinker is: lang of kort. In IPA is ː het lengteteken.</p>"
         },
         {
           "type": "ipa",
@@ -6159,7 +6331,8 @@ const DATA = {
             "øː"
           ],
           "show": "ø (in de vocalendriehoek: øː)",
-          "num": 23
+          "num": 23,
+          "theory": "<p>Een lange klinker: close-mid, voor, gerond. Het is de geronde tegenhanger van [eː].</p>"
         },
         {
           "type": "ipa",
@@ -6172,7 +6345,8 @@ const DATA = {
             "ɛi̯"
           ],
           "show": "ɛi̯",
-          "num": 24
+          "num": 24,
+          "theory": "<p>Een diftong: de klank begint bij [ɛ] en beweegt naar [i]. Het boogje geeft aan dat de i geen eigen lettergreep is.</p>"
         },
         {
           "type": "click",
@@ -6226,7 +6400,8 @@ const DATA = {
             ]
           ],
           "target": 6,
-          "num": 25
+          "num": 25,
+          "theory": "<p>De lijnen van boven naar beneden geven de plaats aan. Rechts is achter in de mond: [u], [oː], [ɔ] en [ɑ].</p>"
         },
         {
           "type": "ipa",
@@ -6240,7 +6415,8 @@ const DATA = {
             "oː"
           ],
           "show": "o (in de vocalendriehoek: oː)",
-          "num": 26
+          "num": 26,
+          "theory": "<p>Een lange klinker: close-mid, achter, gerond.</p>"
         },
         {
           "type": "ipa",
@@ -6253,7 +6429,8 @@ const DATA = {
             "ʏ"
           ],
           "show": "ʏ",
-          "num": 27
+          "num": 27,
+          "theory": "<p>De korte u. [ʏ] staat in de vocalendriehoek net onder [y], de uu van fuut, en is gerond.</p>"
         },
         {
           "type": "card",
@@ -6265,7 +6442,8 @@ const DATA = {
           "back": "<p>Of de lippen gerond zijn of niet</p>",
           "image": null,
           "alt": "",
-          "num": 28
+          "num": 28,
+          "theory": "<p>Vergelijk [i] in ziek (niet gerond) met [y] in fuut (gerond): de tong doet bijna hetzelfde, alleen de lippen verschillen.</p>"
         },
         {
           "type": "ipa",
@@ -6278,7 +6456,8 @@ const DATA = {
             "ə"
           ],
           "show": "ə",
-          "num": 29
+          "num": 29,
+          "theory": "<p>Dit is de sjwa, de klinker in het midden van de vocalendriehoek. Hij wordt op verschillende manieren gespeld: gemakkelijk, aardige.</p>"
         },
         {
           "type": "ipa",
@@ -6291,7 +6470,8 @@ const DATA = {
             "ɑu̯"
           ],
           "show": "ɑu̯",
-          "num": 30
+          "num": 30,
+          "theory": "<p>Een diftong: de klank begint bij [ɑ] en beweegt naar [u]. Het boogje geeft aan dat de u geen eigen lettergreep is.</p>"
         },
         {
           "type": "click",
@@ -6345,7 +6525,8 @@ const DATA = {
             ]
           ],
           "target": 3,
-          "num": 31
+          "num": 31,
+          "theory": "<p>De horizontale lijnen lopen van gesloten (boven) naar open (onder). Open klinkers zijn [aː] en [ɑ].</p>"
         },
         {
           "type": "ipa",
@@ -6359,7 +6540,8 @@ const DATA = {
             "œy̑"
           ],
           "show": "œy̑",
-          "num": 32
+          "num": 32,
+          "theory": "<p>Een diftong: de klank begint bij [œ] en beweegt naar [y]. Het boogje geeft aan dat de y geen eigen lettergreep is.</p>"
         },
         {
           "type": "card",
@@ -6371,7 +6553,8 @@ const DATA = {
           "back": "<p>Hoe lang de klinker is: lang – kort</p>",
           "image": null,
           "alt": "",
-          "num": 33
+          "num": 33,
+          "theory": "<p>In IPA geef je lengte aan met ː. Zo wordt de korte [i] lang vóór een r: mier [iː].</p>"
         },
         {
           "type": "drag",
@@ -6624,7 +6807,8 @@ const DATA = {
               "h": 2.3
             }
           ],
-          "num": 34
+          "num": 34,
+          "theory": "<p>Hoogte is constrictie (boven gesloten, onder open), links-rechts is plaats (links voor, rechts achter). Staan er twee klinkers naast elkaar, dan is de rechter gerond.</p>"
         },
         {
           "type": "card",
@@ -6636,7 +6820,8 @@ const DATA = {
           "back": "<p>Vóór een r-klank: [ɾ] [ɹ] [ʁ] [ʀ]</p>",
           "image": null,
           "alt": "",
-          "num": 35
+          "num": 35,
+          "theory": "<p>Voorbeelden: mier [iː], muur [yː], moer [uː]. Dia 22 noemt ook analyse, centrifuge en zoom; dia 51 zegt: voor /r/ en in leenwoorden.</p>"
         },
         {
           "type": "card",
@@ -6648,7 +6833,8 @@ const DATA = {
           "back": "<p>Een klinker die tijdens de articulatie van plaats verandert</p>",
           "image": null,
           "alt": "",
-          "num": 36
+          "num": 36,
+          "theory": "<p>Een ander woord is tweeklank. Het Nederlands kent er drie: de ij/ei, de ou/au en de ui.</p>"
         },
         {
           "type": "card",
@@ -6660,7 +6846,8 @@ const DATA = {
           "back": "<p>Die articulaties zijn onmogelijk.</p>",
           "image": "images/KLC2D36V1.webp",
           "alt": "IPA-tabel van de consonanten met grijze vlakken",
-          "num": 37
+          "num": 37,
+          "theory": "<p>Sommige combinaties van plaats en wijze kun je fysiek niet maken. Zo hebben lateralen altijd de tong nodig. Lege witte vakken zijn wel mogelijk, maar niet gerapporteerd.</p>"
         },
         {
           "type": "mc",
@@ -6687,7 +6874,8 @@ const DATA = {
               "correct": false
             }
           ],
-          "num": 38
+          "num": 38,
+          "theory": "<p>Alle drie eindigen op een gesloten klinker: [ɛi̯] eindigt bij [i], [œy̑] bij [y] en [ɑu̯] bij [u].</p>"
         },
         {
           "type": "card",
@@ -6699,7 +6887,8 @@ const DATA = {
           "back": "<p>In leenwoorden</p>",
           "image": null,
           "alt": "",
-          "num": 39
+          "num": 39,
+          "theory": "<p>Voorbeelden: crème [ɛː], œuvre [œː] en zone [ɔː]. In Nederlandse woorden zijn [ɛ] en [ɔ] kort.</p>"
         },
         {
           "type": "drag",
@@ -6772,7 +6961,8 @@ const DATA = {
               "h": 3
             }
           ],
-          "num": 40
+          "num": 40,
+          "theory": "<p>Een diftong schrijf je met twee symbolen: waar de klank begint en waar hij naartoe beweegt. De ei schrijf je hetzelfde als de ij, en de au hetzelfde als de ou.</p>"
         },
         {
           "type": "blanks",
@@ -6797,7 +6987,8 @@ const DATA = {
           "correct": "diakritische",
           "image": "images/KLC2D39V1.webp",
           "alt": "tabel met tekens boven en onder IPA-symbolen",
-          "num": 41
+          "num": 41,
+          "theory": "<p>Diakritische tekens zijn kleine tekens boven of onder een IPA-symbool.</p>"
         },
         {
           "type": "mc",
@@ -6816,7 +7007,8 @@ const DATA = {
               "correct": false
             }
           ],
-          "num": 42
+          "num": 42,
+          "theory": "<p>Diftongeren betekent dat de klinker tijdens het uitspreken van plaats verandert, zodat bijvoorbeeld [eː] richting [ei] gaat. In Belgisch Nederlands blijven deze klinkers meestal zuiver.</p>"
         },
         {
           "type": "drag",
@@ -7015,7 +7207,8 @@ const DATA = {
               "h": 3
             }
           ],
-          "num": 43
+          "num": 43,
+          "theory": "<p>Dit zijn klanken die alleen in bepaalde omgevingen voorkomen. Voorbeelden van de dia: crème, mier, bagage, onweer, aap en woord.</p>"
         },
         {
           "type": "drag",
@@ -7088,7 +7281,8 @@ const DATA = {
               "h": 3
             }
           ],
-          "num": 44
+          "num": 44,
+          "theory": "<p>De pijl begint bij de eerste klank en wijst naar de tweede. Alle pijlen gaan omhoog, want het zijn sluitende tweeklanken.</p>"
         },
         {
           "type": "card",
@@ -7111,7 +7305,8 @@ const DATA = {
             "hide": 0,
             "opt": []
           },
-          "num": 45
+          "num": 45,
+          "theory": "<p>Bij assimilatie worden aangrenzende klanken meer gelijk aan elkaar.</p>"
         },
         {
           "type": "blanks",
@@ -7133,7 +7328,8 @@ const DATA = {
           "correct": "assimilatie",
           "image": null,
           "alt": "",
-          "num": 46
+          "num": 46,
+          "theory": "<p>Het is een aanpassingsproces: naburige klanken gaan één of meer kenmerken delen. De reden is uitspraakgemak.</p>"
         },
         {
           "type": "card",
@@ -7145,7 +7341,8 @@ const DATA = {
           "back": "<p>Een klank past zich in stem aan aan de klank ernaast: hij wordt stemhebbend of stemloos, net als die buurklank.</p><p>Bijvoorbeeld <i>ijsbeer</i>: de stemloze [s] wordt een stemhebbende [z] voor de stemhebbende [b].</p>",
           "image": null,
           "alt": "",
-          "num": 47
+          "num": 47,
+          "theory": "<p>Voorbeelden: opzet, afzien, ijsbeer, zakdoek, op zee, lees dat. In ijsbeer wordt de stemloze [s] een stemhebbende [z] voor de [b].</p>"
         },
         {
           "type": "card",
@@ -7168,7 +7365,8 @@ const DATA = {
             "hide": 1,
             "opt": []
           },
-          "num": 48
+          "num": 48,
+          "theory": "<p>De dia noemt drie fonologische processen die klanken kunnen beïnvloeden: assimilatie, coarticulatie en reductie.</p>"
         },
         {
           "type": "card",
@@ -7180,7 +7378,8 @@ const DATA = {
           "back": "<p>Een klank past zich aan aan de plaats van articulatie van de klank ernaast.</p><p>Bijvoorbeeld <i>inpakken</i>: de alveolaire [n] wordt een bilabiale [m] voor de bilabiale [p].</p>",
           "image": null,
           "alt": "",
-          "num": 49
+          "num": 49,
+          "theory": "<p>Voorbeelden: inpakken, onweer, aanjagen, inkopen, in Parijs. In inpakken wordt de alveolaire [n] een bilabiale [m] voor de [p].</p>"
         },
         {
           "type": "mc",
@@ -7199,7 +7398,8 @@ const DATA = {
               "correct": false
             }
           ],
-          "num": 50
+          "num": 50,
+          "theory": "<p>[s] is stemloos en [b] is stemhebbend. Door assimilatie worden beide stemhebbend: de [s] wordt een [z]. De plaats verandert niet.</p>"
         },
         {
           "type": "card",
@@ -7211,7 +7411,8 @@ const DATA = {
           "back": "<p>Een fonologisch proces dat ervoor zorgt dat aangrenzende klanken, die normaalgesproken van elkaar verschillen in kenmerken, worden geproduceerd op een manier dat ze meer gelijk aan elkaar worden.</p>",
           "image": null,
           "alt": "",
-          "num": 51
+          "num": 51,
+          "theory": "<p>Het is een aanpassingsproces: naburige klanken gaan één of meer kenmerken delen. De reden is uitspraakgemak. Er is assimilatie van stem en van plaats.</p>"
         },
         {
           "type": "mc",
@@ -7230,7 +7431,8 @@ const DATA = {
               "correct": true
             }
           ],
-          "num": 52
+          "num": 52,
+          "theory": "<p>[n] is alveolair en [ʋ] is labiodentaal. Door assimilatie worden beide labiodentaal: de [n] wordt een [ɱ]. De stem verandert niet.</p>"
         },
         {
           "type": "card",
@@ -7253,7 +7455,8 @@ const DATA = {
             "hide": 2,
             "opt": []
           },
-          "num": 53
+          "num": 53,
+          "theory": "<p>De dia noemt drie fonologische processen die klanken kunnen beïnvloeden: assimilatie, coarticulatie en reductie.</p>"
         },
         {
           "type": "mc",
@@ -7272,7 +7475,8 @@ const DATA = {
               "correct": true
             }
           ],
-          "num": 54
+          "num": 54,
+          "theory": "<p>Bilabiaal is een plaats van articulatie. Voorbeeld: inpakken, waar de alveolaire [n] een bilabiale [m] wordt voor de bilabiale [p].</p>"
         },
         {
           "type": "mc",
@@ -7291,7 +7495,8 @@ const DATA = {
               "correct": false
             }
           ],
-          "num": 55
+          "num": 55,
+          "theory": "<p>[p] is stemloos en [z] is stemhebbend. Door assimilatie worden beide stemloos: de [z] wordt een [s]. De plaats verandert niet.</p>"
         },
         {
           "type": "mc",
@@ -7311,7 +7516,8 @@ const DATA = {
             }
           ],
           "note": "Assimilatie gaat ook over een woordgrens heen: <i>inpakken</i> [ʔɪmpɑkə] en <i>in Parijs</i> [ʔɪmpaɾɛis] krijgen allebei een [m].",
-          "num": 56
+          "num": 56,
+          "theory": "<p>Assimilatie gaat ook over een woordgrens heen: inpakken en in Parijs krijgen allebei een [m] voor de [p]. (Deze vraag heeft al een toelichting op de site.)</p>"
         },
         {
           "type": "mc",
@@ -7330,7 +7536,8 @@ const DATA = {
               "correct": true
             }
           ],
-          "num": 57
+          "num": 57,
+          "theory": "<p>[n] is alveolair en [j] is palataal. Door assimilatie worden beide palataal: de [n] wordt een [ɲ]. De stem verandert niet.</p>"
         },
         {
           "type": "mc",
@@ -7349,7 +7556,8 @@ const DATA = {
               "correct": false
             }
           ],
-          "num": 58
+          "num": 58,
+          "theory": "<p>Stemloos en stemhebbend zijn kenmerken van stem. Voorbeeld: op zee, waar de [z] een [s] wordt na de stemloze [p].</p>"
         },
         {
           "type": "card",
@@ -7361,7 +7569,8 @@ const DATA = {
           "back": "<p>Een klank past zich aan aan de klank ervóór. Bijvoorbeeld <i>opzet</i>: de [z] wordt [s] na de stemloze [p].</p>",
           "image": null,
           "alt": "",
-          "num": 59
+          "num": 59,
+          "theory": "<p>Voorbeelden: opzet, afzien, afval. De eerste klank blijft gelijk en verandert de tweede: in opzet wordt de [z] een [s] na de stemloze [p].</p>"
         },
         {
           "type": "card",
@@ -7373,7 +7582,8 @@ const DATA = {
           "back": "<p>Assimilatie binnen een woord. Bijvoorbeeld <i>ijsbeer</i>, <i>onweer</i>.</p>",
           "image": null,
           "alt": "",
-          "num": 60
+          "num": 60,
+          "theory": "<p>Voorbeelden: ijsbeer en onweer. De twee klanken staan in hetzelfde woord.</p>"
         },
         {
           "type": "card",
@@ -7385,7 +7595,8 @@ const DATA = {
           "back": "<p>Een klank past zich aan aan de klank erna. Bijvoorbeeld <i>asbak</i>: de [s] wordt [z] voor de stemhebbende [b].</p>",
           "image": null,
           "alt": "",
-          "num": 61
+          "num": 61,
+          "theory": "<p>Voorbeelden: asbak, bruikbaar, inpakken. De tweede klank blijft gelijk en verandert de eerste: in asbak wordt de [s] een [z] voor de stemhebbende [b].</p>"
         },
         {
           "type": "card",
@@ -7397,7 +7608,8 @@ const DATA = {
           "back": "<p>Assimilatie over een woordgrens heen. Bijvoorbeeld <i>in Parijs</i>, <i>op zee</i>.</p>",
           "image": null,
           "alt": "",
-          "num": 62
+          "num": 62,
+          "theory": "<p>Voorbeelden: in Parijs en op zee. De twee klanken staan in verschillende woorden. Woordgrenzen houden assimilatie niet tegen.</p>"
         },
         {
           "type": "card",
@@ -7409,7 +7621,8 @@ const DATA = {
           "back": "<p>Een klank neemt één of enkele kenmerken van de buurklank over, maar wordt niet helemaal gelijk. Bijvoorbeeld <i>ijsbeer</i>: [s] wordt [z], alleen de stem verandert.</p>",
           "image": null,
           "alt": "",
-          "num": 63
+          "num": 63,
+          "theory": "<p>Voorbeelden: ijsbeer, inpakken, op zee. In ijsbeer wordt [s] een [z]: alleen de stem verandert, het blijft een andere klank dan [b].</p>"
         },
         {
           "type": "card",
@@ -7421,7 +7634,8 @@ const DATA = {
           "back": "<p>Een klank wordt helemaal gelijk aan de buurklank. Bijvoorbeeld <i>opbod</i>: de [p] wordt [b].</p>",
           "image": null,
           "alt": "",
-          "num": 64
+          "num": 64,
+          "theory": "<p>Voorbeelden: inmaken en opbod. In opbod wordt de [p] een [b] voor de [b]; in inmaken wordt de [n] een [m] voor de [m].</p>"
         },
         {
           "type": "drag",
@@ -7492,7 +7706,8 @@ const DATA = {
               "h": 2.6
             }
           ],
-          "num": 65
+          "num": 65,
+          "theory": "<p>Staan de twee klanken in hetzelfde woord, dan is het intern. Zit er een woordgrens (een spatie) tussen, dan is het extern.</p>"
         },
         {
           "type": "drag",
@@ -7579,7 +7794,8 @@ const DATA = {
               "h": 2.6
             }
           ],
-          "num": 66
+          "num": 66,
+          "theory": "<p>Kijk welke klank verandert. Verandert de tweede klank (door de klank ervoor), dan is het progressief. Verandert de eerste klank (door de klank erna), dan is het regressief.</p>"
         },
         {
           "type": "drag",
@@ -7658,7 +7874,8 @@ const DATA = {
               "h": 2.6
             }
           ],
-          "num": 67
+          "num": 67,
+          "theory": "<p>Kijk of de twee klanken na de assimilatie precies gelijk zijn. In inmaken ([mm]) en opbod ([bb]) is dat zo: totaal. In inpakken ([mp]) blijven het twee verschillende klanken: partieel.</p>"
         }
       ]
     }

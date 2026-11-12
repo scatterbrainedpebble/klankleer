@@ -38,11 +38,17 @@ function renderQuestion(
   const feedback = h('div', { class: 'feedback' });
 
   /**
-   * Maakt de regel 'Zie: week 1, college 1, dia 14' (of niets, als de vraag geen verwijzing heeft).
+   * Maakt wat er na het antwoorden onder het juiste antwoord komt: het stukje theorie
+   * (item.theory, als dat er is) en de regel 'Zie: week 1, college 1, dia 14'.
    * Is de PDF van het college gekoppeld, dan is het dianummer een link naar die dia.
+   * Geeft null terug als er niets te tonen is.
    */
   function makeRef() {
-    return refLine(item); // zie js/slides.js
+    const ref = refLine(item); // zie js/slides.js
+    if (!item.theory) {
+      return ref;
+    }
+    return h('div', { class: 'answerinfo' }, h('div', { class: 'theory', html: item.theory }), ref);
   }
 
   /** Het plaatje bij de vraag, als dat er is. */
