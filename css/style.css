@@ -1219,6 +1219,103 @@ details.cat[open] .chev {
   background: #fbe9e7;
 }
 
+/* Compacte vorm op een telefoon (zie drag.js): nummers op het plaatje,
+   een genummerde lijst eronder en daaronder de voorraad kaartjes. */
+
+.zone .znum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.6em;
+  height: 1.6em;
+  padding: 0 0.3em;
+  border-radius: 0.8em;
+  background: var(--accent);
+  color: #fff;
+  font-size: max(1em, 12px);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dq.compact .zone {
+  outline: 0.1em solid rgba(31, 95, 191, 0.35);
+}
+
+.dqlist {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dqlist li {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.dqnum {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+}
+
+.dqslot {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  min-height: 2.4em;
+  padding: 3px 6px;
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+}
+
+.dqslot.target {
+  border-color: var(--accent);
+  background: rgba(31, 95, 191, 0.06);
+}
+
+/* De voorraad blijft onderin beeld staan terwijl je door de lijst scrolt. */
+.dqpool {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 2.6em;
+  max-height: 28vh;
+  overflow-y: auto;
+  margin-top: 12px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.dqpool .chip,
+.dqslot .chip {
+  position: static;
+  padding: 0.2em 0.45em;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Liggen alle kaartjes in de lijst, dan verdwijnt de lege voorraad. */
+.dqpool:empty {
+  display: none;
+}
+
 /* ==========================================================================
    16. Smalle schermen
    ========================================================================== */
