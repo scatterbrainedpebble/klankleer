@@ -29,7 +29,7 @@ jobs:
           distribution: temurin
           java-version: '17'
 
-      - uses: android-actions/setup-android@v3
+      # De Android SDK staat al op de computers van GitHub (ANDROID_HOME); die hoeft niet apart geïnstalleerd.
 
       - uses: gradle/actions/setup-gradle@v4
         with:
