@@ -116,13 +116,25 @@ function verdict(correct) {
   return correct ? 'Goed!' : 'Helaas, dat is onjuist.';
 }
 
-/** Zorgt dat Enter in een invulveld hetzelfde doet als de knop Nakijken. */
+/**
+ * Zorgt dat Enter in een invulveld hetzelfde doet als de knop Nakijken.
+ *
+ * Enter doet niets als het veld nog leeg is, of als de toets nog ingedrukt is van daarnet
+ * (event.repeat). Anders kan één Enter te veel bij de vorige vraag (op Volgende) de nieuwe
+ * vraag meteen leeg laten nakijken, en dan staat hij als onjuist. Een leeg antwoord
+ * inleveren kan nog steeds met de knop Nakijken.
+ */
 function onEnter(input, action) {
   input.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      action();
+    if (event.key !== 'Enter') {
+      return;
     }
+    event.preventDefault();
+    const isEmpty = input.value.trim() === '';
+    if (event.repeat || isEmpty) {
+      return;
+    }
+    action();
   });
 }
 
