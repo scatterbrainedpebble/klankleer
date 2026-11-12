@@ -18,6 +18,7 @@
  *   14. Vraagsoort: klikken op een lijn
  *   15. Vraagsoort: slepen
  *   16. Smalle schermen
+ *   17. Dagelijkse sessie en gewoontetracker
  *
  * Afspraken
  *   - Kleuren en afstanden staan als variabelen in deel 1. Verderop gebruik je ze met var(--naam).
@@ -1384,4 +1385,78 @@ details.cat[open] .chev {
   .flag .lbl {
     display: none;
   }
+}
+
+/* ==========================================================================
+   17. Dagelijkse sessie en gewoontetracker
+   ========================================================================== */
+
+/* De kalender: zeven kolommen (ma t/m zo), één vakje per dag. */
+.habit-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4px;
+  margin: var(--s3) 0 var(--s6);
+}
+
+.habit-head {
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.habit-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 0;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: var(--bg);
+  font-size: 13px;
+}
+
+/* Een dag uit het rooster (college, deadline, tentamen) krijgt een rand. */
+.habit-day.event {
+  border-color: var(--line);
+}
+
+.habit-day.today {
+  border-color: var(--accent);
+}
+
+.habit-day.future {
+  opacity: 0.6;
+}
+
+/* Alle drie de sessies gedaan: de dag kleurt groen. */
+.habit-day.full .habit-date {
+  color: var(--good);
+  font-weight: 700;
+}
+
+.habit-day .dots {
+  display: flex;
+  gap: 2px;
+}
+
+.habit-day .dot {
+  width: 7px;
+  height: 7px;
+  border: 1px solid var(--muted);
+  border-radius: 50%;
+}
+
+.habit-day .dot.on {
+  border-color: var(--good);
+  background: var(--good);
+}
+
+.habit-schedule {
+  padding-left: 1.2em;
+}
+
+.habit-schedule li {
+  margin: 2px 0;
 }

@@ -1,0 +1,16 @@
+// settings.gradle – zegt welke onderdelen bij dit Android-project horen (alleen de map app).
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = 'Klankleer'
+include ':app'

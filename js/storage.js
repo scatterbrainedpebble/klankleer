@@ -18,6 +18,10 @@
  *   state.rnow[college]   de code van de herhaling die nu open staat
  *   state.revSel          je laatste keuze op de pagina Review
  *   state.lastBackup      het moment van je laatste back-up
+ *   state.habit[dag]      welke dagelijkse sessies je die dag deed: ['ochtend', 'avond']
+ *                         dag = 'jjjj-mm-dd' (zie js/pages/habit.js)
+ *   state.session         de dagelijkse sessie die nu loopt (zie js/pages/session.js)
+ *   state.sessionMissed   vragen die je in een sessie onjuist had: { code: 1 }
  *
  * 'code' is de code van een vraag (bijvoorbeeld KLC1D14V1), 'college' het id van een college (c1).
  *
@@ -85,6 +89,7 @@ function completeState() {
   state.retry = state.retry || {};
   state.rnow = state.rnow || {};
   state.rounds = state.rounds || {};
+  state.habit = state.habit || {};
 }
 
 /** Bewaart de voortgang in de browser. Roep dit aan na elke verandering van state. */

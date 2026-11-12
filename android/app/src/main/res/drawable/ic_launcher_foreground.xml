@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vijf afgeronde streepjes van verschillende hoogte: een geluidsgolf. Het midden van het icoon is 54,54. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M33,48a3,3 0,0 1,6 0v12a3,3 0,0 1,-6 0z M43,38a3,3 0,0 1,6 0v32a3,3 0,0 1,-6 0z M53,32a3,3 0,0 1,6 0v44a3,3 0,0 1,-6 0z M63,42a3,3 0,0 1,6 0v24a3,3 0,0 1,-6 0z M73,50a3,3 0,0 1,6 0v8a3,3 0,0 1,-6 0z" />
+</vector>

@@ -1,0 +1,5 @@
+# Wat Gradle tijdens het bouwen maakt, hoort niet in de repo.
+.gradle/
+build/
+app/build/
+local.properties

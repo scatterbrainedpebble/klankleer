@@ -28,6 +28,7 @@ function renderHome(page) {
         button('Overzicht per onderwerp', () => go('#/overzicht')),
       ),
     ),
+    sessionCard(),
   );
 
   const grid = h('div', { class: 'grid' });
@@ -85,6 +86,28 @@ function collegeCard(college) {
       button('Voortgang', () => go(`#/${college.id}/voortgang`)),
       newRoundButton,
       slidesButton(college),
+    ),
+  );
+}
+
+/** De kaart van de dagelijkse sessie: hoeveel sessies je vandaag gedaan hebt, en de knoppen. */
+function sessionCard() {
+  const done = slotsDone(dateKey());
+  const dots = SLOTS.map((slot) => (done.includes(slot.id) ? '●' : '○')).join(' ');
+  return h(
+    'div',
+    { class: 'card' },
+    h('h3', {}, 'Dagelijkse sessie'),
+    h(
+      'p',
+      { class: 'muted' },
+      `Vandaag ${dots} (${done.length} van ${SLOTS.length}). Elke sessie is ${SESSION_SIZE} vragen.`,
+    ),
+    h(
+      'div',
+      { class: 'btns' },
+      button('Start een sessie', () => go('#/sessie'), 'primary'),
+      button('Gewoontetracker', () => go('#/gewoonte')),
     ),
   );
 }

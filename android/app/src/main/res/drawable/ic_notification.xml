@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Het kleine icoon in de meldingenbalk: dezelfde geluidsgolf, in één kleur. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M3,10a1,1 0,0 1,2 0v4a1,1 0,0 1,-2 0z M7,6a1,1 0,0 1,2 0v12a1,1 0,0 1,-2 0z M11,3a1,1 0,0 1,2 0v18a1,1 0,0 1,-2 0z M15,7a1,1 0,0 1,2 0v10a1,1 0,0 1,-2 0z M19,10a1,1 0,0 1,2 0v4a1,1 0,0 1,-2 0z" />
+</vector>
