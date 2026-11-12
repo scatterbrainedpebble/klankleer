@@ -1,0 +1,4 @@
+// build.gradle (bovenste map) – welke versie van het Android-bouwgereedschap we gebruiken.
+plugins {
+    id 'com.android.application' version '8.5.2' apply false
+}

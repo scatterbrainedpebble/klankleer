@@ -36,12 +36,20 @@ function backupCard() {
       saved: new Date().toISOString(),
       data: state,
     };
-    const blob = new Blob([JSON.stringify(backup, null, 1)], { type: 'application/json' });
+    const text = JSON.stringify(backup, null, 1);
     const today = new Date().toISOString().slice(0, 10);
+    const fileName = `klankleer-voortgang-${today}.json`;
+    // In de Android-app kan de pagina zelf niets downloaden: daar slaat de app het bestand op.
+    if (window.KlankleerApp && window.KlankleerApp.saveFile) {
+      window.KlankleerApp.saveFile(fileName, text);
+      render();
+      return;
+    }
+    const blob = new Blob([text], { type: 'application/json' });
     // Een bestand downloaden gaat via een (onzichtbare) link waar we zelf op klikken.
     const link = h('a', {
       href: URL.createObjectURL(blob),
-      download: `klankleer-voortgang-${today}.json`,
+      download: fileName,
     });
     document.body.append(link);
     link.click();

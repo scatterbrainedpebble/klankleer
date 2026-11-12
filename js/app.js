@@ -12,6 +12,8 @@
  *   #/c1/voortgang                      Voortgang van college 1
  *   #/c1/nieuwe-ronde                   Nieuwe ronde van college 1
  *   #/vraag/KLC2D16V1                   Eén losse vraag (om als link te delen)
+ *   #/sessie                            Dagelijkse sessie van 5 vragen
+ *   #/gewoonte                          Gewoontetracker tot het tentamen
  *
  * render() leest het adres, maakt de pagina leeg en laat de juiste functie
  * uit de map pages/ de nieuwe pagina tekenen. Dat gebeurt bij het openen
@@ -45,7 +47,7 @@ function render() {
     return;
   }
   // Een onbekend adres gaat naar Home.
-  const knownPages = ['overzicht', 'review', 'vraag'];
+  const knownPages = ['overzicht', 'review', 'vraag', 'sessie', 'gewoonte'];
   if (first && !college && !knownPages.includes(first)) {
     go('#/');
     return;
@@ -87,6 +89,7 @@ function render() {
       tab('Home', '#/', !first),
       tab('Review', '#/review', first === 'review'),
       tab('Overzicht', '#/overzicht', first === 'overzicht'),
+      tab('Sessie', '#/sessie', first === 'sessie' || first === 'gewoonte'),
     );
     const selection = first === 'review' ? parseSelection(second, third) : null;
     if (!first) {
@@ -95,6 +98,10 @@ function render() {
       renderOverview(page);
     } else if (first === 'vraag') {
       renderSingle(page, second);
+    } else if (first === 'sessie') {
+      renderSession(page);
+    } else if (first === 'gewoonte') {
+      renderHabit(page);
     } else if (selection) {
       renderReview(page, selection);
     } else {

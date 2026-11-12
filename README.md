@@ -24,6 +24,7 @@ js/
   results.js        bijhouden wat je goed en onjuist had
   checking.js       getypte antwoorden nakijken (tikfouten, woordvormen, IPA)
   slides.js         de PDF met dia's van een college bewaren en openen bij de juiste dia
+  schedule.js       het rooster, de tentamendatum en de drie momenten van de dagelijkse sessie
   app.js            het startpunt: kiest de pagina bij het adres
   questions/        één bestand per soort vraag
     question.js       het deel dat voor alle soorten gelijk is
@@ -45,7 +46,10 @@ js/
     practice.js       Oefenen
     review.js         Review
     single.js         één losse vraag via een link (#/vraag/KLC2D16V1)
+    session.js        dagelijkse sessie van 5 vragen (#/sessie)
+    habit.js          gewoontetracker tot het tentamen (#/gewoonte)
 images/             de plaatjes bij de vragen
+android/            de Android-app (zie android/README.md)
 ```
 
 ## De code lezen

@@ -1,0 +1,46 @@
+// app/build.gradle – hoe de app gebouwd wordt.
+//
+// De app gebruikt alleen wat Android zelf meelevert: geen extra bibliotheken.
+// versionCode (het volgnummer van de versie) komt van GitHub Actions, zodat elke
+// nieuwe APK als update over de vorige heen geïnstalleerd kan worden.
+
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'nl.klankleer.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'nl.klankleer.app'
+        minSdk 29 // Android 10 of nieuwer
+        targetSdk 34
+        versionCode((project.findProperty('versionCode') ?: '1') as int)
+        versionName '1.' + versionCode
+    }
+
+    // De handtekening van de app. Android installeert een update alleen als die met
+    // dezelfde sleutel is ondertekend; daarom staat de sleutel vast in de repo.
+    // Het wachtwoord is geen geheim: de app is alleen voor eigen gebruik (sideloaden).
+    signingConfigs {
+        release {
+            storeFile file('klankleer.keystore')
+            storePassword 'klankleer'
+            keyAlias 'klankleer'
+            keyPassword 'klankleer'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
