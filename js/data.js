@@ -1159,56 +1159,55 @@ const DATA = {
           "alt": "Doorsnede van de tong, labels vervangen door letters A tot en met E"
         },
         {
-          "code": "KLC1D28V1",
+          "code": "KLC1D28V6",
           "num": 28,
           "title": "Spraakorganen – spraakkanaal",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek A?</p>",
+          "question": "<p>Wat staat op plek F?</p>",
           "segs": [
             {
               "text": "<p>"
             },
             {
               "blank": [
-                "zacht gehemelte",
-                "velum"
+                "faryngale wand"
               ]
             },
             {
               "text": "</p>"
             }
           ],
-          "correct": "zacht gehemelte (velum)",
+          "correct": "faryngale wand",
           "ref": "Zie: week 1, college 1, dia 28",
           "image": "images/KLC1D28.webp",
           "alt": "Doorsnede van het spraakkanaal, labels vervangen door letters A tot en met I"
         },
         {
-          "code": "KLC1D29V1",
+          "code": "KLC1D27V22",
           "num": 29,
-          "title": "Spraakorganen",
+          "title": "Spraakorganen – ander woord",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek A?</p>",
+          "question": "<p>Geef een ander woord voor tandkassen.</p>",
           "segs": [
             {
               "text": "<p>"
             },
             {
               "blank": [
-                "glottis",
-                "stemspleet"
+                "alveolen",
+                "alveoli"
               ]
             },
             {
               "text": "</p>"
             }
           ],
-          "correct": "glottis",
-          "ref": "Zie: week 1, college 1, dia 29",
-          "image": "images/KLC1D29.webp",
-          "alt": "Doorsnede van het hoofd met een pijl naar plek A"
+          "correct": "alveolen",
+          "ref": "Zie: week 1, college 1, dia 27",
+          "image": null,
+          "alt": ""
         },
         {
           "code": "KLC1D24V3",
@@ -1313,33 +1312,58 @@ const DATA = {
           "alt": "Doorsnede van de tong, labels vervangen door letters A tot en met E"
         },
         {
-          "code": "KLC1D28V2",
+          "code": "KLC1D28V9",
           "num": 35,
           "title": "Spraakorganen – spraakkanaal",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek B?</p>",
+          "question": "<p>Wat staat op plek I?</p>",
           "segs": [
             {
               "text": "<p>"
             },
             {
               "blank": [
-                "tongrug"
+                "stemplooien"
               ]
             },
             {
               "text": "</p>"
             }
           ],
-          "correct": "tongrug",
+          "correct": "stemplooien",
           "ref": "Zie: week 1, college 1, dia 28",
           "image": "images/KLC1D28.webp",
           "alt": "Doorsnede van het spraakkanaal, labels vervangen door letters A tot en met I"
         },
         {
-          "code": "KLC1D27V3",
+          "code": "KLC1D27V26",
           "num": 36,
+          "title": "Spraakorganen – ander woord",
+          "cat": "Spraakorganen",
+          "type": "blanks",
+          "question": "<p>Geef een ander woord voor strottenhoofd.</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "larynx"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "larynx",
+          "ref": "Zie: week 1, college 1, dia 27",
+          "image": null,
+          "alt": ""
+        },
+        {
+          "code": "KLC1D27V3",
+          "num": 37,
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -1365,7 +1389,7 @@ const DATA = {
         },
         {
           "code": "KLC1D27V16",
-          "num": 37,
+          "num": 38,
           "title": "Spraakorganen – de tong",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -1389,33 +1413,33 @@ const DATA = {
           "alt": "Doorsnede van de tong, labels vervangen door letters A tot en met E"
         },
         {
-          "code": "KLC1D28V3",
-          "num": 38,
-          "title": "Spraakorganen – spraakkanaal",
+          "code": "KLC1D27V23",
+          "num": 39,
+          "title": "Spraakorganen – ander woord",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek C?</p>",
+          "question": "<p>Geef een ander woord voor zacht gehemelte.</p>",
           "segs": [
             {
               "text": "<p>"
             },
             {
               "blank": [
-                "lippen"
+                "velum"
               ]
             },
             {
               "text": "</p>"
             }
           ],
-          "correct": "lippen",
-          "ref": "Zie: week 1, college 1, dia 28",
-          "image": "images/KLC1D28.webp",
-          "alt": "Doorsnede van het spraakkanaal, labels vervangen door letters A tot en met I"
+          "correct": "velum",
+          "ref": "Zie: week 1, college 1, dia 27",
+          "image": null,
+          "alt": ""
         },
         {
           "code": "KLC1D32V1",
-          "num": 39,
+          "num": 40,
           "title": "Luchtstroom – richting",
           "cat": "Luchtstroom",
           "type": "drag",
@@ -1469,7 +1493,7 @@ const DATA = {
         },
         {
           "code": "KLC1D27V4",
-          "num": 40,
+          "num": 41,
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -1495,7 +1519,7 @@ const DATA = {
         },
         {
           "code": "KLC1D27V17",
-          "num": 41,
+          "num": 42,
           "title": "Spraakorganen – de tong",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -1520,7 +1544,7 @@ const DATA = {
         },
         {
           "code": "KLC1D35V1",
-          "num": 42,
+          "num": 43,
           "title": "Luchtstroom – energiebron",
           "cat": "Luchtstroom",
           "type": "drag",
@@ -1591,33 +1615,59 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 35"
         },
         {
-          "code": "KLC1D28V4",
-          "num": 43,
-          "title": "Spraakorganen – spraakkanaal",
+          "code": "KLC1D27V28",
+          "num": 44,
+          "title": "Spraakorganen – ander woord",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek D?</p>",
+          "question": "<p>Geef een ander woord voor luchtpijp.</p>",
           "segs": [
             {
               "text": "<p>"
             },
             {
               "blank": [
-                "tongwortel"
+                "trachea"
               ]
             },
             {
               "text": "</p>"
             }
           ],
-          "correct": "tongwortel",
-          "ref": "Zie: week 1, college 1, dia 28",
-          "image": "images/KLC1D28.webp",
-          "alt": "Doorsnede van het spraakkanaal, labels vervangen door letters A tot en met I"
+          "correct": "trachea",
+          "ref": "Zie: week 1, college 1, dia 27",
+          "image": null,
+          "alt": ""
+        },
+        {
+          "code": "KLC1D27V5",
+          "num": 45,
+          "title": "Spraakorganen",
+          "cat": "Spraakorganen",
+          "type": "blanks",
+          "question": "<p>Wat staat op plek E?</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "zacht gehemelte",
+                "velum"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "zacht gehemelte (velum)",
+          "ref": "Zie: week 1, college 1, dia 27",
+          "image": "images/KLC1D27a.webp",
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
         },
         {
           "code": "KLC1D36V1",
-          "num": 44,
+          "num": 46,
           "title": "Luchtstroom – energiebron",
           "cat": "Luchtstroom",
           "type": "drag",
@@ -1670,34 +1720,8 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 36"
         },
         {
-          "code": "KLC1D27V5",
-          "num": 45,
-          "title": "Spraakorganen",
-          "cat": "Spraakorganen",
-          "type": "blanks",
-          "question": "<p>Wat staat op plek E?</p>",
-          "segs": [
-            {
-              "text": "<p>"
-            },
-            {
-              "blank": [
-                "zacht gehemelte",
-                "velum"
-              ]
-            },
-            {
-              "text": "</p>"
-            }
-          ],
-          "correct": "zacht gehemelte (velum)",
-          "ref": "Zie: week 1, college 1, dia 27",
-          "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
-        },
-        {
           "code": "KLC1D27V18",
-          "num": 46,
+          "num": 47,
           "title": "Spraakorganen – de tong",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -1721,8 +1745,33 @@ const DATA = {
           "alt": "Doorsnede van de tong, labels vervangen door letters A tot en met E"
         },
         {
+          "code": "KLC1D27V21",
+          "num": 48,
+          "title": "Spraakorganen – ander woord",
+          "cat": "Spraakorganen",
+          "type": "blanks",
+          "question": "<p>Geef een ander woord voor hard gehemelte.</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "palatum"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "palatum",
+          "ref": "Zie: week 1, college 1, dia 27",
+          "image": null,
+          "alt": ""
+        },
+        {
           "code": "KLC1D43V4",
-          "num": 47,
+          "num": 49,
           "title": "Stem – stemhebbend of stemloos",
           "cat": "Stem",
           "type": "drag",
@@ -1823,33 +1872,60 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 43"
         },
         {
-          "code": "KLC1D28V5",
-          "num": 48,
-          "title": "Spraakorganen – spraakkanaal",
+          "code": "KLC1D27V6",
+          "num": 50,
+          "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek E?</p>",
+          "question": "<p>Wat staat op plek F?</p>",
           "segs": [
             {
               "text": "<p>"
             },
             {
               "blank": [
-                "tongpunt"
+                "keelholte",
+                "pharynx",
+                "farynx"
               ]
             },
             {
               "text": "</p>"
             }
           ],
-          "correct": "tongpunt",
-          "ref": "Zie: week 1, college 1, dia 28",
-          "image": "images/KLC1D28.webp",
-          "alt": "Doorsnede van het spraakkanaal, labels vervangen door letters A tot en met I"
+          "correct": "keelholte (pharynx)",
+          "ref": "Zie: week 1, college 1, dia 27",
+          "image": "images/KLC1D27a.webp",
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+        },
+        {
+          "code": "KLC1D27V25",
+          "num": 51,
+          "title": "Spraakorganen – ander woord",
+          "cat": "Spraakorganen",
+          "type": "blanks",
+          "question": "<p>Geef een ander woord voor strotklep.</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "epiglottis"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "epiglottis",
+          "ref": "Zie: week 1, college 1, dia 27",
+          "image": null,
+          "alt": ""
         },
         {
           "code": "KLC1D43V2",
-          "num": 49,
+          "num": 52,
           "title": "Stem",
           "cat": "Stem",
           "type": "blanks",
@@ -1876,7 +1952,7 @@ const DATA = {
         },
         {
           "code": "KLC1D45V1",
-          "num": 50,
+          "num": 53,
           "title": "Stem",
           "cat": "Stem",
           "type": "blanks",
@@ -1903,60 +1979,8 @@ const DATA = {
           "alt": ""
         },
         {
-          "code": "KLC1D27V6",
-          "num": 51,
-          "title": "Spraakorganen",
-          "cat": "Spraakorganen",
-          "type": "blanks",
-          "question": "<p>Wat staat op plek F?</p>",
-          "segs": [
-            {
-              "text": "<p>"
-            },
-            {
-              "blank": [
-                "keelholte",
-                "pharynx",
-                "farynx"
-              ]
-            },
-            {
-              "text": "</p>"
-            }
-          ],
-          "correct": "keelholte (pharynx)",
-          "ref": "Zie: week 1, college 1, dia 27",
-          "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
-        },
-        {
-          "code": "KLC1D28V6",
-          "num": 52,
-          "title": "Spraakorganen – spraakkanaal",
-          "cat": "Spraakorganen",
-          "type": "blanks",
-          "question": "<p>Wat staat op plek F?</p>",
-          "segs": [
-            {
-              "text": "<p>"
-            },
-            {
-              "blank": [
-                "faryngale wand"
-              ]
-            },
-            {
-              "text": "</p>"
-            }
-          ],
-          "correct": "faryngale wand",
-          "ref": "Zie: week 1, college 1, dia 28",
-          "image": "images/KLC1D28.webp",
-          "alt": "Doorsnede van het spraakkanaal, labels vervangen door letters A tot en met I"
-        },
-        {
           "code": "KLC1D43V1",
-          "num": 53,
+          "num": 54,
           "title": "Stem",
           "cat": "Stem",
           "type": "card",
@@ -1967,8 +1991,20 @@ const DATA = {
           "alt": ""
         },
         {
+          "code": "KLC1D44V1",
+          "num": 55,
+          "title": "Stem – aspiratie en stemkwaliteit",
+          "cat": "Stem",
+          "type": "card",
+          "front": "<p>Wat is aspiratie?</p>",
+          "back": "<p>De trilling van de stembanden kan vertraagd zijn: er ontsnapt eerst wat lucht voor de volgende klank begint. Bijvoorbeeld thee ~ tea: [teː] ~ [tʰiː].</p>",
+          "ref": "Zie: week 1, college 1, dia 44",
+          "image": null,
+          "alt": ""
+        },
+        {
           "code": "KLC1D51V1",
-          "num": 54,
+          "num": 56,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "drag",
@@ -2165,20 +2201,85 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 51"
         },
         {
-          "code": "KLC1D44V1",
-          "num": 55,
-          "title": "Stem – aspiratie en stemkwaliteit",
+          "code": "KLC1D45V3",
+          "num": 57,
+          "title": "Stem – ander woord",
           "cat": "Stem",
-          "type": "card",
-          "front": "<p>Wat is aspiratie?</p>",
-          "back": "<p>De trilling van de stembanden kan vertraagd zijn: er ontsnapt eerst wat lucht voor de volgende klank begint. Bijvoorbeeld thee ~ tea: [teː] ~ [tʰiː].</p>",
-          "ref": "Zie: week 1, college 1, dia 44",
+          "type": "blanks",
+          "question": "<p>Geef een ander woord voor medeklinkers.</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "consonanten",
+                "consonant"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "consonanten",
+          "ref": "Zie: week 1, college 1, dia 45",
+          "image": null,
+          "alt": ""
+        },
+        {
+          "code": "KLC1D27V7",
+          "num": 58,
+          "title": "Spraakorganen",
+          "cat": "Spraakorganen",
+          "type": "blanks",
+          "question": "<p>Wat staat op plek G?</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "tong"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "tong",
+          "ref": "Zie: week 1, college 1, dia 27",
+          "image": "images/KLC1D27a.webp",
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+        },
+        {
+          "code": "KLC1D27V29",
+          "num": 59,
+          "title": "Spraakorganen – ander woord",
+          "cat": "Spraakorganen",
+          "type": "blanks",
+          "question": "<p>Geef een ander woord voor slokdarm.</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "esophagus",
+                "oesophagus"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "esophagus (ook: oesophagus)",
+          "ref": "Zie: week 1, college 1, dia 27",
           "image": null,
           "alt": ""
         },
         {
           "code": "KLC1D43V3",
-          "num": 56,
+          "num": 60,
           "title": "Stem",
           "cat": "Stem",
           "type": "blanks",
@@ -2204,224 +2305,8 @@ const DATA = {
           "alt": ""
         },
         {
-          "code": "KLC1D47V1",
-          "num": 57,
-          "title": "Plaats – IPA-tabel",
-          "cat": "Plaats",
-          "type": "drag",
-          "question": "Sleep elke plaats van articulatie naar de juiste kolom.",
-          "size": {
-            "width": 1100,
-            "height": 760
-          },
-          "bg": "images/KLC1D47V1.webp",
-          "els": [
-            {
-              "text": "<p>Velar</p>",
-              "x": 8.649,
-              "y": 70.088,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Dental</p>",
-              "x": 23.662,
-              "y": 70.088,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Glottal</p>",
-              "x": 38.675,
-              "y": 70.088,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Bilabial</p>",
-              "x": 53.688,
-              "y": 70.088,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Retro&shy;flex</p>",
-              "x": 68.701,
-              "y": 70.088,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Uvular</p>",
-              "x": 83.714,
-              "y": 70.088,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Alveolar</p>",
-              "x": 11.152,
-              "y": 84.386,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Palatal</p>",
-              "x": 28.667,
-              "y": 84.386,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Labio&shy;dental</p>",
-              "x": 46.182,
-              "y": 84.386,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Pharyn&shy;geal</p>",
-              "x": 63.697,
-              "y": 84.386,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Post&shy;alveolar</p>",
-              "x": 81.212,
-              "y": 84.386,
-              "w": 5.0,
-              "h": 3.0
-            }
-          ],
-          "zones": [
-            {
-              "x": 12.909,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                3
-              ],
-              "label": "Bilabial"
-            },
-            {
-              "x": 20.727,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                8
-              ],
-              "label": "Labiodental"
-            },
-            {
-              "x": 28.545,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                1
-              ],
-              "label": "Dental"
-            },
-            {
-              "x": 36.364,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                6
-              ],
-              "label": "Alveolar"
-            },
-            {
-              "x": 44.182,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                10
-              ],
-              "label": "Postalveolar"
-            },
-            {
-              "x": 52.0,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                4
-              ],
-              "label": "Retroflex"
-            },
-            {
-              "x": 59.818,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                7
-              ],
-              "label": "Palatal"
-            },
-            {
-              "x": 67.636,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                0
-              ],
-              "label": "Velar"
-            },
-            {
-              "x": 75.455,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                5
-              ],
-              "label": "Uvular"
-            },
-            {
-              "x": 83.273,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                9
-              ],
-              "label": "Pharyngeal"
-            },
-            {
-              "x": 91.091,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                2
-              ],
-              "label": "Glottal"
-            }
-          ],
-          "ref": "Zie: week 1, college 1, dia 47"
-        },
-        {
           "code": "KLC1D45V2",
-          "num": 58,
+          "num": 61,
           "title": "Stem",
           "cat": "Stem",
           "type": "blanks",
@@ -2450,59 +2335,8 @@ const DATA = {
           "alt": ""
         },
         {
-          "code": "KLC1D27V7",
-          "num": 59,
-          "title": "Spraakorganen",
-          "cat": "Spraakorganen",
-          "type": "blanks",
-          "question": "<p>Wat staat op plek G?</p>",
-          "segs": [
-            {
-              "text": "<p>"
-            },
-            {
-              "blank": [
-                "tong"
-              ]
-            },
-            {
-              "text": "</p>"
-            }
-          ],
-          "correct": "tong",
-          "ref": "Zie: week 1, college 1, dia 27",
-          "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
-        },
-        {
-          "code": "KLC1D28V7",
-          "num": 60,
-          "title": "Spraakorganen – spraakkanaal",
-          "cat": "Spraakorganen",
-          "type": "blanks",
-          "question": "<p>Wat staat op plek G?</p>",
-          "segs": [
-            {
-              "text": "<p>"
-            },
-            {
-              "blank": [
-                "strotklep",
-                "epiglottis"
-              ]
-            },
-            {
-              "text": "</p>"
-            }
-          ],
-          "correct": "strotklep (epiglottis)",
-          "ref": "Zie: week 1, college 1, dia 28",
-          "image": "images/KLC1D28.webp",
-          "alt": "Doorsnede van het spraakkanaal, labels vervangen door letters A tot en met I"
-        },
-        {
           "code": "KLC1D44V2",
-          "num": 61,
+          "num": 62,
           "title": "Stem – aspiratie en stemkwaliteit",
           "cat": "Stem",
           "type": "card",
@@ -2513,8 +2347,36 @@ const DATA = {
           "alt": ""
         },
         {
+          "code": "KLC1D45V4",
+          "num": 63,
+          "title": "Stem – ander woord",
+          "cat": "Stem",
+          "type": "blanks",
+          "question": "<p>Geef een ander woord voor klinkers.</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "vocalen",
+                "vokalen",
+                "vocaal",
+                "vokaal"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "vocalen (ook: vokalen)",
+          "ref": "Zie: week 1, college 1, dia 45",
+          "image": null,
+          "alt": ""
+        },
+        {
           "code": "KLC1D43V5",
-          "num": 62,
+          "num": 64,
           "title": "Stem",
           "cat": "Stem",
           "type": "blanks",
@@ -2543,7 +2405,7 @@ const DATA = {
         },
         {
           "code": "KLC1D48V1",
-          "num": 63,
+          "num": 65,
           "title": "Classificatie – drie kenmerken",
           "cat": "Classificatie",
           "type": "card",
@@ -2555,7 +2417,7 @@ const DATA = {
         },
         {
           "code": "KLC1D51V2",
-          "num": 64,
+          "num": 66,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -2582,7 +2444,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V4",
-          "num": 65,
+          "num": 67,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -2608,7 +2470,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V29",
-          "num": 66,
+          "num": 68,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -2634,7 +2496,7 @@ const DATA = {
         },
         {
           "code": "KLC1D27V8",
-          "num": 67,
+          "num": 69,
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -2659,34 +2521,34 @@ const DATA = {
           "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
         },
         {
-          "code": "KLC1D28V8",
-          "num": 68,
-          "title": "Spraakorganen – spraakkanaal",
+          "code": "KLC1D27V24",
+          "num": 70,
+          "title": "Spraakorganen – ander woord",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek H?</p>",
+          "question": "<p>Geef een ander woord voor keelholte.</p>",
           "segs": [
             {
               "text": "<p>"
             },
             {
               "blank": [
-                "strottenhoofd",
-                "larynx"
+                "pharynx",
+                "farynx"
               ]
             },
             {
               "text": "</p>"
             }
           ],
-          "correct": "strottenhoofd (larynx)",
-          "ref": "Zie: week 1, college 1, dia 28",
-          "image": "images/KLC1D28.webp",
-          "alt": "Doorsnede van het spraakkanaal, labels vervangen door letters A tot en met I"
+          "correct": "pharynx (ook: farynx)",
+          "ref": "Zie: week 1, college 1, dia 27",
+          "image": null,
+          "alt": ""
         },
         {
           "code": "KLC1D49V1",
-          "num": 69,
+          "num": 71,
           "title": "Plaats – definitie",
           "cat": "Plaats",
           "type": "card",
@@ -2698,7 +2560,7 @@ const DATA = {
         },
         {
           "code": "KLC1D51V3",
-          "num": 70,
+          "num": 72,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -2724,7 +2586,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V11",
-          "num": 71,
+          "num": 73,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -2751,7 +2613,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V25",
-          "num": 72,
+          "num": 74,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -2777,7 +2639,7 @@ const DATA = {
         },
         {
           "code": "KLC1D27V9",
-          "num": 73,
+          "num": 75,
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -2801,33 +2663,33 @@ const DATA = {
           "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
         },
         {
-          "code": "KLC1D28V9",
-          "num": 74,
-          "title": "Spraakorganen – spraakkanaal",
+          "code": "KLC1D27V27",
+          "num": 76,
+          "title": "Spraakorganen – ander woord",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek I?</p>",
+          "question": "<p>Geef een ander woord voor stemspleet.</p>",
           "segs": [
             {
               "text": "<p>"
             },
             {
               "blank": [
-                "stemplooien"
+                "glottis"
               ]
             },
             {
               "text": "</p>"
             }
           ],
-          "correct": "stemplooien",
-          "ref": "Zie: week 1, college 1, dia 28",
-          "image": "images/KLC1D28.webp",
-          "alt": "Doorsnede van het spraakkanaal, labels vervangen door letters A tot en met I"
+          "correct": "glottis",
+          "ref": "Zie: week 1, college 1, dia 27",
+          "image": null,
+          "alt": ""
         },
         {
           "code": "KLC1D51V4",
-          "num": 75,
+          "num": 77,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -2854,7 +2716,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V7",
-          "num": 76,
+          "num": 78,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -2881,7 +2743,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V32",
-          "num": 77,
+          "num": 79,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -2909,7 +2771,7 @@ const DATA = {
         },
         {
           "code": "KLC1D27V10",
-          "num": 78,
+          "num": 80,
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -2934,8 +2796,34 @@ const DATA = {
           "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
         },
         {
+          "code": "KLC1D28V11",
+          "num": 81,
+          "title": "Spraakorganen – ander woord",
+          "cat": "Spraakorganen",
+          "type": "blanks",
+          "question": "<p>Geef een ander woord voor stembanden.</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "stemplooien",
+                "stemplooi"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "stemplooien",
+          "ref": "Zie: week 1, college 1, dia 28 en 29",
+          "image": null,
+          "alt": ""
+        },
+        {
           "code": "KLC1D51V5",
-          "num": 79,
+          "num": 82,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -2962,7 +2850,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V14",
-          "num": 80,
+          "num": 83,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -2987,8 +2875,34 @@ const DATA = {
           "alt": ""
         },
         {
+          "code": "KLC1D47V23",
+          "num": 84,
+          "title": "Plaats – IPA-tabel",
+          "cat": "Plaats",
+          "type": "blanks",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "bilabial",
+                "bilabiaal"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "Bilabial (bilabiaal)",
+          "ref": "Zie: week 1, college 1, dia 47",
+          "image": "images/KLC1D47V23.webp",
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+        },
+        {
           "code": "KLC1D47V2",
-          "num": 81,
+          "num": 85,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "drag",
@@ -3149,34 +3063,8 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 47"
         },
         {
-          "code": "KLC1D47V23",
-          "num": 82,
-          "title": "Plaats – IPA-tabel",
-          "cat": "Plaats",
-          "type": "blanks",
-          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
-          "segs": [
-            {
-              "text": "<p>"
-            },
-            {
-              "blank": [
-                "bilabial",
-                "bilabiaal"
-              ]
-            },
-            {
-              "text": "</p>"
-            }
-          ],
-          "correct": "Bilabial (bilabiaal)",
-          "ref": "Zie: week 1, college 1, dia 47",
-          "image": "images/KLC1D47V23.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
-        },
-        {
           "code": "KLC1D27V11",
-          "num": 83,
+          "num": 86,
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -3201,8 +3089,34 @@ const DATA = {
           "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
         },
         {
+          "code": "KLC1D51V6",
+          "num": 87,
+          "title": "Plaats – passieve articulatoren",
+          "cat": "Plaats",
+          "type": "blanks",
+          "question": "<p>Wat staat op plek E?</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "dental",
+                "dentaal"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "dental (dentaal)",
+          "ref": "Zie: week 1, college 1, dia 51",
+          "image": "images/KLC1D51.webp",
+          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
+        },
+        {
           "code": "KLC1D64V2",
-          "num": 84,
+          "num": 88,
           "title": "Wijze – klanken indelen",
           "cat": "Wijze",
           "type": "drag",
@@ -3289,34 +3203,8 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 56–62"
         },
         {
-          "code": "KLC1D51V6",
-          "num": 85,
-          "title": "Plaats – passieve articulatoren",
-          "cat": "Plaats",
-          "type": "blanks",
-          "question": "<p>Wat staat op plek E?</p>",
-          "segs": [
-            {
-              "text": "<p>"
-            },
-            {
-              "blank": [
-                "dental",
-                "dentaal"
-              ]
-            },
-            {
-              "text": "</p>"
-            }
-          ],
-          "correct": "dental (dentaal)",
-          "ref": "Zie: week 1, college 1, dia 51",
-          "image": "images/KLC1D51.webp",
-          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
-        },
-        {
           "code": "KLC1D47V9",
-          "num": 86,
+          "num": 89,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -3341,7 +3229,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V27",
-          "num": 87,
+          "num": 90,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -3367,8 +3255,34 @@ const DATA = {
           "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
         },
         {
+          "code": "KLC1D27V12",
+          "num": 91,
+          "title": "Spraakorganen",
+          "cat": "Spraakorganen",
+          "type": "blanks",
+          "question": "<p>Wat staat op plek L?</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "luchtpijp",
+                "trachea"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "luchtpijp (trachea)",
+          "ref": "Zie: week 1, college 1, dia 27",
+          "image": "images/KLC1D27a.webp",
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+        },
+        {
           "code": "KLC1D64V3",
-          "num": 88,
+          "num": 92,
           "title": "Wijze – klanken indelen",
           "cat": "Wijze",
           "type": "drag",
@@ -3455,34 +3369,8 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 56–62"
         },
         {
-          "code": "KLC1D27V12",
-          "num": 89,
-          "title": "Spraakorganen",
-          "cat": "Spraakorganen",
-          "type": "blanks",
-          "question": "<p>Wat staat op plek L?</p>",
-          "segs": [
-            {
-              "text": "<p>"
-            },
-            {
-              "blank": [
-                "luchtpijp",
-                "trachea"
-              ]
-            },
-            {
-              "text": "</p>"
-            }
-          ],
-          "correct": "luchtpijp (trachea)",
-          "ref": "Zie: week 1, college 1, dia 27",
-          "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
-        },
-        {
           "code": "KLC1D54V1",
-          "num": 90,
+          "num": 93,
           "title": "Wijze – definitie",
           "cat": "Wijze",
           "type": "card",
@@ -3494,7 +3382,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V15",
-          "num": 91,
+          "num": 94,
           "title": "Wijze – definities",
           "cat": "Wijze",
           "type": "blanks",
@@ -3522,20 +3410,34 @@ const DATA = {
           "alt": ""
         },
         {
-          "code": "KLC1D56V1",
-          "num": 92,
+          "code": "KLC1D56V3",
+          "num": 95,
           "title": "Wijze – plosieven en fricatieven",
           "cat": "Wijze",
-          "type": "card",
-          "front": "<p>Wat zijn de Nederlandse namen voor plosieven en fricatieven?</p>",
-          "back": "<p>Plosieven = plofklanken; fricatieven = wrijfklanken</p>",
+          "type": "blanks",
+          "question": "<p>Wat is de Nederlandse naam voor plosieven?</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "plofklanken",
+                "plofklank"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "plofklanken",
           "ref": "Zie: week 1, college 1, dia 56",
           "image": null,
           "alt": ""
         },
         {
           "code": "KLC1D47V38",
-          "num": 93,
+          "num": 96,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
@@ -3563,7 +3465,7 @@ const DATA = {
         },
         {
           "code": "KLC1D64V1",
-          "num": 94,
+          "num": 97,
           "title": "Wijze – overzicht",
           "cat": "Wijze",
           "type": "card",
@@ -3575,7 +3477,7 @@ const DATA = {
         },
         {
           "code": "KLC1D51V7",
-          "num": 95,
+          "num": 98,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -3602,7 +3504,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V5",
-          "num": 96,
+          "num": 99,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -3628,7 +3530,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V30",
-          "num": 97,
+          "num": 100,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -3654,8 +3556,35 @@ const DATA = {
           "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
         },
         {
+          "code": "KLC1D27V13",
+          "num": 101,
+          "title": "Spraakorganen",
+          "cat": "Spraakorganen",
+          "type": "blanks",
+          "question": "<p>Wat staat op plek M?</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "slokdarm",
+                "esophagus",
+                "oesophagus"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "slokdarm (esophagus)",
+          "ref": "Zie: week 1, college 1, dia 27",
+          "image": "images/KLC1D27a.webp",
+          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+        },
+        {
           "code": "KLC1D64V4",
-          "num": 98,
+          "num": 102,
           "title": "Wijze – klanken indelen",
           "cat": "Wijze",
           "type": "drag",
@@ -3734,35 +3663,8 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 56–62"
         },
         {
-          "code": "KLC1D27V13",
-          "num": 99,
-          "title": "Spraakorganen",
-          "cat": "Spraakorganen",
-          "type": "blanks",
-          "question": "<p>Wat staat op plek M?</p>",
-          "segs": [
-            {
-              "text": "<p>"
-            },
-            {
-              "blank": [
-                "slokdarm",
-                "esophagus",
-                "oesophagus"
-              ]
-            },
-            {
-              "text": "</p>"
-            }
-          ],
-          "correct": "slokdarm (esophagus)",
-          "ref": "Zie: week 1, college 1, dia 27",
-          "image": "images/KLC1D27a.webp",
-          "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
-        },
-        {
           "code": "KLC1D47V19",
-          "num": 100,
+          "num": 103,
           "title": "Wijze – definities",
           "cat": "Wijze",
           "type": "blanks",
@@ -3790,7 +3692,7 @@ const DATA = {
         },
         {
           "code": "KLC1D58V1",
-          "num": 101,
+          "num": 104,
           "title": "Wijze – nasalen",
           "cat": "Wijze",
           "type": "card",
@@ -3802,7 +3704,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V35",
-          "num": 102,
+          "num": 105,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
@@ -3829,7 +3731,7 @@ const DATA = {
         },
         {
           "code": "KLC1D51V8",
-          "num": 103,
+          "num": 106,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -3855,7 +3757,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V12",
-          "num": 104,
+          "num": 107,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -3882,7 +3784,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V33",
-          "num": 105,
+          "num": 108,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -3908,7 +3810,7 @@ const DATA = {
         },
         {
           "code": "KLC1D64V5",
-          "num": 106,
+          "num": 109,
           "title": "Wijze – klanken indelen",
           "cat": "Wijze",
           "type": "drag",
@@ -3980,7 +3882,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V16",
-          "num": 107,
+          "num": 110,
           "title": "Wijze – definities",
           "cat": "Wijze",
           "type": "blanks",
@@ -4007,7 +3909,7 @@ const DATA = {
         },
         {
           "code": "KLC1D60V1",
-          "num": 108,
+          "num": 111,
           "title": "Wijze – trilklanken",
           "cat": "Wijze",
           "type": "card",
@@ -4019,7 +3921,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V3",
-          "num": 109,
+          "num": 112,
           "title": "Classificatie – Nederlandse klanken",
           "cat": "Classificatie",
           "type": "drag",
@@ -4577,7 +4479,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V40",
-          "num": 110,
+          "num": 113,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
@@ -4604,8 +4506,90 @@ const DATA = {
           "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
         },
         {
+          "code": "KLC1D51V9",
+          "num": 114,
+          "title": "Plaats – passieve articulatoren",
+          "cat": "Plaats",
+          "type": "blanks",
+          "question": "<p>Wat staat op plek H?</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "pharyngeal",
+                "faryngaal",
+                "pharyngaal",
+                "faryngeaal"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "pharyngeal (faryngaal)",
+          "ref": "Zie: week 1, college 1, dia 51",
+          "image": "images/KLC1D51.webp",
+          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
+        },
+        {
+          "code": "KLC1D47V8",
+          "num": 115,
+          "title": "Plaats – definities",
+          "cat": "Plaats",
+          "type": "blanks",
+          "question": "<p>Hoe heet de plaats van articulatie waarbij de vernauwing gemaakt wordt met het tongblad tegen het gebied net achter de tandkassen?</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "postalveolar",
+                "postalveolair",
+                "postalveolaar"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "postalveolar (postalveolair)",
+          "ref": "Zie: week 1, college 1, dia 47 en 51",
+          "image": null,
+          "alt": ""
+        },
+        {
+          "code": "KLC1D47V26",
+          "num": 116,
+          "title": "Plaats – IPA-tabel",
+          "cat": "Plaats",
+          "type": "blanks",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "alveolar",
+                "alveolair",
+                "alveolaar"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "Alveolar (alveolair)",
+          "ref": "Zie: week 1, college 1, dia 47",
+          "image": "images/KLC1D47V26.webp",
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+        },
+        {
           "code": "KLC1D64V6",
-          "num": 111,
+          "num": 117,
           "title": "Wijze – klanken indelen",
           "cat": "Wijze",
           "type": "drag",
@@ -4702,90 +4686,8 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 56–62"
         },
         {
-          "code": "KLC1D51V9",
-          "num": 112,
-          "title": "Plaats – passieve articulatoren",
-          "cat": "Plaats",
-          "type": "blanks",
-          "question": "<p>Wat staat op plek H?</p>",
-          "segs": [
-            {
-              "text": "<p>"
-            },
-            {
-              "blank": [
-                "pharyngeal",
-                "faryngaal",
-                "pharyngaal",
-                "faryngeaal"
-              ]
-            },
-            {
-              "text": "</p>"
-            }
-          ],
-          "correct": "pharyngeal (faryngaal)",
-          "ref": "Zie: week 1, college 1, dia 51",
-          "image": "images/KLC1D51.webp",
-          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
-        },
-        {
-          "code": "KLC1D47V8",
-          "num": 113,
-          "title": "Plaats – definities",
-          "cat": "Plaats",
-          "type": "blanks",
-          "question": "<p>Hoe heet de plaats van articulatie waarbij de vernauwing gemaakt wordt met het tongblad tegen het gebied net achter de tandkassen?</p>",
-          "segs": [
-            {
-              "text": "<p>"
-            },
-            {
-              "blank": [
-                "postalveolar",
-                "postalveolair",
-                "postalveolaar"
-              ]
-            },
-            {
-              "text": "</p>"
-            }
-          ],
-          "correct": "postalveolar (postalveolair)",
-          "ref": "Zie: week 1, college 1, dia 47 en 51",
-          "image": null,
-          "alt": ""
-        },
-        {
-          "code": "KLC1D47V26",
-          "num": 114,
-          "title": "Plaats – IPA-tabel",
-          "cat": "Plaats",
-          "type": "blanks",
-          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
-          "segs": [
-            {
-              "text": "<p>"
-            },
-            {
-              "blank": [
-                "alveolar",
-                "alveolair",
-                "alveolaar"
-              ]
-            },
-            {
-              "text": "</p>"
-            }
-          ],
-          "correct": "Alveolar (alveolair)",
-          "ref": "Zie: week 1, college 1, dia 47",
-          "image": "images/KLC1D47V26.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
-        },
-        {
           "code": "KLC1D47V21",
-          "num": 115,
+          "num": 118,
           "title": "Wijze – definities",
           "cat": "Wijze",
           "type": "blanks",
@@ -4813,7 +4715,7 @@ const DATA = {
         },
         {
           "code": "KLC1D62V1",
-          "num": 116,
+          "num": 119,
           "title": "Wijze – approximanten",
           "cat": "Wijze",
           "type": "card",
@@ -4825,7 +4727,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V34",
-          "num": 117,
+          "num": 120,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
@@ -4854,7 +4756,7 @@ const DATA = {
         },
         {
           "code": "KLC1D51V10",
-          "num": 118,
+          "num": 121,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -4880,7 +4782,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V13",
-          "num": 119,
+          "num": 122,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -4908,7 +4810,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V24",
-          "num": 120,
+          "num": 123,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -4934,7 +4836,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V17",
-          "num": 121,
+          "num": 124,
           "title": "Wijze – definities",
           "cat": "Wijze",
           "type": "blanks",
@@ -4962,7 +4864,7 @@ const DATA = {
         },
         {
           "code": "KLC1D56V2",
-          "num": 122,
+          "num": 125,
           "title": "Wijze – plosieven en fricatieven",
           "cat": "Wijze",
           "type": "card",
@@ -4974,7 +4876,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V37",
-          "num": 123,
+          "num": 126,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
@@ -5002,7 +4904,7 @@ const DATA = {
         },
         {
           "code": "KLC1D51V11",
-          "num": 124,
+          "num": 127,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -5028,7 +4930,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V6",
-          "num": 125,
+          "num": 128,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -5054,7 +4956,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V31",
-          "num": 126,
+          "num": 129,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -5081,7 +4983,7 @@ const DATA = {
         },
         {
           "code": "KLC1D66V1",
-          "num": 127,
+          "num": 130,
           "title": "Classificatie – kenmerken van consonanten",
           "cat": "Classificatie",
           "type": "blanks",
@@ -5116,7 +5018,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V18",
-          "num": 128,
+          "num": 131,
           "title": "Wijze – definities",
           "cat": "Wijze",
           "type": "blanks",
@@ -5144,7 +5046,7 @@ const DATA = {
         },
         {
           "code": "KLC1D58V2",
-          "num": 129,
+          "num": 132,
           "title": "Wijze – nasalen",
           "cat": "Wijze",
           "type": "card",
@@ -5156,7 +5058,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V41",
-          "num": 130,
+          "num": 133,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
@@ -5183,7 +5085,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V10",
-          "num": 131,
+          "num": 134,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -5209,7 +5111,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V28",
-          "num": 132,
+          "num": 135,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -5234,7 +5136,7 @@ const DATA = {
         },
         {
           "code": "KLC1D65V1",
-          "num": 133,
+          "num": 136,
           "title": "Systemen – overzicht",
           "cat": "Systemen",
           "type": "card",
@@ -5246,7 +5148,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V20",
-          "num": 134,
+          "num": 137,
           "title": "Wijze – definities",
           "cat": "Wijze",
           "type": "blanks",
@@ -5273,7 +5175,7 @@ const DATA = {
         },
         {
           "code": "KLC1D61V1",
-          "num": 135,
+          "num": 138,
           "title": "Wijze – taps",
           "cat": "Wijze",
           "type": "card",
@@ -5285,7 +5187,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V36",
-          "num": 136,
+          "num": 139,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
@@ -5312,8 +5214,224 @@ const DATA = {
           "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
         },
         {
+          "code": "KLC1D47V1",
+          "num": 140,
+          "title": "Plaats – IPA-tabel",
+          "cat": "Plaats",
+          "type": "drag",
+          "question": "Sleep elke plaats van articulatie naar de juiste kolom.",
+          "size": {
+            "width": 1100,
+            "height": 760
+          },
+          "bg": "images/KLC1D47V1.webp",
+          "els": [
+            {
+              "text": "<p>Velar</p>",
+              "x": 8.649,
+              "y": 70.088,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Dental</p>",
+              "x": 23.662,
+              "y": 70.088,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Glottal</p>",
+              "x": 38.675,
+              "y": 70.088,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Bilabial</p>",
+              "x": 53.688,
+              "y": 70.088,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Retro&shy;flex</p>",
+              "x": 68.701,
+              "y": 70.088,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Uvular</p>",
+              "x": 83.714,
+              "y": 70.088,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Alveolar</p>",
+              "x": 11.152,
+              "y": 84.386,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Palatal</p>",
+              "x": 28.667,
+              "y": 84.386,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Labio&shy;dental</p>",
+              "x": 46.182,
+              "y": 84.386,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Pharyn&shy;geal</p>",
+              "x": 63.697,
+              "y": 84.386,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Post&shy;alveolar</p>",
+              "x": 81.212,
+              "y": 84.386,
+              "w": 5.0,
+              "h": 3.0
+            }
+          ],
+          "zones": [
+            {
+              "x": 12.909,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                3
+              ],
+              "label": "Bilabial"
+            },
+            {
+              "x": 20.727,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                8
+              ],
+              "label": "Labiodental"
+            },
+            {
+              "x": 28.545,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                1
+              ],
+              "label": "Dental"
+            },
+            {
+              "x": 36.364,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                6
+              ],
+              "label": "Alveolar"
+            },
+            {
+              "x": 44.182,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                10
+              ],
+              "label": "Postalveolar"
+            },
+            {
+              "x": 52.0,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                4
+              ],
+              "label": "Retroflex"
+            },
+            {
+              "x": 59.818,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                7
+              ],
+              "label": "Palatal"
+            },
+            {
+              "x": 67.636,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                0
+              ],
+              "label": "Velar"
+            },
+            {
+              "x": 75.455,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                5
+              ],
+              "label": "Uvular"
+            },
+            {
+              "x": 83.273,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                9
+              ],
+              "label": "Pharyngeal"
+            },
+            {
+              "x": 91.091,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                2
+              ],
+              "label": "Glottal"
+            }
+          ],
+          "ref": "Zie: week 1, college 1, dia 47"
+        },
+        {
           "code": "KLC1D66V2",
-          "num": 137,
+          "num": 141,
           "title": "Classificatie – laryngale kenmerken",
           "cat": "Classificatie",
           "type": "blanks",
@@ -5342,7 +5460,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V22",
-          "num": 138,
+          "num": 142,
           "title": "Wijze – definities",
           "cat": "Wijze",
           "type": "blanks",
@@ -5369,7 +5487,7 @@ const DATA = {
         },
         {
           "code": "KLC1D63V1",
-          "num": 139,
+          "num": 143,
           "title": "Wijze – approximanten",
           "cat": "Wijze",
           "type": "card",
@@ -5381,7 +5499,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V39",
-          "num": 140,
+          "num": 144,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
@@ -5407,32 +5525,8 @@ const DATA = {
           "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
         },
         {
-          "code": "KLC1D65V2",
-          "num": 141,
-          "title": "Classificatie – drie kenmerken",
-          "cat": "Classificatie",
-          "type": "card",
-          "front": "<p>Wat zijn de drie manieren om klanken articulatorisch te classificeren?</p>",
-          "back": "<p>Stemhebbendheid, plaats van articulatie en wijze van articulatie</p>",
-          "ref": "Zie: week 1, college 1, dia 65",
-          "image": null,
-          "alt": ""
-        },
-        {
-          "code": "KLC1D58V3",
-          "num": 142,
-          "title": "Wijze – nasalen",
-          "cat": "Wijze",
-          "type": "card",
-          "front": "<p>Welke klank is [ŋ]? Noem het voorbeeldwoord van de dia.</p>",
-          "back": "<p>De laatste klank in <em>slang</em></p>",
-          "ref": "Zie: week 1, college 1, dia 58",
-          "image": null,
-          "alt": ""
-        },
-        {
           "code": "KLC1D66V3",
-          "num": 143,
+          "num": 145,
           "title": "Classificatie – supralaryngale kenmerken",
           "cat": "Classificatie",
           "type": "card",
@@ -5443,20 +5537,46 @@ const DATA = {
           "alt": ""
         },
         {
-          "code": "KLC1D62V2",
-          "num": 144,
-          "title": "Wijze – approximanten",
+          "code": "KLC1D58V3",
+          "num": 146,
+          "title": "Wijze – nasalen",
           "cat": "Wijze",
           "type": "card",
-          "front": "<p>Noem de vier approximanten van de dia, met hun voorbeeld.</p>",
-          "back": "<p>[j] <em>jan</em>, [ʋ] <em>wesp</em>, [ɹ] Gooische r, [w] <em>skowe</em> [skoːwə] ~ <em>oui</em> [wi]</p>",
-          "ref": "Zie: week 1, college 1, dia 62",
+          "front": "<p>Welke klank is [ŋ]? Noem het voorbeeldwoord van de dia.</p>",
+          "back": "<p>De laatste klank in <em>slang</em></p>",
+          "ref": "Zie: week 1, college 1, dia 58",
+          "image": null,
+          "alt": ""
+        },
+        {
+          "code": "KLC1D56V4",
+          "num": 147,
+          "title": "Wijze – plosieven en fricatieven",
+          "cat": "Wijze",
+          "type": "blanks",
+          "question": "<p>Wat is de Nederlandse naam voor fricatieven?</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "wrijfklanken",
+                "wrijfklank"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "wrijfklanken",
+          "ref": "Zie: week 1, college 1, dia 56",
           "image": null,
           "alt": ""
         },
         {
           "code": "KLC1D58V4",
-          "num": 145,
+          "num": 148,
           "title": "Wijze – nasalen",
           "cat": "Wijze",
           "type": "card",
@@ -5468,7 +5588,7 @@ const DATA = {
         },
         {
           "code": "KLC1D63V2",
-          "num": 146,
+          "num": 149,
           "title": "Wijze – approximanten",
           "cat": "Wijze",
           "type": "card",
