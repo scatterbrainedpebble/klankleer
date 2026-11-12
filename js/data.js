@@ -2252,224 +2252,8 @@ const DATA = {
           "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
         },
         {
-          "code": "KLC1D47V1",
-          "num": 59,
-          "title": "Plaats – IPA-tabel",
-          "cat": "Plaats",
-          "type": "drag",
-          "question": "Sleep elke plaats van articulatie naar de juiste kolom.",
-          "size": {
-            "width": 1100,
-            "height": 760
-          },
-          "bg": "images/KLC1D47V1.webp",
-          "els": [
-            {
-              "text": "<p>Velar</p>",
-              "x": 8.649,
-              "y": 70.088,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Dental</p>",
-              "x": 23.662,
-              "y": 70.088,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Glottal</p>",
-              "x": 38.675,
-              "y": 70.088,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Bilabial</p>",
-              "x": 53.688,
-              "y": 70.088,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Retro&shy;flex</p>",
-              "x": 68.701,
-              "y": 70.088,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Uvular</p>",
-              "x": 83.714,
-              "y": 70.088,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Alveolar</p>",
-              "x": 11.152,
-              "y": 84.386,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Palatal</p>",
-              "x": 28.667,
-              "y": 84.386,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Labio&shy;dental</p>",
-              "x": 46.182,
-              "y": 84.386,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Pharyn&shy;geal</p>",
-              "x": 63.697,
-              "y": 84.386,
-              "w": 5.0,
-              "h": 3.0
-            },
-            {
-              "text": "<p>Post&shy;alveolar</p>",
-              "x": 81.212,
-              "y": 84.386,
-              "w": 5.0,
-              "h": 3.0
-            }
-          ],
-          "zones": [
-            {
-              "x": 12.909,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                3
-              ],
-              "label": "Bilabial"
-            },
-            {
-              "x": 20.727,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                8
-              ],
-              "label": "Labiodental"
-            },
-            {
-              "x": 28.545,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                1
-              ],
-              "label": "Dental"
-            },
-            {
-              "x": 36.364,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                6
-              ],
-              "label": "Alveolar"
-            },
-            {
-              "x": 44.182,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                10
-              ],
-              "label": "Postalveolar"
-            },
-            {
-              "x": 52.0,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                4
-              ],
-              "label": "Retroflex"
-            },
-            {
-              "x": 59.818,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                7
-              ],
-              "label": "Palatal"
-            },
-            {
-              "x": 67.636,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                0
-              ],
-              "label": "Velar"
-            },
-            {
-              "x": 75.455,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                5
-              ],
-              "label": "Uvular"
-            },
-            {
-              "x": 83.273,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                9
-              ],
-              "label": "Pharyngeal"
-            },
-            {
-              "x": 91.091,
-              "y": 1.579,
-              "w": 5.125,
-              "h": 3.25,
-              "single": true,
-              "correct": [
-                2
-              ],
-              "label": "Glottal"
-            }
-          ],
-          "ref": "Zie: week 1, college 1, dia 47"
-        },
-        {
           "code": "KLC1D27V29",
-          "num": 60,
+          "num": 59,
           "title": "Spraakorganen – ander woord",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -2495,7 +2279,7 @@ const DATA = {
         },
         {
           "code": "KLC1D43V3",
-          "num": 61,
+          "num": 60,
           "title": "Stem",
           "cat": "Stem",
           "type": "blanks",
@@ -2522,7 +2306,7 @@ const DATA = {
         },
         {
           "code": "KLC1D45V2",
-          "num": 62,
+          "num": 61,
           "title": "Stem",
           "cat": "Stem",
           "type": "blanks",
@@ -2552,7 +2336,7 @@ const DATA = {
         },
         {
           "code": "KLC1D44V2",
-          "num": 63,
+          "num": 62,
           "title": "Stem – aspiratie en stemkwaliteit",
           "cat": "Stem",
           "type": "card",
@@ -2564,7 +2348,7 @@ const DATA = {
         },
         {
           "code": "KLC1D45V4",
-          "num": 64,
+          "num": 63,
           "title": "Stem – ander woord",
           "cat": "Stem",
           "type": "blanks",
@@ -2592,7 +2376,7 @@ const DATA = {
         },
         {
           "code": "KLC1D43V5",
-          "num": 65,
+          "num": 64,
           "title": "Stem",
           "cat": "Stem",
           "type": "blanks",
@@ -2621,7 +2405,7 @@ const DATA = {
         },
         {
           "code": "KLC1D48V1",
-          "num": 66,
+          "num": 65,
           "title": "Classificatie – drie kenmerken",
           "cat": "Classificatie",
           "type": "card",
@@ -2633,7 +2417,7 @@ const DATA = {
         },
         {
           "code": "KLC1D51V2",
-          "num": 67,
+          "num": 66,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -2660,7 +2444,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V4",
-          "num": 68,
+          "num": 67,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -2686,7 +2470,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V29",
-          "num": 69,
+          "num": 68,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -2712,7 +2496,7 @@ const DATA = {
         },
         {
           "code": "KLC1D27V8",
-          "num": 70,
+          "num": 69,
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -2738,7 +2522,7 @@ const DATA = {
         },
         {
           "code": "KLC1D27V24",
-          "num": 71,
+          "num": 70,
           "title": "Spraakorganen – ander woord",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -2764,7 +2548,7 @@ const DATA = {
         },
         {
           "code": "KLC1D49V1",
-          "num": 72,
+          "num": 71,
           "title": "Plaats – definitie",
           "cat": "Plaats",
           "type": "card",
@@ -2776,7 +2560,7 @@ const DATA = {
         },
         {
           "code": "KLC1D51V3",
-          "num": 73,
+          "num": 72,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -2802,7 +2586,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V11",
-          "num": 74,
+          "num": 73,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -2829,7 +2613,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V25",
-          "num": 75,
+          "num": 74,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -2855,7 +2639,7 @@ const DATA = {
         },
         {
           "code": "KLC1D27V9",
-          "num": 76,
+          "num": 75,
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -2880,7 +2664,7 @@ const DATA = {
         },
         {
           "code": "KLC1D27V27",
-          "num": 77,
+          "num": 76,
           "title": "Spraakorganen – ander woord",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -2905,7 +2689,7 @@ const DATA = {
         },
         {
           "code": "KLC1D51V4",
-          "num": 78,
+          "num": 77,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -2932,7 +2716,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V7",
-          "num": 79,
+          "num": 78,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -2959,7 +2743,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V32",
-          "num": 80,
+          "num": 79,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -2987,7 +2771,7 @@ const DATA = {
         },
         {
           "code": "KLC1D27V10",
-          "num": 81,
+          "num": 80,
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -3013,7 +2797,7 @@ const DATA = {
         },
         {
           "code": "KLC1D28V11",
-          "num": 82,
+          "num": 81,
           "title": "Spraakorganen – ander woord",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -3039,7 +2823,7 @@ const DATA = {
         },
         {
           "code": "KLC1D51V5",
-          "num": 83,
+          "num": 82,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -3066,7 +2850,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V14",
-          "num": 84,
+          "num": 83,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -3089,6 +2873,32 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 47 en 51",
           "image": null,
           "alt": ""
+        },
+        {
+          "code": "KLC1D47V23",
+          "num": 84,
+          "title": "Plaats – IPA-tabel",
+          "cat": "Plaats",
+          "type": "blanks",
+          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "bilabial",
+                "bilabiaal"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "Bilabial (bilabiaal)",
+          "ref": "Zie: week 1, college 1, dia 47",
+          "image": "images/KLC1D47V23.webp",
+          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
         },
         {
           "code": "KLC1D47V2",
@@ -3253,34 +3063,8 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 47"
         },
         {
-          "code": "KLC1D47V23",
-          "num": 86,
-          "title": "Plaats – IPA-tabel",
-          "cat": "Plaats",
-          "type": "blanks",
-          "question": "<p>Welk woord hoort op de plek van het rode vraagteken in deze kolom?</p>",
-          "segs": [
-            {
-              "text": "<p>"
-            },
-            {
-              "blank": [
-                "bilabial",
-                "bilabiaal"
-              ]
-            },
-            {
-              "text": "</p>"
-            }
-          ],
-          "correct": "Bilabial (bilabiaal)",
-          "ref": "Zie: week 1, college 1, dia 47",
-          "image": "images/KLC1D47V23.webp",
-          "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
-        },
-        {
           "code": "KLC1D27V11",
-          "num": 87,
+          "num": 86,
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -3303,6 +3087,32 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 27",
           "image": "images/KLC1D27a.webp",
           "alt": "Doorsnede van het hoofd met de spraakorganen, labels vervangen door letters A tot en met M"
+        },
+        {
+          "code": "KLC1D51V6",
+          "num": 87,
+          "title": "Plaats – passieve articulatoren",
+          "cat": "Plaats",
+          "type": "blanks",
+          "question": "<p>Wat staat op plek E?</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "dental",
+                "dentaal"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "dental (dentaal)",
+          "ref": "Zie: week 1, college 1, dia 51",
+          "image": "images/KLC1D51.webp",
+          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
         },
         {
           "code": "KLC1D64V2",
@@ -3393,34 +3203,8 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 56–62"
         },
         {
-          "code": "KLC1D51V6",
-          "num": 89,
-          "title": "Plaats – passieve articulatoren",
-          "cat": "Plaats",
-          "type": "blanks",
-          "question": "<p>Wat staat op plek E?</p>",
-          "segs": [
-            {
-              "text": "<p>"
-            },
-            {
-              "blank": [
-                "dental",
-                "dentaal"
-              ]
-            },
-            {
-              "text": "</p>"
-            }
-          ],
-          "correct": "dental (dentaal)",
-          "ref": "Zie: week 1, college 1, dia 51",
-          "image": "images/KLC1D51.webp",
-          "alt": "Doorsnede van het hoofd met de passieve articulatoren, labels vervangen door letters A tot en met J"
-        },
-        {
           "code": "KLC1D47V9",
-          "num": 90,
+          "num": 89,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -3445,7 +3229,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V27",
-          "num": 91,
+          "num": 90,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -3472,7 +3256,7 @@ const DATA = {
         },
         {
           "code": "KLC1D27V12",
-          "num": 92,
+          "num": 91,
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -3498,7 +3282,7 @@ const DATA = {
         },
         {
           "code": "KLC1D64V3",
-          "num": 93,
+          "num": 92,
           "title": "Wijze – klanken indelen",
           "cat": "Wijze",
           "type": "drag",
@@ -3586,7 +3370,7 @@ const DATA = {
         },
         {
           "code": "KLC1D54V1",
-          "num": 94,
+          "num": 93,
           "title": "Wijze – definitie",
           "cat": "Wijze",
           "type": "card",
@@ -3598,7 +3382,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V15",
-          "num": 95,
+          "num": 94,
           "title": "Wijze – definities",
           "cat": "Wijze",
           "type": "blanks",
@@ -3626,20 +3410,34 @@ const DATA = {
           "alt": ""
         },
         {
-          "code": "KLC1D56V1",
-          "num": 96,
+          "code": "KLC1D56V3",
+          "num": 95,
           "title": "Wijze – plosieven en fricatieven",
           "cat": "Wijze",
-          "type": "card",
-          "front": "<p>Wat zijn de Nederlandse namen voor plosieven en fricatieven?</p>",
-          "back": "<p>Plosieven = plofklanken; fricatieven = wrijfklanken</p>",
+          "type": "blanks",
+          "question": "<p>Wat is de Nederlandse naam voor plosieven?</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "plofklanken",
+                "plofklank"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "plofklanken",
           "ref": "Zie: week 1, college 1, dia 56",
           "image": null,
           "alt": ""
         },
         {
           "code": "KLC1D47V38",
-          "num": 97,
+          "num": 96,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
@@ -3667,7 +3465,7 @@ const DATA = {
         },
         {
           "code": "KLC1D64V1",
-          "num": 98,
+          "num": 97,
           "title": "Wijze – overzicht",
           "cat": "Wijze",
           "type": "card",
@@ -3679,7 +3477,7 @@ const DATA = {
         },
         {
           "code": "KLC1D51V7",
-          "num": 99,
+          "num": 98,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -3706,7 +3504,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V5",
-          "num": 100,
+          "num": 99,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -3732,7 +3530,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V30",
-          "num": 101,
+          "num": 100,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -3759,7 +3557,7 @@ const DATA = {
         },
         {
           "code": "KLC1D27V13",
-          "num": 102,
+          "num": 101,
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
@@ -3786,7 +3584,7 @@ const DATA = {
         },
         {
           "code": "KLC1D64V4",
-          "num": 103,
+          "num": 102,
           "title": "Wijze – klanken indelen",
           "cat": "Wijze",
           "type": "drag",
@@ -3866,7 +3664,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V19",
-          "num": 104,
+          "num": 103,
           "title": "Wijze – definities",
           "cat": "Wijze",
           "type": "blanks",
@@ -3894,7 +3692,7 @@ const DATA = {
         },
         {
           "code": "KLC1D58V1",
-          "num": 105,
+          "num": 104,
           "title": "Wijze – nasalen",
           "cat": "Wijze",
           "type": "card",
@@ -3906,7 +3704,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V35",
-          "num": 106,
+          "num": 105,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
@@ -3933,7 +3731,7 @@ const DATA = {
         },
         {
           "code": "KLC1D51V8",
-          "num": 107,
+          "num": 106,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -3959,7 +3757,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V12",
-          "num": 108,
+          "num": 107,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -3986,7 +3784,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V33",
-          "num": 109,
+          "num": 108,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -4012,7 +3810,7 @@ const DATA = {
         },
         {
           "code": "KLC1D64V5",
-          "num": 110,
+          "num": 109,
           "title": "Wijze – klanken indelen",
           "cat": "Wijze",
           "type": "drag",
@@ -4084,7 +3882,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V16",
-          "num": 111,
+          "num": 110,
           "title": "Wijze – definities",
           "cat": "Wijze",
           "type": "blanks",
@@ -4111,7 +3909,7 @@ const DATA = {
         },
         {
           "code": "KLC1D60V1",
-          "num": 112,
+          "num": 111,
           "title": "Wijze – trilklanken",
           "cat": "Wijze",
           "type": "card",
@@ -4123,7 +3921,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V3",
-          "num": 113,
+          "num": 112,
           "title": "Classificatie – Nederlandse klanken",
           "cat": "Classificatie",
           "type": "drag",
@@ -4681,7 +4479,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V40",
-          "num": 114,
+          "num": 113,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
@@ -4709,7 +4507,7 @@ const DATA = {
         },
         {
           "code": "KLC1D51V9",
-          "num": 115,
+          "num": 114,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -4737,7 +4535,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V8",
-          "num": 116,
+          "num": 115,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -4764,7 +4562,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V26",
-          "num": 117,
+          "num": 116,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -4791,7 +4589,7 @@ const DATA = {
         },
         {
           "code": "KLC1D64V6",
-          "num": 118,
+          "num": 117,
           "title": "Wijze – klanken indelen",
           "cat": "Wijze",
           "type": "drag",
@@ -4889,7 +4687,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V21",
-          "num": 119,
+          "num": 118,
           "title": "Wijze – definities",
           "cat": "Wijze",
           "type": "blanks",
@@ -4917,7 +4715,7 @@ const DATA = {
         },
         {
           "code": "KLC1D62V1",
-          "num": 120,
+          "num": 119,
           "title": "Wijze – approximanten",
           "cat": "Wijze",
           "type": "card",
@@ -4929,7 +4727,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V34",
-          "num": 121,
+          "num": 120,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
@@ -4958,7 +4756,7 @@ const DATA = {
         },
         {
           "code": "KLC1D51V10",
-          "num": 122,
+          "num": 121,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -4984,7 +4782,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V13",
-          "num": 123,
+          "num": 122,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -5012,7 +4810,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V24",
-          "num": 124,
+          "num": 123,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -5038,7 +4836,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V17",
-          "num": 125,
+          "num": 124,
           "title": "Wijze – definities",
           "cat": "Wijze",
           "type": "blanks",
@@ -5066,7 +4864,7 @@ const DATA = {
         },
         {
           "code": "KLC1D56V2",
-          "num": 126,
+          "num": 125,
           "title": "Wijze – plosieven en fricatieven",
           "cat": "Wijze",
           "type": "card",
@@ -5078,7 +4876,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V37",
-          "num": 127,
+          "num": 126,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
@@ -5106,7 +4904,7 @@ const DATA = {
         },
         {
           "code": "KLC1D51V11",
-          "num": 128,
+          "num": 127,
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
@@ -5132,7 +4930,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V6",
-          "num": 129,
+          "num": 128,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -5158,7 +4956,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V31",
-          "num": 130,
+          "num": 129,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -5185,7 +4983,7 @@ const DATA = {
         },
         {
           "code": "KLC1D66V1",
-          "num": 131,
+          "num": 130,
           "title": "Classificatie – kenmerken van consonanten",
           "cat": "Classificatie",
           "type": "blanks",
@@ -5220,7 +5018,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V18",
-          "num": 132,
+          "num": 131,
           "title": "Wijze – definities",
           "cat": "Wijze",
           "type": "blanks",
@@ -5248,7 +5046,7 @@ const DATA = {
         },
         {
           "code": "KLC1D58V2",
-          "num": 133,
+          "num": 132,
           "title": "Wijze – nasalen",
           "cat": "Wijze",
           "type": "card",
@@ -5260,7 +5058,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V41",
-          "num": 134,
+          "num": 133,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
@@ -5287,7 +5085,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V10",
-          "num": 135,
+          "num": 134,
           "title": "Plaats – definities",
           "cat": "Plaats",
           "type": "blanks",
@@ -5313,7 +5111,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V28",
-          "num": 136,
+          "num": 135,
           "title": "Plaats – IPA-tabel",
           "cat": "Plaats",
           "type": "blanks",
@@ -5338,7 +5136,7 @@ const DATA = {
         },
         {
           "code": "KLC1D65V1",
-          "num": 137,
+          "num": 136,
           "title": "Systemen – overzicht",
           "cat": "Systemen",
           "type": "card",
@@ -5350,7 +5148,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V20",
-          "num": 138,
+          "num": 137,
           "title": "Wijze – definities",
           "cat": "Wijze",
           "type": "blanks",
@@ -5377,7 +5175,7 @@ const DATA = {
         },
         {
           "code": "KLC1D61V1",
-          "num": 139,
+          "num": 138,
           "title": "Wijze – taps",
           "cat": "Wijze",
           "type": "card",
@@ -5389,7 +5187,7 @@ const DATA = {
         },
         {
           "code": "KLC1D47V36",
-          "num": 140,
+          "num": 139,
           "title": "Wijze – IPA-tabel",
           "cat": "Wijze",
           "type": "blanks",
@@ -5414,6 +5212,222 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 47",
           "image": "images/KLC1D47V36.webp",
           "alt": "IPA-tabel van de pulmonische consonanten met één kop vervangen door een rood vraagteken"
+        },
+        {
+          "code": "KLC1D47V1",
+          "num": 140,
+          "title": "Plaats – IPA-tabel",
+          "cat": "Plaats",
+          "type": "drag",
+          "question": "Sleep elke plaats van articulatie naar de juiste kolom.",
+          "size": {
+            "width": 1100,
+            "height": 760
+          },
+          "bg": "images/KLC1D47V1.webp",
+          "els": [
+            {
+              "text": "<p>Velar</p>",
+              "x": 8.649,
+              "y": 70.088,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Dental</p>",
+              "x": 23.662,
+              "y": 70.088,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Glottal</p>",
+              "x": 38.675,
+              "y": 70.088,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Bilabial</p>",
+              "x": 53.688,
+              "y": 70.088,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Retro&shy;flex</p>",
+              "x": 68.701,
+              "y": 70.088,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Uvular</p>",
+              "x": 83.714,
+              "y": 70.088,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Alveolar</p>",
+              "x": 11.152,
+              "y": 84.386,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Palatal</p>",
+              "x": 28.667,
+              "y": 84.386,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Labio&shy;dental</p>",
+              "x": 46.182,
+              "y": 84.386,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Pharyn&shy;geal</p>",
+              "x": 63.697,
+              "y": 84.386,
+              "w": 5.0,
+              "h": 3.0
+            },
+            {
+              "text": "<p>Post&shy;alveolar</p>",
+              "x": 81.212,
+              "y": 84.386,
+              "w": 5.0,
+              "h": 3.0
+            }
+          ],
+          "zones": [
+            {
+              "x": 12.909,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                3
+              ],
+              "label": "Bilabial"
+            },
+            {
+              "x": 20.727,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                8
+              ],
+              "label": "Labiodental"
+            },
+            {
+              "x": 28.545,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                1
+              ],
+              "label": "Dental"
+            },
+            {
+              "x": 36.364,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                6
+              ],
+              "label": "Alveolar"
+            },
+            {
+              "x": 44.182,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                10
+              ],
+              "label": "Postalveolar"
+            },
+            {
+              "x": 52.0,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                4
+              ],
+              "label": "Retroflex"
+            },
+            {
+              "x": 59.818,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                7
+              ],
+              "label": "Palatal"
+            },
+            {
+              "x": 67.636,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                0
+              ],
+              "label": "Velar"
+            },
+            {
+              "x": 75.455,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                5
+              ],
+              "label": "Uvular"
+            },
+            {
+              "x": 83.273,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                9
+              ],
+              "label": "Pharyngeal"
+            },
+            {
+              "x": 91.091,
+              "y": 1.579,
+              "w": 5.125,
+              "h": 3.25,
+              "single": true,
+              "correct": [
+                2
+              ],
+              "label": "Glottal"
+            }
+          ],
+          "ref": "Zie: week 1, college 1, dia 47"
         },
         {
           "code": "KLC1D66V2",
@@ -5535,14 +5549,28 @@ const DATA = {
           "alt": ""
         },
         {
-          "code": "KLC1D62V2",
+          "code": "KLC1D56V4",
           "num": 147,
-          "title": "Wijze – approximanten",
+          "title": "Wijze – plosieven en fricatieven",
           "cat": "Wijze",
-          "type": "card",
-          "front": "<p>Noem de vier approximanten van de dia, met hun voorbeeld.</p>",
-          "back": "<p>[j] <em>jan</em>, [ʋ] <em>wesp</em>, [ɹ] Gooische r, [w] <em>skowe</em> [skoːwə] ~ <em>oui</em> [wi]</p>",
-          "ref": "Zie: week 1, college 1, dia 62",
+          "type": "blanks",
+          "question": "<p>Wat is de Nederlandse naam voor fricatieven?</p>",
+          "segs": [
+            {
+              "text": "<p>"
+            },
+            {
+              "blank": [
+                "wrijfklanken",
+                "wrijfklank"
+              ]
+            },
+            {
+              "text": "</p>"
+            }
+          ],
+          "correct": "wrijfklanken",
+          "ref": "Zie: week 1, college 1, dia 56",
           "image": null,
           "alt": ""
         },
