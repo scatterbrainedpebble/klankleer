@@ -26,7 +26,7 @@ const IPA_KEYS = [
 ];
 
 /** Vult de kaart met een IPA-vraag. Wat er in 'parts' zit, staat in question.js. */
-function drawIpa({ item, view, card, feedback, finish }) {
+function drawIpa({ item, view, given, card, feedback, finish, remember }) {
   const input = h('input', {
     class: 'blank ipain',
     autocomplete: 'off',
@@ -79,6 +79,7 @@ function drawIpa({ item, view, card, feedback, finish }) {
       key.disabled = true;
     }
     checkButton.hidden = true;
+    remember(input.value);
 
     const solution = h('div', {}, 'Juiste antwoord: ', h('span', { class: 'ipa' }, item.show));
     finish(correct ? 1 : 0, 1, verdict(correct), solution);
@@ -92,11 +93,15 @@ function drawIpa({ item, view, card, feedback, finish }) {
   );
 
   if (view) {
-    // Alleen bekijken: veld op slot, en bij 'solved' het antwoord erin.
+    // Alleen bekijken: veld op slot. Bij 'solved' het juiste antwoord erin,
+    // bij 'locked' wat je toen zelf had ingevuld.
     input.disabled = true;
     if (view === 'solved') {
       input.value = item.answers[0];
       input.classList.add('good');
+    } else if (typeof given === 'string') {
+      input.value = given;
+      input.classList.add('bad');
     }
     return;
   }

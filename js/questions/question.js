@@ -21,13 +21,19 @@
  * Maakt de kaart met één vraag en geeft die terug.
  *
  * item     de vraag (uit data.js)
- * options  onAnswer(score, max)  wordt aangeroepen zodra de vraag is nagekeken of zelf beoordeeld
+ * options  onAnswer(score, max, given)
+ *                                wordt aangeroepen zodra de vraag is nagekeken of zelf beoordeeld;
+ *                                given = wat je hebt ingevuld of gekozen (null bij kaartjes)
  *          onOverride()          als deze functie er is, komt bij een onjuist antwoord de knop
  *                                'Ik had deze wel goed'; de functie wordt aangeroepen bij een klik
  *          view                  alleen bekijken, niet beantwoorden:
  *                                'solved' = met de oplossing erbij, 'locked' = zonder oplossing
+ *          given                 bij 'locked': je eigen antwoord van toen, dat weer in de vraag komt
  */
-function renderQuestion(item, { onAnswer = () => {}, onOverride = null, view = null } = {}) {
+function renderQuestion(
+  item,
+  { onAnswer = () => {}, onOverride = null, view = null, given = null } = {},
+) {
   const card = h('div', { class: view ? 'card viewonly' : 'card' });
   const feedback = h('div', { class: 'feedback' });
 
@@ -51,6 +57,14 @@ function renderQuestion(item, { onAnswer = () => {}, onOverride = null, view = n
     figure = h('div', { class: 'figure' }, h('img', { src: item.image, alt: item.alt || '' }));
   }
 
+  // Wat je hebt ingevuld of gekozen. De vraagsoort geeft het door met remember(), vlak voor finish().
+  let answerGiven = null;
+
+  /** Onthoudt je antwoord, zodat het later weer getoond kan worden (zie answeredCard in practice.js). */
+  function remember(value) {
+    answerGiven = value;
+  }
+
   /**
    * Na het nakijken: laat de uitslag zien en geef de score door.
    * headline = de kop ('Goed!'); extraLines = regels eronder, zoals het juiste antwoord.
@@ -61,7 +75,7 @@ function renderQuestion(item, { onAnswer = () => {}, onOverride = null, view = n
     feedback.className = 'feedback show ' + (correct ? 'good' : 'bad');
     feedback.innerHTML = '';
     add(feedback, scoreLine, extraLines, makeRef());
-    onAnswer(score, max);
+    onAnswer(score, max, answerGiven);
 
     if (correct || !onOverride) {
       return;
@@ -88,7 +102,7 @@ function renderQuestion(item, { onAnswer = () => {}, onOverride = null, view = n
   }
 
   // Alles wat een tekenfunctie nodig heeft, in één pakketje.
-  const parts = { item, view, card, feedback, makeRef, figure, onAnswer, finish };
+  const parts = { item, view, given, card, feedback, makeRef, figure, onAnswer, finish, remember };
   drawQuestion(parts);
   return card;
 }

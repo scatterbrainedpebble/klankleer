@@ -29,7 +29,7 @@
 'use strict';
 
 /** Vult de kaart met een sleepvraag. Wat er in 'parts' zit, staat in question.js. */
-function drawDrag({ item, view, card, feedback, finish }) {
+function drawDrag({ item, view, given, card, feedback, finish, remember }) {
   const UNITS_PER_EM = 16;
   const DRAG_THRESHOLD = 6; // pas na zoveel pixels bewegen telt het als slepen in plaats van tikken
   const fieldWidth = item.size.width;
@@ -386,6 +386,8 @@ function drawDrag({ item, view, card, feedback, finish }) {
     });
     const allCorrect = score === chips.length;
     checkButton.hidden = true;
+    // Onthoud per kaartje in welk vak het lag: { nummer kaartje: nummer vak }.
+    remember(Object.fromEntries(zoneOfChip));
     solveButton.hidden = allCorrect;
     const headline = allCorrect ? 'Alles goed!' : `${score} van ${chips.length} goed`;
     finish(score, chips.length, headline);
@@ -423,6 +425,17 @@ function drawDrag({ item, view, card, feedback, finish }) {
     locked = true;
     if (view === 'solved') {
       showSolution();
+    } else if (given) {
+      // Je kaartjes van toen weer in hun vak, groen of rood.
+      chips.forEach((chip, chipIndex) => {
+        const zoneIndex = given[chipIndex];
+        if (zoneIndex == null || !item.zones[zoneIndex]) {
+          return;
+        }
+        place(chip, zoneIndex);
+        const correct = item.zones[zoneIndex].correct.includes(chipIndex);
+        chip.classList.add(correct ? 'good' : 'bad');
+      });
     }
     return;
   }

@@ -13,7 +13,7 @@
 'use strict';
 
 /** Vult de kaart met een klikvraag. Wat er in 'parts' zit, staat in question.js. */
-function drawClick({ item, view, card, feedback, finish }) {
+function drawClick({ item, view, given, card, feedback, finish, remember }) {
   const SVG_NS = 'http://www.w3.org/2000/svg';
   const PADDING = 20; // witruimte rond de tekening
   const TOLERANCE = 12; // zo ver mag je naast de lijn klikken (in eenheden van de tekening)
@@ -93,6 +93,7 @@ function drawClick({ item, view, card, feedback, finish }) {
     dot.classList.add(correct ? 'good' : 'bad');
     showTarget();
     checkButton.hidden = true;
+    remember({ x: Math.round(point.x * 10) / 10, y: Math.round(point.y * 10) / 10 });
     finish(correct ? 1 : 0, 1, verdict(correct), h('div', {}, 'De juiste lijn is groen gemaakt.'));
   }
 
@@ -101,6 +102,12 @@ function drawClick({ item, view, card, feedback, finish }) {
   if (view) {
     if (view === 'solved') {
       showTarget();
+    } else if (given && given.x != null) {
+      // Je stip van toen, in het rood (de juiste lijn blijft verborgen).
+      dot.setAttribute('cx', given.x);
+      dot.setAttribute('cy', given.y);
+      dot.setAttribute('visibility', 'visible');
+      dot.classList.add('bad');
     }
     return;
   }
