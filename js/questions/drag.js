@@ -406,7 +406,14 @@ function drawDrag({ item, view, card, feedback, finish }) {
     solveButton.hidden = true;
   }
 
-  add(card, h('h2', { html: item.question }), h('div', { class: 'dqwrap' }, field));
+  const compactHint =
+    'Op een telefoon tik je in plaats van te slepen: eerst een woord, dan een nummer in de lijst onder het plaatje.';
+  add(card, h('h2', { html: item.question }));
+  if (compact && !view) {
+    // Op de telefoon staat de uitleg meteen onder de vraag, nog boven het plaatje.
+    add(card, h('p', { class: 'hint' }, compactHint));
+  }
+  add(card, h('div', { class: 'dqwrap' }, field));
   if (compact) {
     add(card, list, pool);
   }
@@ -422,11 +429,9 @@ function drawDrag({ item, view, card, feedback, finish }) {
 
   const defaultHint =
     'Sleep de woorden naar de vakken. Op een telefoon kun je ook eerst een woord en dan een vak aantikken. Met het toetsenbord: Tab naar een woord en Enter, daarna met Tab naar het juiste vak en Enter.';
-  const compactHint =
-    'Tik eerst op een woord en dan op het nummer waar het hoort (in de lijst of op het plaatje). Tik op een woord in de lijst en daarna op een ander nummer om het te verplaatsen.';
   add(
     card,
-    h('p', { class: 'hint' }, compact ? compactHint : item.hint || defaultHint),
+    compact ? null : h('p', { class: 'hint' }, item.hint || defaultHint),
     h('div', { class: 'btns' }, checkButton, solveButton),
     feedback,
   );
