@@ -411,6 +411,10 @@ main {
   font-style: italic;
 }
 
+.ref a {
+  font-weight: 600;
+}
+
 .ovrow {
   display: flex;
   flex-wrap: wrap;
@@ -521,6 +525,52 @@ main {
   border-radius: 8px;
   background: var(--bad-bg);
   color: var(--ink);
+}
+
+/* De pop-up 'Dia's toevoegen' */
+.dialog {
+  width: min(520px, calc(100% - 2 * var(--s4)));
+  padding: var(--s6);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+  color: var(--ink);
+}
+
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.dialog h3 {
+  margin-top: 0;
+}
+
+/* De melding dat er al een bestand is toegevoegd */
+.note {
+  padding: var(--s2) var(--s3);
+  border-radius: 8px;
+  background: var(--good-bg);
+}
+
+/* Het vak waar je de PDF in sleept of op klikt */
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s1);
+  width: 100%;
+  padding: var(--s6) var(--s4);
+  border: 2px dashed var(--chip-line);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+}
+
+.dropzone:hover,
+.dropzone.over {
+  border-color: var(--accent);
 }
 
 .rounds {

@@ -132,3 +132,11 @@ document.addEventListener('keydown', (event) => {
 
 window.addEventListener('hashchange', render);
 render();
+
+// Zijn er PDF's van dia's gekoppeld? Die worden na het starten ingelezen (zie js/slides.js).
+// Zodra ze er zijn, wordt de pagina nog één keer getekend, nu met links naar de dia's.
+loadSlides().then((found) => {
+  if (found) {
+    render();
+  }
+});

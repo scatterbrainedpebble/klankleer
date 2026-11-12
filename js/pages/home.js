@@ -2,7 +2,8 @@
  * home.js – de pagina Home (adres: #/).
  *
  * Bovenaan je totale voortgang, daaronder één kaart per college, en onderaan
- * het blok Back-up (zie backup.js).
+ * het blok Back-up (zie backup.js). Elke collegekaart heeft ook de knop
+ * 'Dia's toevoegen' (zie slides-dialog.js).
  */
 
 'use strict';
@@ -83,6 +84,7 @@ function collegeCard(college) {
       mainButton,
       button('Voortgang', () => go(`#/${college.id}/voortgang`)),
       newRoundButton,
+      slidesButton(college),
     ),
   );
 }

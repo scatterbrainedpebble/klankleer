@@ -31,9 +31,12 @@ function renderQuestion(item, { onAnswer = () => {}, onOverride = null, view = n
   const card = h('div', { class: view ? 'card viewonly' : 'card' });
   const feedback = h('div', { class: 'feedback' });
 
-  /** Maakt de regel 'Zie: week 1, college 1, dia 14' (of niets, als de vraag geen verwijzing heeft). */
+  /**
+   * Maakt de regel 'Zie: week 1, college 1, dia 14' (of niets, als de vraag geen verwijzing heeft).
+   * Is de PDF van het college gekoppeld, dan is het dianummer een link naar die dia.
+   */
   function makeRef() {
-    return item.ref ? h('div', { class: 'ref' }, item.ref) : null;
+    return refLine(item); // zie js/slides.js
   }
 
   /** Het plaatje bij de vraag, als dat er is. */

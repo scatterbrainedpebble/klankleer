@@ -23,6 +23,7 @@ js/
   storage.js        je voortgang bewaren in de browser
   results.js        bijhouden wat je goed en onjuist had
   checking.js       getypte antwoorden nakijken (tikfouten, woordvormen, IPA)
+  slides.js         de PDF met dia's van een college bewaren en openen bij de juiste dia
   app.js            het startpunt: kiest de pagina bij het adres
   questions/        één bestand per soort vraag
     question.js       het deel dat voor alle soorten gelijk is
@@ -36,6 +37,7 @@ js/
   pages/            één bestand per pagina
     shared.js         onderdelen die op meerdere pagina's terugkomen
     home.js           Home
+    slides-dialog.js  de pop-up 'Dia's toevoegen' van een college
     backup.js         het blok Back-up op Home
     overview.js       Overzicht per onderwerp
     progress.js       Voortgang van een college
