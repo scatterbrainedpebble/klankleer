@@ -44,6 +44,7 @@ js/
     new-round.js      Nieuwe ronde
     practice.js       Oefenen
     review.js         Review
+    single.js         één losse vraag via een link (#/vraag/KLC2D16V1)
 images/             de plaatjes bij de vragen
 ```
 
