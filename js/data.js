@@ -339,7 +339,7 @@ const DATA = {
           "title": "Systemen",
           "cat": "Systemen",
           "type": "blanks",
-          "question": "<p>Welk systeem van het spraakproductieapparaat zit op plek A?</p>",
+          "question": "<p>Naar welk systeem van het spraakproductieapparaat wijst A?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -423,7 +423,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "drag",
-          "question": "Sleep elke term naar het juiste vak.",
+          "question": "Sleep elk spraakorgaan naar het juiste vak.",
           "size": {
             "width": 900,
             "height": 948
@@ -715,7 +715,7 @@ const DATA = {
           "title": "Spraakorganen – de tong",
           "cat": "Spraakorganen",
           "type": "drag",
-          "question": "Sleep elke term naar het juiste vak.",
+          "question": "Sleep elk deel van de tong naar het juiste vak.",
           "size": {
             "width": 900,
             "height": 974
@@ -850,7 +850,7 @@ const DATA = {
           "title": "Systemen",
           "cat": "Systemen",
           "type": "blanks",
-          "question": "<p>Welk systeem van het spraakproductieapparaat zit op plek B?</p>",
+          "question": "<p>Naar welk systeem van het spraakproductieapparaat wijst B?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -879,7 +879,7 @@ const DATA = {
           "title": "Spraakorganen – spraakkanaal",
           "cat": "Spraakorganen",
           "type": "drag",
-          "question": "Sleep elke term naar het juiste vak.",
+          "question": "Sleep elk spraakorgaan naar het juiste vak.",
           "size": {
             "width": 900,
             "height": 913
@@ -1140,7 +1140,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek A?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst A?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1166,7 +1166,7 @@ const DATA = {
           "title": "Spraakorganen – de tong",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek A?</p>",
+          "question": "<p>Naar welk deel van de tong wijst A?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1192,7 +1192,7 @@ const DATA = {
           "title": "Spraakorganen – spraakkanaal",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek F?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst F?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1245,7 +1245,7 @@ const DATA = {
           "title": "Systemen",
           "cat": "Systemen",
           "type": "blanks",
-          "question": "<p>Welk systeem van het spraakproductieapparaat zit op plek C?</p>",
+          "question": "<p>Naar welk systeem van het spraakproductieapparaat wijst C?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1300,7 +1300,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek B?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst B?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1326,7 +1326,7 @@ const DATA = {
           "title": "Spraakorganen – de tong",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek B?</p>",
+          "question": "<p>Naar welk deel van de tong wijst B?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1352,7 +1352,7 @@ const DATA = {
           "title": "Spraakorganen – spraakkanaal",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek I?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst I?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1404,7 +1404,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek C?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst C?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1431,7 +1431,7 @@ const DATA = {
           "title": "Spraakorganen – de tong",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek C?</p>",
+          "question": "<p>Naar welk deel van de tong wijst C?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1538,7 +1538,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek D?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst D?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1565,7 +1565,7 @@ const DATA = {
           "title": "Spraakorganen – de tong",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek D?</p>",
+          "question": "<p>Naar welk deel van de tong wijst D?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1690,7 +1690,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek E?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst E?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1772,7 +1772,7 @@ const DATA = {
           "title": "Spraakorganen – de tong",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek E?</p>",
+          "question": "<p>Naar welk deel van de tong wijst E?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1927,7 +1927,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek F?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst F?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2064,80 +2064,80 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "drag",
-          "question": "Passieve articulatoren: sleep elke term naar het juiste vak.",
+          "question": "Passieve articulatoren zijn de plekken in het spraakkanaal waar een actieve articulator (bijvoorbeeld de tong) naartoe beweegt. Sleep elke passieve articulator naar het juiste vak.",
           "size": {
             "width": 1000,
-            "height": 763
+            "height": 658.3
           },
           "bg": "images/KLC1D51V1.webp",
           "els": [
             {
               "text": "<p>velar</p>",
               "x": 7.567,
-              "y": 78.55,
+              "y": 75.138,
               "w": 4.375,
               "h": 2.625
             },
             {
               "text": "<p>labio&shy;dental</p>",
               "x": 27.033,
-              "y": 78.55,
+              "y": 75.138,
               "w": 4.375,
               "h": 2.625
             },
             {
               "text": "<p>post&shy;alveolar</p>",
               "x": 46.5,
-              "y": 78.55,
+              "y": 75.138,
               "w": 4.375,
               "h": 2.625
             },
             {
               "text": "<p>bilabial</p>",
               "x": 65.967,
-              "y": 78.55,
+              "y": 75.138,
               "w": 4.375,
               "h": 2.625
             },
             {
               "text": "<p>glottal</p>",
               "x": 85.433,
-              "y": 78.55,
+              "y": 75.138,
               "w": 4.375,
               "h": 2.625
             },
             {
               "text": "<p>alveolar</p>",
               "x": 7.567,
-              "y": 89.297,
+              "y": 87.594,
               "w": 4.375,
               "h": 2.625
             },
             {
               "text": "<p>uvular</p>",
               "x": 27.033,
-              "y": 89.297,
+              "y": 87.594,
               "w": 4.375,
               "h": 2.625
             },
             {
               "text": "<p>palatal</p>",
               "x": 46.5,
-              "y": 89.297,
+              "y": 87.594,
               "w": 4.375,
               "h": 2.625
             },
             {
               "text": "<p>pharyn&shy;geal</p>",
               "x": 65.967,
-              "y": 89.297,
+              "y": 87.594,
               "w": 4.375,
               "h": 2.625
             },
             {
               "text": "<p>dental</p>",
               "x": 85.433,
-              "y": 89.297,
+              "y": 87.594,
               "w": 4.375,
               "h": 2.625
             }
@@ -2145,7 +2145,7 @@ const DATA = {
           "zones": [
             {
               "x": 56.0,
-              "y": 14.592,
+              "y": 1.006,
               "w": 5.417,
               "h": 2.792,
               "single": true,
@@ -2156,7 +2156,7 @@ const DATA = {
             },
             {
               "x": 44.867,
-              "y": 16.689,
+              "y": 3.437,
               "w": 5.458,
               "h": 2.792,
               "single": true,
@@ -2167,7 +2167,7 @@ const DATA = {
             },
             {
               "x": 65.2,
-              "y": 19.31,
+              "y": 6.475,
               "w": 4.458,
               "h": 2.792,
               "single": true,
@@ -2178,7 +2178,7 @@ const DATA = {
             },
             {
               "x": 32.867,
-              "y": 21.145,
+              "y": 8.602,
               "w": 5.417,
               "h": 2.792,
               "single": true,
@@ -2189,7 +2189,7 @@ const DATA = {
             },
             {
               "x": 67.067,
-              "y": 26.038,
+              "y": 14.273,
               "w": 4.458,
               "h": 2.833,
               "single": true,
@@ -2200,7 +2200,7 @@ const DATA = {
             },
             {
               "x": 28.333,
-              "y": 29.62,
+              "y": 18.425,
               "w": 5.417,
               "h": 2.792,
               "single": true,
@@ -2211,7 +2211,7 @@ const DATA = {
             },
             {
               "x": 69.0,
-              "y": 33.814,
+              "y": 23.286,
               "w": 4.458,
               "h": 2.792,
               "single": true,
@@ -2222,7 +2222,7 @@ const DATA = {
             },
             {
               "x": 28.333,
-              "y": 40.542,
+              "y": 31.084,
               "w": 5.417,
               "h": 2.833,
               "single": true,
@@ -2233,7 +2233,7 @@ const DATA = {
             },
             {
               "x": 66.6,
-              "y": 41.503,
+              "y": 32.198,
               "w": 5.083,
               "h": 2.833,
               "single": true,
@@ -2244,7 +2244,7 @@ const DATA = {
             },
             {
               "x": 25.933,
-              "y": 52.337,
+              "y": 44.755,
               "w": 5.375,
               "h": 2.833,
               "single": true,
@@ -2290,7 +2290,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek G?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst G?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2487,7 +2487,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek A?</p>",
+          "question": "<p>Naar welke plaats van articulatie (kolommen in de IPA-tabel) wijst A?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2569,7 +2569,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek H?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst H?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2636,7 +2636,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek B?</p>",
+          "question": "<p>Naar welke plaats van articulatie (kolommen in de IPA-tabel) wijst B?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2718,7 +2718,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek I?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst I?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2770,7 +2770,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek C?</p>",
+          "question": "<p>Naar welke plaats van articulatie (kolommen in de IPA-tabel) wijst C?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2855,7 +2855,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek J?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst J?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2909,7 +2909,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek D?</p>",
+          "question": "<p>Naar welke plaats van articulatie (kolommen in de IPA-tabel) wijst D?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3154,7 +3154,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek K?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst K?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3181,7 +3181,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek E?</p>",
+          "question": "<p>Naar welke plaats van articulatie (kolommen in de IPA-tabel) wijst E?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3351,7 +3351,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek L?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst L?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3579,7 +3579,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek F?</p>",
+          "question": "<p>Naar welke plaats van articulatie (kolommen in de IPA-tabel) wijst F?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3662,7 +3662,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek M?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst M?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3841,7 +3841,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek G?</p>",
+          "question": "<p>Naar welke plaats van articulatie (kolommen in de IPA-tabel) wijst G?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -4625,7 +4625,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek H?</p>",
+          "question": "<p>Naar welke plaats van articulatie (kolommen in de IPA-tabel) wijst H?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -4881,7 +4881,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek I?</p>",
+          "question": "<p>Naar welke plaats van articulatie (kolommen in de IPA-tabel) wijst I?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -5035,7 +5035,7 @@ const DATA = {
           "title": "Plaats – passieve articulatoren",
           "cat": "Plaats",
           "type": "blanks",
-          "question": "<p>Welke plaats van articulatie (kolommen in de IPA-tabel) hoort bij plek J?</p>",
+          "question": "<p>Naar welke plaats van articulatie (kolommen in de IPA-tabel) wijst J?</p>",
           "segs": [
             {
               "text": "<p>"
