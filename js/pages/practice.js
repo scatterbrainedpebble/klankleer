@@ -151,8 +151,8 @@ function renderPractice(page, college) {
       question = answeredCard(item);
     } else {
       question = renderQuestion(item, {
-        onAnswer: (score, max) => {
-          recordFirst(item, score, max);
+        onAnswer: (score, max, given) => {
+          recordFirst(item, score, max, given);
           if (score < max) {
             queueAgain(item.code);
             save();
@@ -214,7 +214,11 @@ function answeredCard(item) {
     explanation = 'Hij komt terug als je verder oefent.';
   }
 
-  const card = renderQuestion(item, { view: correct ? 'solved' : 'locked' });
+  // Had je hem onjuist, dan zie je je eigen antwoord van toen terug (als dat bewaard is).
+  const card = renderQuestion(item, {
+    view: correct ? 'solved' : 'locked',
+    given: state.book[item.code].given,
+  });
   return add(
     card,
     h(

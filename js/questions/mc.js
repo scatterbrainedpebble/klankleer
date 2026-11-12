@@ -12,7 +12,7 @@
 'use strict';
 
 /** Vult de kaart met een meerkeuzevraag. Wat er in 'parts' zit, staat in question.js. */
-function drawMc({ item, view, card, feedback, finish }) {
+function drawMc({ item, view, given, card, feedback, finish, remember }) {
   const box = h('div', { class: 'mc' });
 
   // De nummers van de antwoorden in willekeurige volgorde: [2, 0, 1, ...]
@@ -51,6 +51,7 @@ function drawMc({ item, view, card, feedback, finish }) {
       }
     }
     checkButton.hidden = true;
+    remember(Number(chosen.value));
 
     const correct = isRight(chosen);
     const note = item.note ? h('div', { html: item.note }) : null;
@@ -60,11 +61,15 @@ function drawMc({ item, view, card, feedback, finish }) {
   add(card, h('h2', { html: item.question }), box);
 
   if (view) {
-    // Alleen bekijken: keuzes op slot, en bij 'solved' het goede antwoord aangevinkt.
+    // Alleen bekijken: keuzes op slot. Bij 'solved' het goede antwoord aangevinkt,
+    // bij 'locked' je eigen keuze van toen (rood), zonder het goede antwoord te verklappen.
     for (const radio of radios) {
       radio.disabled = true;
       if (view === 'solved' && isRight(radio)) {
         radio.parentNode.classList.add('good');
+        radio.checked = true;
+      } else if (view === 'locked' && Number(radio.value) === given) {
+        radio.parentNode.classList.add('bad');
         radio.checked = true;
       }
     }
