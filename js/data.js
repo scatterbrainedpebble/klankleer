@@ -1140,7 +1140,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek A?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst A?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1166,7 +1166,7 @@ const DATA = {
           "title": "Spraakorganen – de tong",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek A?</p>",
+          "question": "<p>Naar welk deel van de tong wijst A?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1192,7 +1192,7 @@ const DATA = {
           "title": "Spraakorganen – spraakkanaal",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek F?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst F?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1300,7 +1300,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek B?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst B?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1326,7 +1326,7 @@ const DATA = {
           "title": "Spraakorganen – de tong",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek B?</p>",
+          "question": "<p>Naar welk deel van de tong wijst B?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1352,7 +1352,7 @@ const DATA = {
           "title": "Spraakorganen – spraakkanaal",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek I?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst I?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1404,7 +1404,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek C?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst C?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1431,7 +1431,7 @@ const DATA = {
           "title": "Spraakorganen – de tong",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek C?</p>",
+          "question": "<p>Naar welk deel van de tong wijst C?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1538,7 +1538,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek D?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst D?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1565,7 +1565,7 @@ const DATA = {
           "title": "Spraakorganen – de tong",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek D?</p>",
+          "question": "<p>Naar welk deel van de tong wijst D?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1690,7 +1690,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek E?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst E?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1772,7 +1772,7 @@ const DATA = {
           "title": "Spraakorganen – de tong",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek E?</p>",
+          "question": "<p>Naar welk deel van de tong wijst E?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -1927,7 +1927,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek F?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst F?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2290,7 +2290,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek G?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst G?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2569,7 +2569,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek H?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst H?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2718,7 +2718,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek I?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst I?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -2855,7 +2855,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek J?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst J?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3154,7 +3154,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek K?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst K?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3351,7 +3351,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek L?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst L?</p>",
           "segs": [
             {
               "text": "<p>"
@@ -3662,7 +3662,7 @@ const DATA = {
           "title": "Spraakorganen",
           "cat": "Spraakorganen",
           "type": "blanks",
-          "question": "<p>Wat staat op plek M?</p>",
+          "question": "<p>Naar welk spraakorgaan wijst M?</p>",
           "segs": [
             {
               "text": "<p>"
