@@ -7,6 +7,13 @@
 
 'use strict';
 
+/**
+ * Draait de site in de Android-app (zie android/)? De app geeft de site dan het
+ * onderdeel window.KlankleerApp. In een gewone browser bestaat dat niet.
+ * Sommige onderdelen, zoals de gewoontetracker, zijn alleen voor de app.
+ */
+const IN_APP = Boolean(window.KlankleerApp);
+
 /** Zoekt het eerste element dat bij een CSS-selector past, bijvoorbeeld $('#page'). */
 function $(selector, root = document) {
   return root.querySelector(selector);

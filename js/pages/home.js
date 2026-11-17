@@ -107,7 +107,7 @@ function sessionCard() {
       'div',
       { class: 'btns' },
       button('Start een sessie', () => go('#/sessie'), 'primary'),
-      button('Gewoontetracker', () => go('#/gewoonte')),
+      IN_APP ? button('Gewoontetracker', () => go('#/gewoonte')) : null,
     ),
   );
 }

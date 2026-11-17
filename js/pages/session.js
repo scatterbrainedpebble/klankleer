@@ -106,14 +106,14 @@ function renderSession(page) {
           'p',
           {},
           alreadyDone
-            ? `Je ${slot.label.toLowerCase()}sessie van vandaag heb je al gedaan. Je kunt nog een extra sessie doen; die telt niet extra in de tracker.`
+            ? `Je ${slot.label.toLowerCase()}sessie van vandaag heb je al gedaan. Je kunt nog een extra sessie doen${IN_APP ? '; die telt niet extra in de tracker' : ''}.`
             : `Vijf vragen uit alle colleges, met de vragen die je onjuist had voorop.`,
         ),
         h(
           'div',
           { class: 'btns' },
           startButton,
-          button('Gewoontetracker', () => go('#/gewoonte')),
+          IN_APP ? button('Gewoontetracker', () => go('#/gewoonte')) : null,
         ),
       ),
     );
@@ -136,8 +136,8 @@ function renderSession(page) {
         h(
           'div',
           { class: 'btns' },
-          button('Gewoontetracker', () => go('#/gewoonte'), 'primary'),
-          button('Naar Home', () => go('#/')),
+          IN_APP ? button('Gewoontetracker', () => go('#/gewoonte'), 'primary') : null,
+          button('Naar Home', () => go('#/'), IN_APP ? '' : 'primary'),
         ),
       ),
     );

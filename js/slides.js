@@ -3,7 +3,8 @@
  *
  * Bij elke vraag staat een verwijzing, bijvoorbeeld 'Zie: week 1, college 2, dia 21'.
  * Heb je op Home de PDF van dat college toegevoegd (de knop 'Dia's toevoegen'), dan wordt het dianummer een link
- * die de PDF opent op die dia (in een nieuw tabblad).
+ * die die dia laat zien in een nieuw tabblad. Dat tabblad is de pagina dia.html van de site
+ * zelf (zie js/slide-viewer.js), zodat het ook werkt op een tablet of telefoon zonder PDF-lezer.
  *
  * De PDF's staan niet op de site: ze worden alleen in deze browser bewaard,
  * in IndexedDB. Dat is een opslag van de browser die, anders dan localStorage,
@@ -120,7 +121,7 @@ function refLine(item) {
     const link = h(
       'a',
       {
-        href: `${slides[collegeId].url}#page=${slideNumber}`,
+        href: `dia.html?college=${collegeId}&dia=${slideNumber}`,
         target: '_blank',
         rel: 'noopener',
         title: `Open dia ${slideNumber} in de diavoorstelling`,

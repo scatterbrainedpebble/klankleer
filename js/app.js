@@ -13,7 +13,7 @@
  *   #/c1/nieuwe-ronde                   Nieuwe ronde van college 1
  *   #/vraag/KLC2D16V1                   Eén losse vraag (om als link te delen)
  *   #/sessie                            Dagelijkse sessie van 5 vragen
- *   #/gewoonte                          Gewoontetracker tot het tentamen
+ *   #/gewoonte                          Gewoontetracker tot het tentamen (alleen in de Android-app)
  *
  * render() leest het adres, maakt de pagina leeg en laat de juiste functie
  * uit de map pages/ de nieuwe pagina tekenen. Dat gebeurt bij het openen
@@ -46,8 +46,11 @@ function render() {
     go(`#/review/${college.id}/${OLD_REVIEW_TYPES[third] || 'lastig+bladwijzer'}`);
     return;
   }
-  // Een onbekend adres gaat naar Home.
-  const knownPages = ['overzicht', 'review', 'vraag', 'sessie', 'gewoonte'];
+  // Een onbekend adres gaat naar Home. De gewoontetracker bestaat alleen in de Android-app.
+  const knownPages = ['overzicht', 'review', 'vraag', 'sessie'];
+  if (IN_APP) {
+    knownPages.push('gewoonte');
+  }
   if (first && !college && !knownPages.includes(first)) {
     go('#/');
     return;
