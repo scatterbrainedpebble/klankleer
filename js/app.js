@@ -118,6 +118,12 @@ function render() {
     }
   }
 
+  // Heb je net een vraag genegeerd? Dan bovenaan een melding met 'Ongedaan maken'.
+  const notice = ignoredNotice();
+  if (notice) {
+    page.prepend(notice);
+  }
+
   window.scrollTo({ top: 0 });
 }
 

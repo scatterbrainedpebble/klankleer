@@ -39,10 +39,14 @@ function status(item) {
   return 'bad';
 }
 
-/** Telt een lijst vragen: { good, bad, todo, n } met n = het totaal. */
+/**
+ * Telt een lijst vragen: { good, bad, todo, n } met n = het totaal.
+ * Genegeerde vragen tellen niet mee.
+ */
 function counts(items) {
-  const tally = { good: 0, bad: 0, todo: 0, n: items.length };
-  for (const item of items) {
+  const active = activeItems(items);
+  const tally = { good: 0, bad: 0, todo: 0, n: active.length };
+  for (const item of active) {
     tally[status(item)]++;
   }
   return tally;
@@ -73,6 +77,44 @@ function isHard(item) {
 /** Heeft deze vraag een bladwijzer? */
 function flagged(item) {
   return Boolean(state.flags[item.code]);
+}
+
+/* ---------- vragen negeren ---------- */
+
+/** Negeer je deze vraag? Dan doet hij niet mee bij Oefenen, Review en de percentages. */
+function ignored(item) {
+  return Boolean(state.ignored[item.code]);
+}
+
+/** Dezelfde lijst vragen, zonder de vragen die je negeert. */
+function activeItems(items) {
+  return items.filter((item) => !ignored(item));
+}
+
+/**
+ * De vraag die je net hebt genegeerd: { code, pos } met pos = waar je bij Oefenen was.
+ * De volgende pagina toont dan een melding met 'Ongedaan maken' (zie ignoredNotice in
+ * pages/shared.js). null = er is niets genegeerd.
+ */
+let justIgnored = null;
+
+/** Negeer een vraag: hij gaat naar het lijstje 'Genegeerd' bij Voortgang. */
+function ignoreItem(item) {
+  state.ignored[item.code] = Date.now();
+  dropRetry(item.code);
+  for (const collegeId in state.rnow) {
+    if (state.rnow[collegeId] === item.code) {
+      delete state.rnow[collegeId];
+    }
+  }
+  justIgnored = { code: item.code, pos: Object.assign({}, state.pos) };
+  save();
+}
+
+/** Haal een genegeerde vraag terug: hij doet weer gewoon mee. */
+function restoreItem(item) {
+  delete state.ignored[item.code];
+  save();
 }
 
 /* ---------- herhalingen binnen een ronde ---------- */
@@ -199,6 +241,6 @@ function roundIsDone(college) {
   const nothingTodo = counts(college.items).todo === 0;
   const noRetriesQueued = (state.retry[college.id] || []).length === 0;
   const noRetryOpen = !state.rnow[college.id];
-  const nothingWrong = !college.items.some((item) => status(item) === 'bad');
+  const nothingWrong = !activeItems(college.items).some((item) => status(item) === 'bad');
   return nothingTodo && noRetriesQueued && noRetryOpen && nothingWrong;
 }

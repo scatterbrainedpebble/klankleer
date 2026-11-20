@@ -12,6 +12,7 @@
  *   state.hist[code]      { n, wrong }: aantal pogingen en aantal keer onjuist,
  *                         over alle rondes en Review samen
  *   state.flags[code]     staat er als de vraag een bladwijzer heeft
+ *   state.ignored[code]   staat er als je de vraag negeert (hij doet dan nergens meer mee)
  *   state.pos[college]    bij welke vraag je bent in Oefenen (0 = de eerste)
  *   state.rounds[college] de scores van vorige rondes
  *   state.retry[college]  herhalingen die nog moeten komen: [{ code, due }]
@@ -42,6 +43,7 @@ function fresh() {
     book: {},
     hist: {},
     flags: {},
+    ignored: {},
     pos: {},
     rounds: {},
     retry: {},
@@ -87,6 +89,7 @@ function completeState() {
       state.hist[code] = { n: 1, wrong: wasCorrect ? 0 : 1 };
     }
   }
+  state.ignored = state.ignored || {};
   state.retry = state.retry || {};
   state.rnow = state.rnow || {};
   state.rounds = state.rounds || {};
