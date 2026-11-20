@@ -175,7 +175,7 @@ const DATA = {
           "title": "Fonetiek – wat bestudeert fonetiek",
           "cat": "Fonetiek",
           "type": "card",
-          "front": "<p>Welke drie onderdelen van de fonetiek zijn op de dia weggehaald?</p>",
+          "front": "<p>Welke drie onderdelen van de fonetiek zijn uit dit schema weggehaald?</p>",
           "back": "<p>spraakproductie, spraakgeluid, spraakperceptie</p>",
           "ref": "Zie: week 1, college 1, dia 13",
           "image": "images/image-2bIuHTAJ.webp",
@@ -3490,8 +3490,7 @@ const DATA = {
                 "plosive",
                 "plosief",
                 "plosieven",
-                "plofklank",
-                "stop"
+                "plofklank"
               ]
             },
             {
@@ -3502,7 +3501,7 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 56",
           "image": null,
           "alt": "",
-          "theory": "<p>Plosieven heten ook plofklanken of stops. De Nederlandse plosieven op de dia zijn [p], [b], [t], [d], [k] en [g].</p>"
+          "theory": "<p>Plosieven heten ook plofklanken (Engels: plosives). De Nederlandse plosieven op de dia zijn [p], [b], [t], [d], [k] en [g].</p>"
         },
         {
           "code": "KLC1D56V3",
@@ -4861,8 +4860,7 @@ const DATA = {
                 "plosive",
                 "plosief",
                 "plosieven",
-                "plofklank",
-                "stop"
+                "plofklank"
               ]
             },
             {
@@ -5688,7 +5686,7 @@ const DATA = {
           "title": "Wijze – nasalen",
           "cat": "Wijze",
           "type": "card",
-          "front": "<p>Welke klank is [ŋ]? Noem het voorbeeldwoord van de dia.</p>",
+          "front": "<p>Welke klank is [ŋ]?</p>",
           "back": "<p>De laatste klank in <em>slang</em></p>",
           "ref": "Zie: week 1, college 1, dia 58",
           "image": null,
@@ -5728,7 +5726,7 @@ const DATA = {
           "title": "Wijze – nasalen",
           "cat": "Wijze",
           "type": "card",
-          "front": "<p>Kunnen ook klinkers nasaal zijn? Geef het voorbeeld van de dia.</p>",
+          "front": "<p>Kunnen klinkers ook nasaal zijn? Geef een voorbeeld.</p>",
           "back": "<p>Ja, bijvoorbeeld in het Frans: <em>un bon vin blanc</em> → /œ̃ bɔ̃ vɛ̃ blɑ̃/</p>",
           "ref": "Zie: week 1, college 1, dia 58",
           "image": null,
@@ -5741,8 +5739,8 @@ const DATA = {
           "title": "Wijze – approximanten",
           "cat": "Wijze",
           "type": "card",
-          "front": "<p>Wat is een glide (glijklank)? Geef de voorbeelden van de dia.</p>",
-          "back": "<p>Een transitie tussen twee klanken. Voorbeelden op de dia: <em>theater</em>, <em>power</em> en <em>januari</em>, met de glijklanken /j/ en /w/.</p>",
+          "front": "<p>Wat is een glide (glijklank)? Geef een voorbeeld.</p>",
+          "back": "<p>Een transitie tussen twee klanken, bijvoorbeeld in <em>theater</em>, <em>power</em> en <em>januari</em>, met de glijklanken /j/ en /w/.</p>",
           "ref": "Zie: week 1, college 1, dia 63",
           "image": null,
           "alt": "",
