@@ -314,9 +314,12 @@ function renderReview(page, selection) {
 
   // De regel boven de vraag: college (als je er meer dan één reviewt), nummer, titel en de telling.
   const collegePrefix = selection.cols.length > 1 ? colById[item.college].title + ' · ' : '';
+  // Daarachter hoe vaak je de vraag tot nu toe goed en onjuist had (als je hem al eens deed).
+  const timesRight = rightTimes(item);
   const timesWrong = wrongTimes(item);
-  const wrongSuffix = timesWrong ? ` · ${timesWrong}× onjuist gehad` : '';
-  const left = `${collegePrefix}${item.num}. ${item.title}${wrongSuffix}`;
+  const tallySuffix =
+    timesRight + timesWrong ? ` · ${timesRight}× goed en ${timesWrong}× onjuist gehad` : '';
+  const left = `${collegePrefix}${item.num}. ${item.title}${tallySuffix}`;
 
   add(
     page,

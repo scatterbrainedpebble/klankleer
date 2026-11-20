@@ -59,6 +59,12 @@ function wrongTimes(item) {
   return history ? history.wrong || 0 : 0;
 }
 
+/** Hoe vaak had je deze vraag in totaal goed? (alle pogingen min de onjuiste) */
+function rightTimes(item) {
+  const history = state.hist[item.code];
+  return history ? Math.max(0, (history.n || 0) - (history.wrong || 0)) : 0;
+}
+
 /** Is dit een lastige vraag? */
 function isHard(item) {
   return wrongTimes(item) >= HARD_WRONG;

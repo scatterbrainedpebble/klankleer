@@ -781,6 +781,33 @@ details.cat[open] .chev {
   margin-top: var(--s2);
 }
 
+/* Bij Voortgang staat 'Review dit college' bovenaan, direct onder de titel. */
+.revbox.top {
+  margin-top: 0;
+  margin-bottom: var(--s4);
+}
+
+.revbox.top .btns {
+  margin-top: 0;
+  margin-bottom: var(--s2);
+}
+
+/* Onderaan Voortgang: de kleine regel met Nieuwe ronde. */
+.newround {
+  margin-top: var(--s6);
+}
+
+/* Een knop die eruitziet als een gewone link (voor iets dat niet moet opvallen). */
+.linkbtn {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 /* ==========================================================================
    8. Keuzes bij Review en Nieuwe ronde
    ========================================================================== */

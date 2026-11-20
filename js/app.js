@@ -65,7 +65,15 @@ function render() {
 
   /** Maakt één tabblad in de balk bovenaan. active = dit is de pagina waar je nu bent. */
   function tab(label, hash, active) {
-    return h('a', { href: hash, class: active ? 'on' : '' }, label);
+    // Klik je op het tabblad van de pagina waar je al bent, dan verandert het adres niet
+    // en zou er niets gebeuren. Daarom tekenen we de pagina dan opnieuw, vanaf het begin.
+    const onclick = (event) => {
+      if (location.hash === hash) {
+        event.preventDefault();
+        render();
+      }
+    };
+    return h('a', { href: hash, class: active ? 'on' : '', onclick }, label);
   }
 
   if (college) {
