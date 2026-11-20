@@ -28,7 +28,7 @@ function renderHome(page) {
         button('Overzicht per onderwerp', () => go('#/overzicht')),
       ),
     ),
-    sessionCard(),
+    IN_APP ? sessionCard() : null, // alleen in de Android-app
   );
 
   const grid = h('div', { class: 'grid' });

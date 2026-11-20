@@ -7,6 +7,13 @@
 
 'use strict';
 
+/**
+ * Draait de site in de Android-app? De app geeft de pagina dan het object KlankleerApp mee
+ * (zie android/…/MainActivity.java). De dagelijkse sessie en de gewoontetracker zijn
+ * alleen voor de app; op de gewone website zie je ze niet.
+ */
+const IN_APP = Boolean(window.KlankleerApp);
+
 /** Zoekt het eerste element dat bij een CSS-selector past, bijvoorbeeld $('#page'). */
 function $(selector, root = document) {
   return root.querySelector(selector);

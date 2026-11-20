@@ -12,8 +12,8 @@
  *   #/c1/voortgang                      Voortgang van college 1
  *   #/c1/nieuwe-ronde                   Nieuwe ronde van college 1
  *   #/vraag/KLC2D16V1                   Eén losse vraag (om als link te delen)
- *   #/sessie                            Dagelijkse sessie van 5 vragen
- *   #/gewoonte                          Gewoontetracker tot het tentamen
+ *   #/sessie                            Dagelijkse sessie van 5 vragen (alleen in de app)
+ *   #/gewoonte                          Gewoontetracker tot het tentamen (alleen in de app)
  *
  * render() leest het adres, maakt de pagina leeg en laat de juiste functie
  * uit de map pages/ de nieuwe pagina tekenen. Dat gebeurt bij het openen
@@ -47,7 +47,8 @@ function render() {
     return;
   }
   // Een onbekend adres gaat naar Home.
-  const knownPages = ['overzicht', 'review', 'vraag', 'sessie', 'gewoonte'];
+  // Sessie en gewoontetracker bestaan alleen in de Android-app (zie IN_APP in helpers.js).
+  const knownPages = ['overzicht', 'review', 'vraag'].concat(IN_APP ? ['sessie', 'gewoonte'] : []);
   if (first && !college && !knownPages.includes(first)) {
     go('#/');
     return;
@@ -97,7 +98,7 @@ function render() {
       tab('Home', '#/', !first),
       tab('Review', '#/review', first === 'review'),
       tab('Overzicht', '#/overzicht', first === 'overzicht'),
-      tab('Sessie', '#/sessie', first === 'sessie' || first === 'gewoonte'),
+      IN_APP ? tab('Sessie', '#/sessie', first === 'sessie' || first === 'gewoonte') : null,
     );
     const selection = first === 'review' ? parseSelection(second, third) : null;
     if (!first) {
