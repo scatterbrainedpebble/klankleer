@@ -1,8 +1,8 @@
 /*
  * practice.js – de pagina Oefenen van één college (adres: #/c1/oefenen).
  *
- * Je krijgt één vraag per keer, in een vaste volgorde. Je eerste poging telt als je
- * antwoord in deze ronde. Een onjuiste vraag komt een paar vragen later terug als
+ * Je krijgt één vraag per keer, in een vaste volgorde. Of een vraag goed of onjuist staat,
+ * hangt af van je laatste poging (zie results.js). Een onjuiste vraag komt een paar vragen later terug als
  * 'Herhaling', en blijft terugkomen tot je hem goed hebt. Aan het eind van de ronde
  * komen alle vragen die nog onjuist staan achter elkaar.
  */
@@ -74,9 +74,24 @@ function renderPractice(page, college) {
     render();
   }
 
+  /**
+   * Hoeveel herhalingen er nog komen, deze meegeteld. Alleen vragen die nog onjuist staan
+   * tellen mee (een vraag die je intussen bij Review goed had, komt niet meer terug).
+   */
+  function retriesLeft() {
+    const queued = (state.retry[college.id] || []).filter(
+      (retry) => byCode[retry.code] && status(byCode[retry.code]) === 'bad',
+    );
+    return queued.length + 1;
+  }
+
   /** Toont een herhaling: een vraag die je eerder in deze ronde onjuist had. */
   function showRetry(item) {
     let correct = null; // null = nog niet beantwoord, daarna true of false
+    // Rechts boven staat bij een herhaling niet 'N / totaal' (dan lijkt de teller vast te staan),
+    // maar hoeveel herhalingen er nog komen.
+    const left = retriesLeft();
+    const retryCounter = left === 1 ? 'laatste herhaling' : `nog ${left} herhalingen`;
 
     const nextButton = button(
       'Volgende →',
@@ -92,12 +107,12 @@ function renderPractice(page, college) {
     );
 
     const question = renderQuestion(item, {
-      onAnswer: (score, max) => {
+      onAnswer: (score, max, given) => {
         if (correct !== null) {
           return;
         }
         correct = score === max;
-        recordAgain(item, correct);
+        recordAgain(item, correct, given);
         nextButton.disabled = false;
         nextButton.classList.add('primary');
         focusLater(nextButton);
@@ -114,7 +129,7 @@ function renderPractice(page, college) {
       crumb(
         item,
         [h('b', { class: 'again' }, 'Herhaling'), ` · ${item.num}. ${item.title}`],
-        position,
+        retryCounter,
       ),
       question,
       h(
@@ -201,13 +216,12 @@ function answeredCard(item) {
   } else if (correct) {
     headline = 'Deze vraag heb je al goed beantwoord.';
   } else {
-    headline = 'Deze vraag had je onjuist.';
+    headline = 'Deze vraag had je bij je laatste poging onjuist.';
   }
 
   let explanation;
   if (correct) {
-    explanation =
-      'Bij Oefenen telt één poging per vraag; onjuiste vragen komen terug tot je ze goed hebt.';
+    explanation = 'Je laatste poging was goed. Onjuiste vragen komen terug tot je ze goed hebt.';
   } else if (comesBackSoon) {
     explanation = 'Hij komt verderop in deze ronde nog een keer terug.';
   } else {

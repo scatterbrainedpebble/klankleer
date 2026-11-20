@@ -5,8 +5,9 @@
  *   #/review/c1+c2/lastig+bladwijzer     de review zelf, met die keuze
  *
  * Bij Review oefen je lastige vragen en vragen met een bladwijzer nog een keer,
- * los van je oefenronde. Een antwoord telt mee voor '× onjuist gehad', maar verandert
- * je score bij Oefenen niet. Een onjuiste vraag komt een paar vragen later nog een keer.
+ * los van je oefenronde. Een antwoord telt mee voor '× onjuist gehad' en is je laatste
+ * poging: had je een vraag bij Oefenen goed en hier onjuist, dan staat hij weer op onjuist.
+ * Een onjuiste vraag komt een paar vragen later nog een keer.
  */
 
 'use strict';
@@ -205,7 +206,7 @@ function renderReviewSetup(page) {
       h(
         'p',
         {},
-        'Bij Review oefen je een selectie van vragen nog een keer, los van je oefenronde. Wat je hier antwoordt, telt mee voor "× onjuist gehad", maar verandert je score bij Oefenen niet. Heb je een vraag onjuist, dan komt hij een paar vragen later nog een keer.',
+        'Bij Review oefen je een selectie van vragen nog een keer, naast je oefenronde. Wat je hier antwoordt, telt mee voor "× onjuist gehad" en telt als je laatste poging: had je een vraag eerder goed en hier onjuist, dan staat hij bij Voortgang weer op onjuist (en andersom). Heb je een vraag onjuist, dan komt hij een paar vragen later nog een keer.',
       ),
       h('div', { class: 'optgroup' }, h('h3', {}, 'Welke colleges?'), collegeBoxes),
       h('div', { class: 'optgroup' }, h('h3', {}, 'Welke vragen?'), typeBoxes),
@@ -321,12 +322,12 @@ function renderReview(page, selection) {
     page,
     crumb(item, left, `nog ${reviewQueue.length} te gaan`),
     renderQuestion(item, {
-      onAnswer: (score, max) => {
+      onAnswer: (score, max, given) => {
         if (correct !== null) {
           return;
         }
         correct = score === max;
-        recordAgain(item, correct);
+        recordAgain(item, correct, given);
         nextButton.disabled = false;
         focusLater(nextButton);
       },
