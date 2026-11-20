@@ -5,7 +5,9 @@
  * om te tellen, en om een antwoord vast te leggen nadat een vraag is nagekeken.
  *
  * Begrippen:
- *   - Bij Oefenen telt je eerste poging als je antwoord in deze ronde.
+ *   - Of een vraag goed of onjuist staat, hangt af van je LAATSTE poging in deze ronde
+ *     (bij Oefenen, een herhaling, Review of een sessie). Had je hem eerst goed en later
+ *     onjuist, dan staat hij weer op onjuist.
  *   - Een onjuiste vraag komt een paar vragen later terug als 'Herhaling', tot hij goed is.
  *   - Een vraag is 'lastig' als je hem in totaal vaak onjuist had (zie HARD_WRONG).
  */
@@ -25,6 +27,11 @@ function status(item) {
   const result = state.book[item.code];
   if (!result) {
     return 'todo';
+  }
+  // ok = hoe je laatste poging ging. Oudere antwoorden hebben dat nog niet;
+  // dan geldt de oude regel: eerste poging goed, of later alsnog goed (fixed).
+  if (result.ok !== undefined) {
+    return result.ok ? 'good' : 'bad';
   }
   if (result.score === result.max || result.fixed) {
     return 'good';
@@ -100,10 +107,30 @@ function countAttempt(item, correct) {
  */
 function markFixed(item) {
   const result = state.book[item.code];
-  if (result && result.score < result.max) {
-    result.fixed = Date.now();
+  if (result) {
+    if (status(item) === 'bad') {
+      result.fixed = Date.now();
+    }
+    result.ok = true;
   }
   dropRetry(item.code);
+}
+
+/**
+ * Een vraag die in deze ronde al beantwoord was, had je nu onjuist:
+ * hij staat weer op onjuist (ook als je hem eerder goed had).
+ * given = wat je nu hebt ingevuld; dat zie je terug als je de vraag later bij Oefenen bekijkt.
+ */
+function markWrongAgain(item, given) {
+  const result = state.book[item.code];
+  if (!result) {
+    return; // nog niet gedaan in deze ronde: dan blijft hij 'nog te doen'
+  }
+  result.ok = false;
+  delete result.fixed;
+  if (given != null) {
+    result.given = given;
+  }
 }
 
 /**
@@ -111,7 +138,7 @@ function markFixed(item) {
  * given = wat je hebt ingevuld of gekozen; dat wordt bewaard zodat je het later terugziet.
  */
 function recordFirst(item, score, max, given = null) {
-  state.book[item.code] = { score, max, t: Date.now() };
+  state.book[item.code] = { score, max, ok: score === max, t: Date.now() };
   if (given != null) {
     state.book[item.code].given = given;
   }
@@ -120,13 +147,16 @@ function recordFirst(item, score, max, given = null) {
 }
 
 /**
- * Een herhaling bij Oefenen of een vraag bij Review.
- * De poging telt mee in de telling; is hij goed, dan is de vraag alsnog goed.
+ * Een herhaling bij Oefenen, een vraag bij Review of in een sessie.
+ * De poging telt mee in de telling, en is vanaf nu je laatste poging:
+ * goed = de vraag staat op goed, onjuist = de vraag staat (weer) op onjuist.
  */
-function recordAgain(item, correct) {
+function recordAgain(item, correct, given = null) {
   countAttempt(item, correct);
   if (correct) {
     markFixed(item);
+  } else {
+    markWrongAgain(item, given);
   }
   save();
 }
@@ -143,6 +173,7 @@ function override(item, first) {
   const result = state.book[item.code];
   if (first && result) {
     result.score = result.max;
+    result.ok = true;
   } else {
     markFixed(item);
   }
