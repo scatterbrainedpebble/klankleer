@@ -19,6 +19,7 @@
  *   15. Vraagsoort: slepen
  *   16. Smalle schermen
  *   17. Dagelijkse sessie en gewoontetracker
+ *   18. Dia bekijken (dia.html)
  *
  * Afspraken
  *   - Kleuren en afstanden staan als variabelen in deel 1. Verderop gebruik je ze met var(--naam).
@@ -1524,4 +1525,25 @@ details.cat[open] .chev {
 
 .habit-schedule li {
   margin: 2px 0;
+}
+
+/* ==========================================================================
+   18. Dia bekijken (dia.html)
+   ========================================================================== */
+
+/* De dia staat in het midden, met een dun randje zodat een witte dia loskomt van de achtergrond. */
+.slide-frame {
+  display: flex;
+  justify-content: center;
+}
+
+.slide-frame canvas {
+  max-width: 100%;
+  border: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.slide-nav {
+  align-items: center;
+  margin-top: var(--s3);
 }

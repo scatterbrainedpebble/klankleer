@@ -14,6 +14,7 @@ Je kunt de site op je eigen computer bekijken door `index.html` te openen in een
 
 ```
 index.html          het skelet van de pagina; laadt de css en de scripts
+dia.html            een losse pagina die één dia uit de PDF van een college laat zien
 css/
   style.css         alle vormgeving
 js/
@@ -23,7 +24,8 @@ js/
   storage.js        je voortgang bewaren in de browser
   results.js        bijhouden wat je goed en onjuist had
   checking.js       getypte antwoorden nakijken (tikfouten, woordvormen, IPA)
-  slides.js         de PDF met dia's van een college bewaren en openen bij de juiste dia
+  slides.js         de PDF met dia's van een college bewaren, en de links naar een dia
+  slide-viewer.js   de pagina dia.html: laat één dia zien, met pdf.js
   schedule.js       het rooster, de tentamendatum en de drie momenten van de dagelijkse sessie
   app.js            het startpunt: kiest de pagina bij het adres
   questions/        één bestand per soort vraag
@@ -48,6 +50,7 @@ js/
     single.js         één losse vraag via een link (#/vraag/KLC2D16V1)
     session.js        dagelijkse sessie van 5 vragen (#/sessie)
     habit.js          gewoontetracker tot het tentamen (#/gewoonte)
+  vendor/pdfjs/     pdf.js van Mozilla (versie 3.11.174), om PDF's te tekenen; niet zelf aanpassen
 images/             de plaatjes bij de vragen
 android/            de Android-app (zie android/README.md)
 ```
