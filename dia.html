@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Klankleer 1 – Dia</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="slide-viewer">
+    <!--
+      Deze pagina laat één dia uit de diavoorstelling (PDF) van een college zien.
+      Hij opent in een nieuw tabblad als je bij een vraag op een dianummer tikt,
+      bijvoorbeeld dia.html?college=c1&dia=21. Zie js/slide-viewer.js.
+    -->
+    <header>
+      <h1 id="title">Klankleer 1 · Dia</h1>
+      <nav class="tabs">
+        <button class="btn" id="close" type="button">Sluiten</button>
+      </nav>
+    </header>
+
+    <div class="wrap">
+      <main>
+        <!-- Melding als het laden duurt of misgaat -->
+        <p class="muted" id="message">De dia wordt geladen…</p>
+
+        <!-- De dia zelf: pdf.js tekent hem op dit 'canvas' (een tekenvlak) -->
+        <div class="slide-frame"><canvas id="slide" hidden></canvas></div>
+
+        <!-- Bladeren -->
+        <div class="btns between slide-nav" id="nav" hidden>
+          <button class="btn" id="prev" type="button">‹ Vorige dia</button>
+          <span class="muted" id="counter"></span>
+          <button class="btn" id="next" type="button">Volgende dia ›</button>
+        </div>
+      </main>
+    </div>
+
+    <!-- pdf.js: een PDF-lezer in JavaScript, van Mozilla (dezelfde als in Firefox). Zie js/vendor/pdfjs/LICENSE. -->
+    <script src="js/vendor/pdfjs/pdf.min.js"></script>
+
+    <!-- Uit de oefensite: de opslag van de PDF's -->
+    <script src="js/slides.js"></script>
+
+    <!-- Deze pagina zelf -->
+    <script src="js/slide-viewer.js"></script>
+  </body>
+</html>
