@@ -3490,8 +3490,7 @@ const DATA = {
                 "plosive",
                 "plosief",
                 "plosieven",
-                "plofklank",
-                "stop"
+                "plofklank"
               ]
             },
             {
@@ -3502,7 +3501,7 @@ const DATA = {
           "ref": "Zie: week 1, college 1, dia 56",
           "image": null,
           "alt": "",
-          "theory": "<p>Plosieven heten ook plofklanken of stops. De Nederlandse plosieven op de dia zijn [p], [b], [t], [d], [k] en [g].</p>"
+          "theory": "<p>Plosieven heten ook plofklanken (Engels: plosives). De Nederlandse plosieven op de dia zijn [p], [b], [t], [d], [k] en [g].</p>"
         },
         {
           "code": "KLC1D56V3",
@@ -4861,8 +4860,7 @@ const DATA = {
                 "plosive",
                 "plosief",
                 "plosieven",
-                "plofklank",
-                "stop"
+                "plofklank"
               ]
             },
             {
