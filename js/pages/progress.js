@@ -50,7 +50,7 @@ function renderProgress(page, college) {
   const explanation = h(
     'p',
     { class: 'muted' },
-    `Klik op een hoofdstuk om te zien welke vragen je goed had, onjuist had of nog niet gedaan hebt. Achter een vraag staat hoe vaak je hem onjuist had, ook als hij inmiddels goed is. Met ⚑ Bladwijzer (bovenaan elke vraag) markeer je een vraag die je extra wilt reviewen. Een vraag die je ${HARD_WRONG} keer of vaker onjuist had, komt bij Lastige vragen.`,
+    `Klik op een hoofdstuk om te zien welke vragen je goed had, onjuist had of nog niet gedaan hebt. Achter een vraag staat hoe vaak je hem onjuist had, ook als hij inmiddels goed is. Met de knop Bladwijzer (bovenaan elke vraag) markeer je een vraag die je extra wilt reviewen; met Negeer haal je een vraag uit het oefenen (terughalen kan onderaan deze pagina). Een vraag die je ${HARD_WRONG} keer of vaker onjuist had, komt bij Lastige vragen.`,
   );
 
   // Bovenaan: de knop 'Review dit college' (de belangrijkste knop op deze pagina).
@@ -125,7 +125,7 @@ function renderProgress(page, college) {
       'li',
       {},
       h('button', { onclick: () => openQuestion(item) }, `${item.num}. ${item.title}`),
-      flagged(item) ? h('span', { class: 'fl', title: 'bladwijzer' }, ' ⚑') : null,
+      flagged(item) ? h('span', { class: 'fl', title: 'bladwijzer' }, ' ', icon('bookmark')) : null,
       timesWrong ? h('span', { class: 'times' }, ` ${timesWrong}× onjuist gehad`) : null,
       h('div', { class: 'qprev' }, questionPreview(item)),
     );
@@ -133,7 +133,7 @@ function renderProgress(page, college) {
 
   /** Het uitklapbare blok van één onderwerp (cat), met de vragen in drie groepjes. */
   function topicBlock(cat) {
-    const items = college.items.filter((item) => item.cat === cat);
+    const items = activeItems(college.items).filter((item) => item.cat === cat);
     const catTally = counts(items);
 
     /** Een groepje binnen het onderwerp, bijvoorbeeld alle vragen die 'goed' staan. */
@@ -185,8 +185,61 @@ function renderProgress(page, college) {
   }
 
   categoryToOpen = null;
-  add(card, newRoundLine);
+  add(card, ignoredBlock(college), newRoundLine);
   add(page, card);
+}
+
+/**
+ * Het lijstje 'Genegeerd' onderaan Voortgang: de vragen die je negeert, elk met de knop
+ * Terughalen. Geeft null als je in dit college niets negeert.
+ */
+function ignoredBlock(college) {
+  const list = college.items.filter(ignored);
+  if (!list.length) {
+    return null;
+  }
+  return h(
+    'details',
+    { class: 'cat ignored' },
+    h(
+      'summary',
+      {},
+      h(
+        'div',
+        { class: 'catrow' },
+        h(
+          'b',
+          {},
+          h('span', { class: 'chev', 'aria-hidden': 'true' }),
+          `Genegeerd (${list.length})`,
+        ),
+        h('span', { class: 'nums' }, 'doen niet mee bij Oefenen, Review en de percentages'),
+      ),
+    ),
+    h(
+      'ul',
+      { class: 'grp' },
+      list.map((item) =>
+        h(
+          'li',
+          {},
+          h('span', {}, `${item.num}. ${item.title} `),
+          h(
+            'button',
+            {
+              class: 'linkbtn',
+              onclick: () => {
+                restoreItem(item);
+                render();
+              },
+            },
+            'Terughalen',
+          ),
+          h('div', { class: 'qprev' }, questionPreview(item)),
+        ),
+      ),
+    ),
+  );
 }
 
 /**

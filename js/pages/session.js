@@ -39,7 +39,7 @@ function pickSessionCodes() {
   }
 
   // Eerst husselen, daarna sorteren: zo is de volgorde binnen een gelijke groep willekeurig.
-  const pool = shuffle(ALL.slice()).sort(
+  const pool = shuffle(activeItems(ALL)).sort(
     (a, b) => group(a) - group(b) || wrongShare(b) - wrongShare(a),
   );
 
@@ -176,6 +176,7 @@ function renderSession(page) {
       item,
       `${college.title} · ${item.num}. ${item.title}`,
       `${session.index + 1} van ${session.codes.length}`,
+      false, // geen knop Negeer tijdens een sessie
     ),
     renderQuestion(item, {
       onAnswer: (score, max) => {

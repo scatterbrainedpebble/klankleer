@@ -12,14 +12,57 @@
 /** Tekent de pagina Oefenen van een college. */
 function renderPractice(page, college) {
   const items = college.items;
-  // index = de plek van de huidige vraag in de ronde (0 = de eerste vraag)
-  const index = Math.min(state.pos[college.id] || 0, items.length - 1);
-  const isLast = index === items.length - 1;
-  const position = `${index + 1} / ${items.length}`;
+  const active = activeItems(items); // zonder de vragen die je negeert
+
+  if (!active.length) {
+    add(
+      page,
+      h(
+        'div',
+        { class: 'card' },
+        h('h2', {}, 'Geen vragen'),
+        h('p', {}, 'Je negeert alle vragen van dit college. Haal ze terug bij Voortgang.'),
+      ),
+    );
+    return;
+  }
+
+  /** De plek van de eerstvolgende vraag na 'from' die je niet negeert; -1 als die er niet is. */
+  function nextIndex(from) {
+    for (let i = from + 1; i < items.length; i++) {
+      if (!ignored(items[i])) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  /** De plek van de vorige vraag vóór 'from' die je niet negeert; -1 als die er niet is. */
+  function previousIndex(from) {
+    for (let i = from - 1; i >= 0; i--) {
+      if (!ignored(items[i])) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
+  // index = de plek van de huidige vraag in de ronde (0 = de eerste vraag).
+  // Negeer je die vraag, dan schuif je door naar de volgende (of anders de vorige).
+  let index = Math.min(state.pos[college.id] || 0, items.length - 1);
+  if (ignored(items[index])) {
+    const next = nextIndex(index);
+    index = next >= 0 ? next : previousIndex(index);
+    state.pos[college.id] = index;
+  }
+  const isLast = nextIndex(index) === -1;
+  // De teller telt alleen vragen die je niet negeert.
+  const number = active.indexOf(items[index]) + 1;
+  const position = `${number} / ${active.length}`;
   const bar = h(
     'div',
     { class: 'prog' },
-    h('i', { style: `width:${((index + 1) / items.length) * 100}%` }),
+    h('i', { style: `width:${(number / active.length) * 100}%` }),
   );
 
   /** Zet een vraag in de rij met herhalingen: hij komt REPEAT_AFTER vragen later terug. */
@@ -39,14 +82,17 @@ function renderPractice(page, college) {
     const retries = (state.retry[college.id] || []).filter(
       // byCode[...] ontbreekt als een vraag later van de site is gehaald; zo'n herhaling vervalt.
       (retry) =>
-        byCode[retry.code] && state.book[retry.code] && status(byCode[retry.code]) === 'bad',
+        byCode[retry.code] &&
+        !ignored(byCode[retry.code]) &&
+        state.book[retry.code] &&
+        status(byCode[retry.code]) === 'bad',
     );
     state.retry[college.id] = retries;
 
     if (isLast) {
       // Aan het eind komen ook onjuiste vragen die nog niet in de rij stonden
       // (bijvoorbeeld uit een oudere versie van de site).
-      for (const other of items) {
+      for (const other of active) {
         const isOpenNow = other.code === state.rnow[college.id];
         const isQueued = retries.some((retry) => retry.code === other.code);
         if (status(other) === 'bad' && !isOpenNow && !isQueued) {
@@ -69,7 +115,7 @@ function renderPractice(page, college) {
       go(`#/${college.id}/voortgang`);
       return;
     }
-    state.pos[college.id] = index + 1;
+    state.pos[college.id] = nextIndex(index);
     save();
     render();
   }
@@ -80,7 +126,8 @@ function renderPractice(page, college) {
    */
   function retriesLeft() {
     const queued = (state.retry[college.id] || []).filter(
-      (retry) => byCode[retry.code] && status(byCode[retry.code]) === 'bad',
+      (retry) =>
+        byCode[retry.code] && !ignored(byCode[retry.code]) && status(byCode[retry.code]) === 'bad',
     );
     return queued.length + 1;
   }
@@ -144,18 +191,18 @@ function renderPractice(page, college) {
   /** Toont de gewone vraag op de huidige plek in de ronde. */
   function showCurrent(item) {
     const queuedRetries = (state.retry[college.id] || []).length;
-    const wrongItems = items.filter((other) => status(other) === 'bad').length;
+    const wrongItems = active.filter((other) => status(other) === 'bad').length;
     const nothingPending = queuedRetries + wrongItems === 0;
 
     const prevButton = button(
       '← Vorige',
       () => {
-        state.pos[college.id] = index - 1;
+        state.pos[college.id] = previousIndex(index);
         save();
         render();
       },
       '',
-      { disabled: index === 0 },
+      { disabled: previousIndex(index) === -1 },
     );
     const nextLabel = isLast && nothingPending ? 'Naar voortgang →' : 'Volgende →';
     const nextButton = button(nextLabel, advance, '', { 'data-next': 1 });
@@ -190,7 +237,7 @@ function renderPractice(page, college) {
 
   // Staat er een herhaling open, dan komt die eerst. Anders de vraag op de huidige plek.
   const retryCode = state.rnow[college.id];
-  if (retryCode && byCode[retryCode] && state.book[retryCode]) {
+  if (retryCode && byCode[retryCode] && !ignored(byCode[retryCode]) && state.book[retryCode]) {
     showRetry(byCode[retryCode]);
     return;
   }

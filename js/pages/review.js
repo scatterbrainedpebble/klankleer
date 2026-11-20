@@ -24,7 +24,7 @@ const REVIEW_TYPES = {
   },
   bladwijzer: {
     label: 'Bladwijzers',
-    explanation: 'Vragen die je zelf hebt gemarkeerd met ⚑.',
+    explanation: 'Vragen die je zelf een bladwijzer hebt gegeven.',
     pick: flagged,
   },
 };
@@ -82,7 +82,9 @@ function parseSelection(collegePart, typePart) {
 /** Geeft alle vragen die bij een keuze horen. */
 function selectedItems(selection) {
   const items = selection.cols.flatMap((id) => colById[id].items);
-  return items.filter((item) => selection.types.some((type) => REVIEW_TYPES[type].pick(item)));
+  return activeItems(items).filter((item) =>
+    selection.types.some((type) => REVIEW_TYPES[type].pick(item)),
+  );
 }
 
 /* ---------- de keuzepagina ---------- */
@@ -253,6 +255,11 @@ function renderReview(page, selection) {
       h('a', { href: '#/review' }, 'Andere keuze'),
     ),
   );
+
+  // Vragen die je intussen negeert, slaan we over.
+  while (reviewQueue.length && ignored(byCode[reviewQueue[0]])) {
+    reviewQueue.shift();
+  }
 
   // De rij is leeg: klaar, of er stond van het begin af aan niets klaar.
   if (!reviewQueue.length) {
