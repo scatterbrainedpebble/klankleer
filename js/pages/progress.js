@@ -18,7 +18,6 @@ let categoryToOpen = null;
 function renderProgress(page, college) {
   const tally = counts(college.items);
   const rounds = roundsOf(college);
-  const done = roundIsDone(college);
   const hardCount = college.items.filter(isHard).length;
   const flagCount = college.items.filter(flagged).length;
 
@@ -30,22 +29,6 @@ function renderProgress(page, college) {
 
   const title =
     'Voortgang · ' + college.title + (rounds.length ? ` · ronde ${rounds.length + 1}` : '');
-
-  // Alleen als de ronde af is: een groen vak met de knop Nieuwe ronde.
-  let roundDoneBox = null;
-  if (done) {
-    roundDoneBox = h(
-      'div',
-      { class: 'feedback show good' },
-      h('div', { class: 'score' }, 'Je hebt deze ronde afgerond 🎉'),
-      h(
-        'div',
-        {},
-        `${pct(tally.good, tally.n)} goed. Wil je alles nog een keer oefenen? Start dan een nieuwe ronde.`,
-      ),
-      h('div', { class: 'btns' }, button('Nieuwe ronde', startNewRound, 'primary')),
-    );
-  }
 
   // Alleen als er vorige rondes zijn: een regel met de score van elke ronde.
   let earlierRounds = null;
@@ -70,38 +53,51 @@ function renderProgress(page, college) {
     `Klik op een hoofdstuk om te zien welke vragen je goed had, onjuist had of nog niet gedaan hebt. Achter een vraag staat hoe vaak je hem onjuist had, ook als hij inmiddels goed is. Met ⚑ Bladwijzer (bovenaan elke vraag) markeer je een vraag die je extra wilt reviewen. Een vraag die je ${HARD_WRONG} keer of vaker onjuist had, komt bij Lastige vragen.`,
   );
 
-  // Het blokje met de knoppen 'Review dit college' en 'Nieuwe ronde'.
+  // Bovenaan: de knop 'Review dit college' (de belangrijkste knop op deze pagina).
   const collegeName = college.title.toLowerCase();
   const hardWord = hardCount === 1 ? 'vraag' : 'vragen';
   const reviewBox = h(
     'div',
-    { class: 'revbox' },
+    { class: 'revbox top' },
+    h(
+      'div',
+      { class: 'btns' },
+      button(
+        'Review dit college',
+        () => go(`#/review/${college.id}/lastig+bladwijzer`),
+        'primary',
+        { disabled: !(hardCount + flagCount) },
+      ),
+    ),
     h(
       'div',
       { class: 'small muted' },
       `Review ${collegeName}: ${hardCount} lastige ${hardWord} · ${flagCount} met een bladwijzer`,
     ),
-    h(
-      'div',
-      { class: 'btns' },
-      button('Review dit college', () => go(`#/review/${college.id}/lastig+bladwijzer`), '', {
-        disabled: !(hardCount + flagCount),
-      }),
-      done ? null : button('Nieuwe ronde', startNewRound, '', { disabled: !started(college) }),
-    ),
   );
+
+  // Onderaan, klein: Nieuwe ronde. Die wist je antwoorden van deze ronde, dus hij valt niet op.
+  let newRoundLine = null;
+  if (started(college)) {
+    newRoundLine = h(
+      'p',
+      { class: 'newround small muted' },
+      'Alles van dit college opnieuw doen? ',
+      h('button', { class: 'linkbtn', onclick: startNewRound }, 'Nieuwe ronde'),
+      ' (je begint weer bij vraag 1; je score van deze ronde blijft bewaard bij Vorige rondes).',
+    );
+  }
 
   const card = h(
     'div',
     { class: 'card' },
     h('h2', {}, title),
+    reviewBox,
     statBoxes(tally),
     progressBar(tally),
     legend(),
-    roundDoneBox,
     earlierRounds,
     explanation,
-    reviewBox,
   );
 
   /* ---------- de lijst per onderwerp ---------- */
@@ -189,6 +185,7 @@ function renderProgress(page, college) {
   }
 
   categoryToOpen = null;
+  add(card, newRoundLine);
   add(page, card);
 }
 
